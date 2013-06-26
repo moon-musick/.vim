@@ -2,5 +2,5 @@
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "colors/vim-colors-solarized"]
-	path = colors/vim-colors-solarized
+	path = bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
