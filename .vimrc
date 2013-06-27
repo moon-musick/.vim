@@ -1,33 +1,64 @@
-"colorscheme zenburn
-"set background=dark
+" direct editing options
 set tabstop=8
-set expandtab               " convert tabs to spaces
+" convert tabs to spaces
+set expandtab
+" number of spaces inserted for tab pressed or when using backspace
 set softtabstop=4
 set shiftwidth=4
-set colorcolumn=80          " print marker at specified column
+" add < & > to quote and bracket pair search
+set matchpairs+=<:>
+" show matching brace for 0.2 seconds
+set matchtime=2
+
+" layout settings
+" print marker at specified column
+set colorcolumn=80
+" set the total number of tabs to be opened with the -p command line option
 set tabpagemax=15
+" always show the tabs bar
 set showtabline=2
-set ruler                   " show cursor position in status bar
-set showcmd                 " show typed command in status bar
+" show cursor position in status bar
+set ruler
+" show typed command in status bar
+set showcmd
+" show filename in status bar
+set title
+" show mode in status bar
+set showmode
+" show matching braces
+set showmatch
+" show line numbers
+set number
+" use 2 lines for status bar
+set laststatus=2
+" enable syntax coloring
 syntax on
+" enable indentation based on filetype
 filetype indent plugin on
+" set colors
+"colorscheme zenburn
+"set background=dark
+
+" call pathogen
 call pathogen#infect()
 
-set laststatus=2            " use 2 lines for status bar
-set matchpairs+=<:>         " add < & > to quote and bracket pair search
-set matchtime=2             " show matching brace for 0.2 seconds
-set title                   " show filename in status bar
-set showmode                " show mode in status bar
-set showmatch               " show matching braces
-set number                  " show line numbers
+" search options
+" smart case handling - case insensitive, but not when using uppercase
+set smartcase
+" remember undo after quitting
+set hidden
+" highlight search results
+"set hlsearch
+" search as you type
+set incsearch
 
-set smartcase               " smart case handling - case insensitive, but not 
-                            " when using uppercase
-set hidden                  " remember undo after quitting
-
-"set hlsearch                " highlight search results
-set incsearch               " search as you type
-
+" key mappings
+" change mapleader for convenience
+let mapleader=","
+" toggle display of whitespace characters
+nmap <leader>l :set list!<CR>
+" set characters for whitespace display
+set listchars=tab:»\ ,eol:¬
 " toggle paste / nopaste
 map <F10> :set paste<CR>
 map <F11> :set nopaste<CR>
@@ -44,9 +75,13 @@ if has("autocmd")
       \ endif 
 endif
 
-set foldmethod=indent       " enable folding based on indentation
-set nofoldenable            " disable automatic folding on file opening
+" folding settings
+" enable folding based on indentation
+set foldmethod=indent
+" disable automatic folding on file opening
+set nofoldenable
 
+" enable syntastic checks
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
