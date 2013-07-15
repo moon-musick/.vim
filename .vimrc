@@ -13,6 +13,8 @@ set matchpairs+=<:>
 set matchtime=2
 
 " layout settings
+" enable powerline
+set rtp+=$HOME/.local/lib/python3.2/site-packages/powerline/bindings/vim/
 " print marker at specified column
 set colorcolumn=80
 " set the total number of tabs to be opened with the -p command line option
@@ -43,6 +45,11 @@ filetype indent plugin on
 
 " call pathogen
 call pathogen#infect()
+
+" disable backups
+set nobackup
+set nowritebackup
+set noswapfile
 
 " search options
 " smart case handling - case insensitive, but not when using uppercase
