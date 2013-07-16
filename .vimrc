@@ -97,3 +97,6 @@ let g:syntastic_auto_loc_list=1
 
 " MikroTik script / export file recognition
 autocmd BufRead,BufNewFile *.rsc set filetype=rsc
+
+" kickstart file recognition
+autocmd BufRead,BufNewFile *.ks set filetype=kickstart
