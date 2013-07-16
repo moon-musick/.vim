@@ -5,14 +5,16 @@ set expandtab
 " number of spaces inserted for tab pressed or when using backspace
 set softtabstop=4
 set shiftwidth=4
-" different settings for ruby
-autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2
+" different settings for Ruby
+autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " add < & > to quote and bracket pair search
 set matchpairs+=<:>
 " show matching brace for 0.2 seconds
 set matchtime=2
 
 " layout settings
+" enable powerline
+set rtp+=$HOME/.local/lib/python3.2/site-packages/powerline/bindings/vim/
 " print marker at specified column
 set colorcolumn=80
 " set the total number of tabs to be opened with the -p command line option
@@ -43,6 +45,11 @@ filetype indent plugin on
 
 " call pathogen
 call pathogen#infect()
+
+" disable backups
+set nobackup
+set nowritebackup
+set noswapfile
 
 " search options
 " smart case handling - case insensitive, but not when using uppercase
@@ -87,3 +94,9 @@ set nofoldenable
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
+
+" MikroTik script / export file recognition
+autocmd BufRead,BufNewFile *.rsc set filetype=rsc
+
+" force syntastic to use python3
+let g:syntastic_python_python_exe = 'python3'
