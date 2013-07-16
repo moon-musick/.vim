@@ -5,6 +5,8 @@ set expandtab
 " number of spaces inserted for tab pressed or when using backspace
 set softtabstop=4
 set shiftwidth=4
+" different settings for ruby
+autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2
 " add < & > to quote and bracket pair search
 set matchpairs+=<:>
 " show matching brace for 0.2 seconds
