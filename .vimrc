@@ -1,4 +1,13 @@
+" call pathogen
+call pathogen#infect()
+
 " direct editing options
+" colorscheme settings
+set background=dark
+colorscheme solarized
+let g:solarized_termcolors=16
+call togglebg#map('<F5>')
+" tab settings
 set tabstop=8
 " convert tabs to spaces
 set expandtab
@@ -44,8 +53,6 @@ filetype indent plugin on
 "colorscheme zenburn
 "set background=dark
 
-" call pathogen
-call pathogen#infect()
 
 " disable backups
 set nobackup
