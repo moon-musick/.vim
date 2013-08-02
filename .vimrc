@@ -5,6 +5,7 @@ call pathogen#infect()
 " colorscheme settings
 set background=dark
 colorscheme solarized
+set t_Co=16
 let g:solarized_termcolors=16
 call togglebg#map('<F5>')
 " tab settings
@@ -16,7 +17,9 @@ set softtabstop=4
 set shiftwidth=4
 " different settings for Ruby
 autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+" settings for HTML and CSS
 autocmd FileType html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+autocmd FileType css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " add < & > to quote and bracket pair search
 set matchpairs+=<:>
 " show matching brace for 0.2 seconds
@@ -110,6 +113,8 @@ autocmd BufRead,BufNewFile *.rsc set filetype=rsc
 autocmd BufRead,BufNewFile *.ks set filetype=kickstart
 " html file recognition
 autocmd BufRead,BufNewFile *.html set filetype=html
+" css file recognition
+autocmd BufRead,BufNewFile *.css set filetype=css
 
 " force syntastic to use python3
 let g:syntastic_python_python_exe = 'python3'
