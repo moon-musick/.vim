@@ -85,6 +85,22 @@ map <F11> :set nopaste<CR>
 imap <F10> <C-O>:set paste<CR>
 imap <F11> <nop>
 set pastetoggle=<F11>
+" set shortcut for command-t plugin
+nmap <leader>ct :CommandT<CR>
+" set shortcut for nerdtree plugin
+nmap <leader>t :NERDTree<CR>
+" autoclose nerdtree window if closing all other windows and exit
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" set shortcut for ack plugin
+nmap <leader>a <Esc>:Ack!
+" set shortcuts for moving between windows
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+" set shortcuts for moving between tabs
+map <leader>n <esc>:tabprevious<CR>
+map <leader>m <esc>:tabnext<CR>
 
 " remember last position of cursor within buffer, but don't do that for
 " invalid position or when inside an event handler
@@ -117,4 +133,4 @@ autocmd BufRead,BufNewFile *.html set filetype=html
 autocmd BufRead,BufNewFile *.css set filetype=css
 
 " force syntastic to use python3
-let g:syntastic_python_python_exe = 'python3'
+"let g:syntastic_python_python_exe = 'python3'

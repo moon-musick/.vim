@@ -16,3 +16,12 @@
 [submodule "bundle/vim-kickstart"]
 	path = bundle/vim-kickstart
 	url = https://github.com/tangledhelix/vim-kickstart
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle/ack"]
+	path = bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
