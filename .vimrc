@@ -1,5 +1,12 @@
+" turn off filetype detection for pathogen call
+filetype off
 " call pathogen
-call pathogen#infect()
+"call pathogen#infect()
+" call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
+call pathogen#helptags()
+" set filetype detection back on
+filetype on
 
 " direct editing options
 " colorscheme settings
@@ -134,3 +141,10 @@ autocmd BufRead,BufNewFile *.css set filetype=css
 
 " force syntastic to use python3
 "let g:syntastic_python_python_exe = 'python3'
+"enable omnicompletion for ruby
+if has ("autocmd")
+    autocmd FileType ruby set omnifunc=rubycomplete#Complete
+    autocmd FileType ruby let g:rubycomplete_buffer_loading=1
+    autocmd FileType ruby let g:rubycomplete_classes_in_global=1
+    autocmd FileType python set omnifunc=pythoncomplete#Complete
+end
