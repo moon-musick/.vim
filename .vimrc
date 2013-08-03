@@ -1,3 +1,5 @@
+" required setting for some plugins
+set nocompatible
 " turn off filetype detection for pathogen call
 filetype off
 " call pathogen
