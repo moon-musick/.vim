@@ -17,6 +17,9 @@ colorscheme solarized
 set t_Co=16
 let g:solarized_termcolors=16
 call togglebg#map('<F5>')
+if has('gui_running')
+    set guifont=Liberation\ Mono\ for\ Powerline\ Bold\ 9
+endif
 " tab settings
 set tabstop=8
 " convert tabs to spaces
