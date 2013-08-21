@@ -27,6 +27,8 @@ set expandtab
 " number of spaces inserted for tab pressed or when using backspace
 set softtabstop=4
 set shiftwidth=4
+" settings for indent-guides
+let g:indent_guides_guide_size=4
 " different settings for Ruby
 autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " settings for HTML and CSS
@@ -146,10 +148,17 @@ autocmd BufRead,BufNewFile *.css set filetype=css
 
 " force syntastic to use python3
 "let g:syntastic_python_python_exe = 'python3'
-"enable omnicompletion for ruby
+" enable omnicompletion for ruby and python
 if has ("autocmd")
     autocmd FileType ruby set omnifunc=rubycomplete#Complete
     autocmd FileType ruby let g:rubycomplete_buffer_loading=1
     autocmd FileType ruby let g:rubycomplete_classes_in_global=1
     autocmd FileType python set omnifunc=pythoncomplete#Complete
+end
+
+" different indent guides settings for specific filetypes
+if has ("autocmd")
+    autocmd FileType ruby let g:indent_guides_guide_size=2
+    autocmd FileType css  let g:indent_guides_guide_size=2
+    autocmd FileType html let g:indent_guides_guide_size=2
 end
