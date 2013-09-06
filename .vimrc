@@ -102,7 +102,9 @@ set pastetoggle=<F11>
 " set shortcut for command-t plugin
 nmap <leader>ct :CommandT<CR>
 " set shortcut for nerdtree plugin
-nmap <leader>t :NERDTree<CR>
+nmap <leader>tr :NERDTree<CR>
+" set shortcut for taglist plugin
+nmap <leader>tl :TlistToggle<CR>
 " autoclose nerdtree window if closing all other windows and exit
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " set shortcut for ack plugin
@@ -115,6 +117,8 @@ map <c-h> <c-w>h
 " set shortcuts for moving between tabs
 map <leader>n <esc>:tabprevious<CR>
 map <leader>m <esc>:tabnext<CR>
+" gundo toggle shortcut
+nnoremap <F6> :GundoToggle<CR>
 
 " remember last position of cursor within buffer, but don't do that for
 " invalid position or when inside an event handler
