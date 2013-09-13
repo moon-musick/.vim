@@ -46,3 +46,6 @@
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
+[submodule "bundle/rust"]
+	path = bundle/rust
+	url = git://github.com/wting/rust.vim.git
