@@ -40,6 +40,8 @@ autocmd FileType css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 aut
 set matchpairs+=<:>
 " show matching brace for 0.2 seconds
 set matchtime=2
+" enable backspace over newlines, inserted chars and autoindent in insert mode
+set backspace=start,eol,indent
 
 " layout settings
 " enable powerline
