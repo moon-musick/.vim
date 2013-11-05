@@ -49,3 +49,9 @@
 [submodule "bundle/rust"]
 	path = bundle/rust
 	url = git://github.com/wting/rust.vim.git
+[submodule "bundle/puppet"]
+	path = bundle/puppet
+	url = https://github.com/rodjek/vim-puppet.git
+[submodule "bundle/tabular"]
+	path = bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
