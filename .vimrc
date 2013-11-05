@@ -31,6 +31,8 @@ set shiftwidth=4
 let g:indent_guides_guide_size=4
 " different settings for Ruby
 autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+" settings for YAML
+autocmd FileType yaml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " settings for HTML and CSS
 autocmd FileType html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 autocmd FileType css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
@@ -163,6 +165,7 @@ end
 " different indent guides settings for specific filetypes
 if has ("autocmd")
     autocmd FileType ruby let g:indent_guides_guide_size=2
+    autocmd FileType yaml let g:indent_guides_guide_size=2
     autocmd FileType css  let g:indent_guides_guide_size=2
     autocmd FileType html let g:indent_guides_guide_size=2
 end
