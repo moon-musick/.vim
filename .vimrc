@@ -32,6 +32,7 @@ let g:indent_guides_guide_size=4
 " different settings for Ruby
 autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 autocmd FileType cucumber setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+autocmd FileType erb setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " settings for YAML
 autocmd FileType yaml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " settings for HTML and CSS
@@ -154,6 +155,8 @@ autocmd BufRead,BufNewFile *.ks set filetype=kickstart
 autocmd BufRead,BufNewFile *.html set filetype=html
 " css file recognition
 autocmd BufRead,BufNewFile *.css set filetype=css
+" jinja file recognition
+autocmd BufRead,BufNewFile *.j2 set filetype=jinja
 
 " force syntastic to use python3
 "let g:syntastic_python_python_exe = 'python3'
