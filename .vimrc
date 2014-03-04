@@ -129,10 +129,10 @@ nnoremap <F6> :GundoToggle<CR>
 " remember last position of cursor within buffer, but don't do that for
 " invalid position or when inside an event handler
 if has("autocmd")
-  autocmd BufReadPost * 
-      \ if line("'\"") > 0 && line("'\"") <= line("$") | 
-      \   exe "normal g`\"" | 
-      \ endif 
+  autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal g`\"" |
+      \ endif
 endif
 
 " folding settings
@@ -176,3 +176,16 @@ if has ("autocmd")
     autocmd FileType css  let g:indent_guides_guide_size=2
     autocmd FileType html let g:indent_guides_guide_size=2
 end
+
+" correct UltiSnips triggers
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" disable Ex mode shortcut
+nnoremap Q <nop>
+
+" disable accidental help triggering
+inoremap <F1> <nop>
+nnoremap <F1> <nop>
+vnoremap <F1> <nop>
