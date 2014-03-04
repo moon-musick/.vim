@@ -47,7 +47,10 @@ set backspace=start,eol,indent
 
 " layout settings
 " enable powerline
-set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+" set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+set t_Co=256
+let g:airline_powerline_fonts=1
+let g:airline_theme='sol'
 " print marker at specified column
 set colorcolumn=80
 " set the total number of tabs to be opened with the -p command line option
@@ -189,3 +192,12 @@ nnoremap Q <nop>
 inoremap <F1> <nop>
 nnoremap <F1> <nop>
 vnoremap <F1> <nop>
+
+"    \ 'left' : '',
+" powerline separators for tmuxline
+let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '',
+    \ 'right' : '',
+    \ 'right_alt' : '',
+    \ 'space' : ' '}
