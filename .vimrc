@@ -201,3 +201,15 @@ let g:tmuxline_separators = {
     \ 'right' : '',
     \ 'right_alt' : '',
     \ 'space' : ' '}
+
+" set zsh-like completion mode
+set wildmenu
+set wildmode=full
+
+" enable longer history
+set history=200
+
+" set better completion in command mode
+" (enable completion from history after with partial input given)
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
