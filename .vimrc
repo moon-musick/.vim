@@ -213,3 +213,6 @@ set history=200
 " (enable completion from history after with partial input given)
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+
+" enable textobj-rubyblock matching
+runtime macros/matchit.vim
