@@ -88,7 +88,7 @@ set noswapfile
 " search options
 " smart case handling - case insensitive, but not when using uppercase
 set smartcase
-" remember undo after quitting
+" enable hidden buffers (switch to other buffer without saving first)
 set hidden
 " highlight search results
 "set hlsearch
@@ -98,6 +98,11 @@ set incsearch
 " key mappings
 " change mapleader for convenience
 let mapleader=","
+" remap backslash to reverse char search
+noremap \ ,
+" swap mark jump commands
+nnoremap ` '
+nnoremap ' `
 " toggle display of whitespace characters
 nmap <leader>l :set list!<CR>
 " set characters for whitespace display
@@ -109,11 +114,11 @@ imap <F10> <C-O>:set paste<CR>
 imap <F11> <nop>
 set pastetoggle=<F11>
 " set shortcut for command-t plugin
-nmap <leader>ct :CommandT<CR>
+" nmap <leader>ct :CommandT<CR>
 " set shortcut for nerdtree plugin
 nmap <leader>tr :NERDTree<CR>
 " set shortcut for taglist plugin
-nmap <leader>tl :TlistToggle<CR>
+" nmap <leader>tl :TlistToggle<CR>
 " autoclose nerdtree window if closing all other windows and exit
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " set shortcut for ack plugin
@@ -216,3 +221,6 @@ cnoremap <C-n> <Down>
 
 " enable textobj-rubyblock matching
 runtime macros/matchit.vim
+
+" path expansion mapping for command mode
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
