@@ -224,3 +224,6 @@ runtime macros/matchit.vim
 
 " path expansion mapping for command mode
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" provide easy Tagbar toggle
+nmap <F8> :TagbarToggle<CR>
