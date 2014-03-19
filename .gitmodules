@@ -103,3 +103,6 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "bundle/conque-shell"]
+	path = bundle/conque-shell
+	url = https://github.com/oplatek/Conque-Shell.git
