@@ -25,17 +25,17 @@ syn region	rscContext	start=+/+ end=+\n+ contains=rscTopContext
 syn keyword	rscContext	certificate driver file interface ip ipv6 log mpls port queue
 syn keyword	rscContext	radius routing snmp special-login store system tool user
 
-syn keyword	rscAction	accept add beep delay do drop execute export find get import 
+syn keyword	rscAction	accept add beep delay do drop execute export find get import
 syn keyword	rscAction	log parse pick ping print put quit redirect redo resolve set undo
 
 syn keyword	rscBoolean	yes no
 
 syn keyword	rscConditional	if
 
-syn keyword	rscFunction	len setup typeof 
-syn keyword	rscFunction	toarray tobool toid toip toip6 tonum tostr totime 
+syn keyword	rscFunction	len setup typeof
+syn keyword	rscFunction	toarray tobool toid toip toip6 tonum tostr totime
 
-syn keyword	rscKeyword	detail error file info led nothing password time 
+syn keyword	rscKeyword	detail error file info led nothing password time
 
 syn keyword	rscRepeat	for foreach while
 syn match	rscSpecial	"[!$():\[\]{|}=]"
@@ -45,23 +45,23 @@ syn match	rscSpecial	"[!$():\[\]{|}=]"
 
 syn region	rscString	start=+L\="+ skip=+\\\\\|\\"+ end=+"+ contains=rscSpecial
 
-syn keyword	rscType		global local 
+syn keyword	rscType		global local
 
 
-syn keyword	rscKeyword	aaa accessible-via-web accounting account-local-traffic ac-name action 
-syn keyword	rscKeyword	active-flow-timeout active-mode add-default-route ageing-time align 
-syn keyword	rscKeyword	always-from-cache area area-id arp as authenticate authoritative 
-syn keyword	rscKeyword	automatic-supout auto-negotiation autonomous auto-send-supout backup-allowed 
-syn keyword	rscKeyword	bandwidth-server baud-rate bfd bidirectional-timeout blank-interval 
-syn keyword	rscKeyword	bootp-support bridge-mode broadcast broadcast-addresses cable-settings 
-syn keyword	rscKeyword	cache-administrator cache-entries cache-hit-dscp cache-max-ttl cache-on-disk 
-syn keyword	rscKeyword	cache-size chain channel channel-time check-interval cipher client 
-syn keyword	rscKeyword	client-to-client-reflection comment community config connection 
-syn keyword	rscKeyword	connection-bytes connection-idle-timeout connection-state console contact 
-syn keyword	rscKeyword	contrast cpu customer data-bits default default-ap-tx-limit default-client-tx-limit 
-syn keyword	rscKeyword	default-forwarding default-group default-profile default-route-distance 
-syn keyword	rscKeyword	dhcp-client dhcp-option dhcp-server dh-group dial-on-demand directory disabled 
-syn keyword	rscKeyword	disable-running-check discovery disk-file-count disk-file-name 
+syn keyword	rscKeyword	aaa accessible-via-web accounting account-local-traffic ac-name action
+syn keyword	rscKeyword	active-flow-timeout active-mode add-default-route ageing-time align
+syn keyword	rscKeyword	always-from-cache area area-id arp as authenticate authoritative
+syn keyword	rscKeyword	automatic-supout auto-negotiation autonomous auto-send-supout backup-allowed
+syn keyword	rscKeyword	bandwidth-server baud-rate bfd bidirectional-timeout blank-interval
+syn keyword	rscKeyword	bootp-support bridge-mode broadcast broadcast-addresses cable-settings
+syn keyword	rscKeyword	cache-administrator cache-entries cache-hit-dscp cache-max-ttl cache-on-disk
+syn keyword	rscKeyword	cache-size chain channel channel-time check-interval cipher client
+syn keyword	rscKeyword	client-to-client-reflection comment community config connection
+syn keyword	rscKeyword	connection-bytes connection-idle-timeout connection-state console contact
+syn keyword	rscKeyword	contrast cpu customer data-bits default default-ap-tx-limit default-client-tx-limit
+syn keyword	rscKeyword	default-forwarding default-group default-profile default-route-distance
+syn keyword	rscKeyword	dhcp-client dhcp-option dhcp-server dh-group dial-on-demand directory disabled
+syn keyword	rscKeyword	disable-running-check discovery disk-file-count disk-file-name
 syn keyword	rscKeyword	disk-lines-per-file disk-stop-on-full display-time distance distribute-default 
 syn keyword	rscKeyword	distribute-for-default-route domain dpd-interval dpd-maximum-failures 
 syn keyword	rscKeyword	dynamic-label-range eap-methods e-mail enabled enc-algorithm enc-algorithms 

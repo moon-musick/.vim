@@ -106,3 +106,6 @@
 [submodule "bundle/conque-shell"]
 	path = bundle/conque-shell
 	url = https://github.com/oplatek/Conque-Shell.git
+[submodule "bundle/csv"]
+	path = bundle/csv
+	url = https://github.com/chrisbra/csv.vim.git
