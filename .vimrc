@@ -12,11 +12,13 @@ filetype on
 
 " direct editing options
 " colorscheme settings
-set background=dark
+set background=light
 colorscheme solarized
 set t_Co=16
 let g:solarized_termcolors=16
+" toggle background color mapping
 call togglebg#map('<F5>')
+" GUI font setting
 if has('gui_running')
     set guifont=Liberation\ Mono\ for\ Powerline\ Bold\ 9
 endif
@@ -30,14 +32,14 @@ set shiftwidth=4
 " settings for indent-guides
 let g:indent_guides_guide_size=4
 " different settings for Ruby
-autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
-autocmd FileType cucumber setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
-autocmd FileType erb setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+autocmd FileType ruby,cucumber,erb,yaml,html,css,scss,coffee setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+" autocmd FileType cucumber setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+" autocmd FileType erb setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " settings for YAML
-autocmd FileType yaml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+" autocmd FileType yaml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " settings for HTML and CSS
-autocmd FileType html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
-autocmd FileType css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+" autocmd FileType html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+" autocmd FileType css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " add < & > to quote and bracket pair search
 set matchpairs+=<:>
 " show matching brace for 0.2 seconds
@@ -46,8 +48,7 @@ set matchtime=2
 set backspace=start,eol,indent
 
 " layout settings
-" enable powerline
-" set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+" enable airline
 set t_Co=256
 let g:airline_powerline_fonts=1
 let g:airline_theme='sol'
@@ -75,10 +76,6 @@ set laststatus=2
 syntax on
 " enable indentation based on filetype
 filetype indent plugin on
-" set colors
-"colorscheme zenburn
-"set background=dark
-
 
 " disable backups
 set nobackup
@@ -91,7 +88,7 @@ set smartcase
 " enable hidden buffers (switch to other buffer without saving first)
 set hidden
 " highlight search results
-"set hlsearch
+set hlsearch
 " search as you type
 set incsearch
 
@@ -107,27 +104,41 @@ nnoremap ' `
 nmap <leader>l :set list!<CR>
 " set characters for whitespace display
 set listchars=tab:»\ ,eol:¬
+
 " toggle paste / nopaste
-map <F10> :set paste<CR>
-map <F11> :set nopaste<CR>
-imap <F10> <C-O>:set paste<CR>
-imap <F11> <nop>
-set pastetoggle=<F11>
+" map <F10> :set paste<CR>
+" map <F11> :set nopaste<CR>
+" imap <F10> <C-O>:set paste<CR>
+" imap <F11> <nop>
+" set pastetoggle=<F11>
+"
 " set shortcut for command-t plugin
 " nmap <leader>ct :CommandT<CR>
+
 " set shortcut for nerdtree plugin
-nmap <leader>tr :NERDTree<CR>
+nmap <leader>tr :NERDTreeToggle<CR>
 " set shortcut for taglist plugin
 " nmap <leader>tl :TlistToggle<CR>
 " autoclose nerdtree window if closing all other windows and exit
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " set shortcut for ack plugin
 nmap <leader>a <Esc>:Ack!
+let g:ackprg = 'ag --nogroup --nocolor --column'
 " set shortcuts for moving between windows
 map <c-j> <c-w>j
+nmap <leader>wj <c-w>j
 map <c-k> <c-w>k
+nmap <leader>wk <c-w>k
 map <c-l> <c-w>l
+nmap <leader>wl <c-w>l
 map <c-h> <c-w>h
+nmap <leader>wh <c-w>h
+nmap <leader>ws <c-w>s
+nmap <leader>wv <c-w>v
+nmap <leader>w- <c-w>-
+nmap <leader>w+ <c-w>+
+nmap <leader>we <c-w>=
+nmap <leader>wf <c-w>_
 " set shortcuts for moving between tabs
 map <leader>n <esc>:tabprevious<CR>
 map <leader>m <esc>:tabnext<CR>
@@ -178,11 +189,7 @@ end
 
 " different indent guides settings for specific filetypes
 if has ("autocmd")
-    autocmd FileType ruby let g:indent_guides_guide_size=2
-    autocmd FileType cucumber let g:indent_guides_guide_size=2
-    autocmd FileType yaml let g:indent_guides_guide_size=2
-    autocmd FileType css  let g:indent_guides_guide_size=2
-    autocmd FileType html let g:indent_guides_guide_size=2
+    autocmd FileType ruby,cucumber,yaml,css,scss,html,coffee let g:indent_guides_guide_size=2
 end
 
 " correct UltiSnips triggers
@@ -216,8 +223,9 @@ set history=200
 
 " set better completion in command mode
 " (enable completion from history after with partial input given)
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
+" TODO; find out why it doesn't work
+" cnoremap <C-p> <Up>
+" cnoremap <C-n> <Down>
 
 " enable textobj-rubyblock matching
 runtime macros/matchit.vim
@@ -227,3 +235,65 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " provide easy Tagbar toggle
 nmap <F8> :TagbarToggle<CR>
+
+" stripping whitespace - http://vimcasts.org/episodes/tidying-whitespace/
+" function! <SID>StripTrailingWhitespaces()
+function! StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+nmap <F7> :call StripTrailingWhitespaces()<CR>
+
+" spelling
+nmap <silent> <leader>s :set spelllang=pl spell!<CR>
+
+" http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
+" delete unneeded buffers left by browsing
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" add 'nohlsearch' mapping
+nmap <leader>h :nohlsearch<CR>
+
+" CtrlP mappings
+let g:ctrlp_map = '<C-p>'
+
+" split settings
+set splitbelow
+set splitright
+
+" automatically read files changed outside of vim
+set autoread
+
+" hide intro
+set shortmess+=I
+
+" preserve flags from previous :substitute invocation
+" Practical Vim by Drew Neill, p. 227
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
+
+" ruby-xmpfilter mappings
+autocmd FileType ruby nmap <buffer> <F2> <Plug>(xmpfilter-mark)
+autocmd FileType ruby xmap <buffer> <F2> <Plug>(xmpfilter-mark)
+autocmd FileType ruby imap <buffer> <F2> <Plug>(xmpfilter-mark)
+autocmd FileType ruby nmap <buffer> <F3> <Plug>(xmpfilter-run)
+autocmd FileType ruby xmap <buffer> <F3> <Plug>(xmpfilter-run)
+autocmd FileType ruby imap <buffer> <F3> <Plug>(xmpfilter-run)
+
+" ctrlspace setup
+let g:airline_exclude_preview = 1
+nmap <leader><Space> :CtrlSpace<CR>
+
+" mapping for navigating visual lines
+" http://andrewradev.com/2011/04/26/my-vim-workflow-basic-moves/
+nnoremap j gj
+nnoremap k gk
+xnoremap j gj
+xnoremap k gk
