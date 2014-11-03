@@ -148,3 +148,15 @@
 [submodule "bundle/vim-characterize"]
 	path = bundle/vim-characterize
 	url = git://github.com/tpope/vim-characterize.git
+[submodule "bundle/calendar"]
+	path = bundle/calendar
+	url = https://github.com/itchyny/calendar.vim.git
+[submodule "bundle/vim-rvm"]
+	path = bundle/vim-rvm
+	url = https://github.com/tpope/vim-rvm.git
+[submodule "bundle/vim-rbenv"]
+	path = bundle/vim-rbenv
+	url = https://github.com/tpope/vim-rbenv
+[submodule "bundle/ansible-yaml"]
+	path = bundle/ansible-yaml
+	url = https://github.com/chase/vim-ansible-yaml

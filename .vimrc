@@ -23,16 +23,20 @@ if has('gui_running')
     set guifont=Liberation\ Mono\ for\ Powerline\ Bold\ 9
 endif
 " tab settings
-set tabstop=8
+" set tabstop=8
+set tabstop=2
 " convert tabs to spaces
 set expandtab
 " number of spaces inserted for tab pressed or when using backspace
-set softtabstop=4
-set shiftwidth=4
+" set softtabstop=4
+set softtabstop=2
+" set shiftwidth=4
+set shiftwidth=2
 " settings for indent-guides
-let g:indent_guides_guide_size=4
+let g:indent_guides_guide_size=2
 " different settings for Ruby
 autocmd FileType ruby,cucumber,erb,yaml,html,css,scss,coffee setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
 " autocmd FileType cucumber setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " autocmd FileType erb setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " settings for YAML
@@ -138,7 +142,9 @@ nmap <leader>wv <c-w>v
 nmap <leader>w- <c-w>-
 nmap <leader>w+ <c-w>+
 nmap <leader>we <c-w>=
-nmap <leader>wf <c-w>_
+" mazimize window
+" nmap <leader>wf <c-w>_
+nmap <leader>wf <c-w><bar><c-w>_
 " set shortcuts for moving between tabs
 map <leader>n <esc>:tabprevious<CR>
 map <leader>m <esc>:tabnext<CR>
@@ -297,3 +303,9 @@ nnoremap j gj
 nnoremap k gk
 xnoremap j gj
 xnoremap k gk
+
+" zeal mapping
+:nnoremap gz :!zeal --query "<cword>"&<CR><CR>
+
+" quick buffer switching
+:nnoremap <leader>s :ls<CR>:b<Space>
