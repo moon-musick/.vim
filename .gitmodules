@@ -163,3 +163,6 @@
 [submodule "bundle/endwise"]
 	path = bundle/endwise
 	url = https://github.com/tpope/vim-endwise.git
+[submodule "bundle/targets"]
+	path = bundle/targets
+	url = https://github.com/wellle/targets.vim.git
