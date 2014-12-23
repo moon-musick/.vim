@@ -12,7 +12,7 @@ filetype on
 
 " direct editing options
 " colorscheme settings
-set background=light
+set background=dark
 colorscheme solarized
 set t_Co=16
 let g:solarized_termcolors=16
@@ -168,8 +168,10 @@ set nofoldenable
 
 " enable syntastic checks
 let g:syntastic_check_on_open=0
+let g:syntastic_check_on_wq=0
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=5
 
 " MikroTik script / export file recognition
 autocmd BufRead,BufNewFile *.rsc set filetype=rsc
@@ -197,11 +199,6 @@ end
 if has ("autocmd")
     autocmd FileType ruby,cucumber,yaml,css,scss,html,coffee let g:indent_guides_guide_size=2
 end
-
-" correct UltiSnips triggers
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " disable Ex mode shortcut
 nnoremap Q <nop>
@@ -308,4 +305,14 @@ xnoremap k gk
 :nnoremap gz :!zeal --query "<cword>"&<CR><CR>
 
 " quick buffer switching
-:nnoremap <leader>s :ls<CR>:b<Space>
+" :nnoremap <leader>s :ls<CR>:b<Space>
+
+" http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
