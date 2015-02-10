@@ -37,6 +37,7 @@ let g:indent_guides_guide_size=2
 " different settings for Ruby
 autocmd FileType ruby,cucumber,erb,yaml,html,css,scss,coffee setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
+autocmd FileType haskell setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
 " autocmd FileType cucumber setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " autocmd FileType erb setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 " settings for YAML
@@ -98,7 +99,7 @@ set incsearch
 
 " key mappings
 " change mapleader for convenience
-let mapleader=","
+let mapleader=" "
 " remap backslash to reverse char search
 noremap \ ,
 " swap mark jump commands
@@ -319,3 +320,9 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " fix comments for puppet (Tim Pope's vim-commentary)
 autocmd FileType puppet set commentstring=#\ %s
+autocmd FileType conf set commentstring=#\ %s
+autocmd FileType nagios set commentstring=#\ %s
+
+" https://github.com/Lokaltog/vim-easymotion two character search
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymtoion-t2)
