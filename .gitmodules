@@ -181,3 +181,9 @@
 [submodule "bundle/auto-pairs"]
 	path = bundle/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
+[submodule "bundle/hdevtools"]
+	path = bundle/hdevtools
+	url = https://github.com/bitc/vim-hdevtools
+[submodule "bundle/neco-ghc"]
+	path = bundle/neco-ghc
+	url = https://github.com/eagletmt/neco-ghc

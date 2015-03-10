@@ -147,8 +147,8 @@ nmap <leader>we <c-w>=
 " nmap <leader>wf <c-w>_
 nmap <leader>wf <c-w><bar><c-w>_
 " set shortcuts for moving between tabs
-map <leader>n <esc>:tabprevious<CR>
-map <leader>m <esc>:tabnext<CR>
+map <leader>p <esc>:tabprevious<CR>
+map <leader>n <esc>:tabnext<CR>
 " gundo toggle shortcut
 nnoremap <F6> :GundoToggle<CR>
 
@@ -167,13 +167,6 @@ set foldmethod=indent
 " disable automatic folding on file opening
 set nofoldenable
 
-" enable syntastic checks
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_wq=0
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_loc_list_height=5
-
 " MikroTik script / export file recognition
 autocmd BufRead,BufNewFile *.rsc set filetype=rsc
 
@@ -186,8 +179,6 @@ autocmd BufRead,BufNewFile *.css set filetype=css
 " jinja file recognition
 autocmd BufRead,BufNewFile *.j2 set filetype=jinja
 
-" force syntastic to use python3
-"let g:syntastic_python_python_exe = 'python3'
 " enable omnicompletion for ruby and python
 if has ("autocmd")
     autocmd FileType ruby set omnifunc=rubycomplete#Complete
@@ -220,7 +211,7 @@ let g:tmuxline_separators = {
 
 " set zsh-like completion mode
 set wildmenu
-set wildmode=full
+set wildmode=longest,list,full
 
 " enable longer history
 set history=200
@@ -256,14 +247,14 @@ endfunction
 nmap <F7> :call StripTrailingWhitespaces()<CR>
 
 " spelling
-nmap <silent> <leader>s :set spelllang=pl spell!<CR>
+nmap <silent> <leader>sp :set spelllang=pl spell!<CR>
 
 " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 " delete unneeded buffers left by browsing
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " add 'nohlsearch' mapping
-nmap <leader>h :nohlsearch<CR>
+" nmap <leader>h :nohlsearch<CR>
 
 " CtrlP mappings
 let g:ctrlp_map = '<C-p>'
@@ -293,7 +284,7 @@ autocmd FileType ruby imap <buffer> <F3> <Plug>(xmpfilter-run)
 
 " ctrlspace setup
 let g:airline_exclude_preview = 1
-nmap <leader><Space> :CtrlSpace<CR>
+nmap <leader>s :CtrlSpace<CR>
 
 " mapping for navigating visual lines
 " http://andrewradev.com/2011/04/26/my-vim-workflow-basic-moves/
@@ -325,4 +316,36 @@ autocmd FileType nagios set commentstring=#\ %s
 
 " https://github.com/Lokaltog/vim-easymotion two character search
 nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymtoion-t2)
+nmap t <Plug>(easymotion-t2)
+
+" enable syntastic checks
+let g:syntastic_check_on_open=0
+let g:syntastic_check_on_wq=0
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=5
+" syntastic mappings
+map <leader>sc :lclose<CR>
+map <leader>so :SyntasticCheck<CR>
+" force syntastic to use python3
+"let g:syntastic_python_python_exe = 'python3'
+
+" hdevtools
+au FileType haskell nnoremap <buffer> <leader>ht :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <leader>hc :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <leader>hi :HdevtoolsInfo<CR>
+
+nmap <leader>hl :nohlsearch<CR>
+
+" new tab shortcut
+nmap <leader>tn :tabnew
+
+" neco-ghc completion https://github.com/eagletmt/neco-ghc
+let g:ycm_semantic_triggers = {'haskell': ['.']}
+" au FileType haskell imap <C-Space> <C-x><C-o>
+" inoremap <C-Space> <C-x><C-o>
+" inoremap <C-@> <C-Space>
+inoremap <C-f> <C-x><C-o>
+
+" autoload VIMRC after editing
+au BufWritePost .vimrc so $MYVIMRC
