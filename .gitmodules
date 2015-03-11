@@ -166,9 +166,6 @@
 [submodule "bundle/targets"]
 	path = bundle/targets
 	url = https://github.com/wellle/targets.vim.git
-[submodule "bundle/wildfire"]
-	path = bundle/wildfire
-	url = https://github.com/gcmt/wildfire.vim.git
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe
@@ -187,3 +184,6 @@
 [submodule "bundle/neco-ghc"]
 	path = bundle/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc
+[submodule "bundle/easy-align"]
+	path = bundle/easy-align
+	url = https://github.com/junegunn/vim-easy-align

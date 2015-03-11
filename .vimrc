@@ -3,7 +3,7 @@ set nocompatible
 " turn off filetype detection for pathogen call
 filetype off
 " call pathogen
-"call pathogen#infect()
+" call pathogen#infect()
 " call pathogen#runtime_append_all_bundles()
 call pathogen#incubate()
 call pathogen#helptags()
@@ -149,6 +149,11 @@ nmap <leader>wf <c-w><bar><c-w>_
 " set shortcuts for moving between tabs
 map <leader>p <esc>:tabprevious<CR>
 map <leader>n <esc>:tabnext<CR>
+" switch buffers
+nmap <leader>bn :bnext<CR>
+nmap <leader>bp :bprevious<CR>
+nmap <leader>bl :buffers<CR>
+nmap <leader>bd :bdelete<CR>
 " gundo toggle shortcut
 nnoremap <F6> :GundoToggle<CR>
 
@@ -335,6 +340,7 @@ au FileType haskell nnoremap <buffer> <leader>ht :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <leader>hc :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <leader>hi :HdevtoolsInfo<CR>
 
+" easier search highlighting clearing
 nmap <leader>hl :nohlsearch<CR>
 
 " new tab shortcut
@@ -349,3 +355,7 @@ inoremap <C-f> <C-x><C-o>
 
 " autoload VIMRC after editing
 au BufWritePost .vimrc so $MYVIMRC
+
+" https://github.com/junegunn/vim-easy-align
+vmap <Enter> <Plug>(EasyAlign)
+nmap ga      <Plug>(EasyAlign)
