@@ -259,9 +259,6 @@ nmap <silent> <leader>sp :set spelllang=pl spell!<CR>
 " delete unneeded buffers left by browsing
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" add 'nohlsearch' mapping
-" nmap <leader>h :nohlsearch<CR>
-
 " CtrlP mappings
 let g:ctrlp_map = '<C-p>'
 
@@ -360,3 +357,49 @@ au BufWritePost .vimrc so $MYVIMRC
 " https://github.com/junegunn/vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
 nmap ga      <Plug>(EasyAlign)
+
+" hasktags & tagbar integration
+" https://github.com/majutsushi/tagbar/wiki
+" requires 'cabal install hasktags'
+let g:tagbar_type_haskell = {
+    \ 'ctagsbin'  : 'hasktags',
+    \ 'ctagsargs' : '-x -c -o-',
+    \ 'kinds'     : [
+        \  'm:modules:0:1',
+        \  'd:data: 0:1',
+        \  'd_gadt: data gadt:0:1',
+        \  't:type names:0:1',
+        \  'nt:new types:0:1',
+        \  'c:classes:0:1',
+        \  'cons:constructors:1:1',
+        \  'c_gadt:constructor gadt:1:1',
+        \  'c_a:constructor accessors:1:1',
+        \  'ft:function types:1:1',
+        \  'fi:function implementations:0:1',
+        \  'o:others:0:1'
+    \ ],
+    \ 'sro'        : '.',
+    \ 'kind2scope' : {
+        \ 'm' : 'module',
+        \ 'c' : 'class',
+        \ 'd' : 'data',
+        \ 't' : 'type'
+    \ },
+    \ 'scope2kind' : {
+        \ 'module' : 'm',
+        \ 'class'  : 'c',
+        \ 'data'   : 'd',
+        \ 'type'   : 't'
+    \ }
+\ }
+
+" http://mixandgo.com/blog/vim-config-for-rails-ninjas
+" Visually select the text that was last edited/pasted
+nnoremap gV `[v`]
+" selelct what you've just pasted
+nnoremap gp `[v`]
+" reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+" remap C-c in insert mode so that it triggers InsertLeave
+inoremap <C-c> <Esc>
