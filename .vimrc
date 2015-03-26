@@ -20,7 +20,8 @@ let g:solarized_termcolors=16
 call togglebg#map('<F5>')
 " GUI font setting
 if has('gui_running')
-    set guifont=Liberation\ Mono\ for\ Powerline\ Bold\ 9
+    " set guifont=Liberation\ Mono\ for\ Powerline\ Bold\ 9
+    set guifont=Inconsolata\ for\ Powerline\ 11
 endif
 " tab settings
 " set tabstop=8
