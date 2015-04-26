@@ -205,3 +205,6 @@
 [submodule "bundle/vim-exchange"]
 	path = bundle/vim-exchange
 	url = https://github.com/tommcdo/vim-exchange
+[submodule "bundle/ferm"]
+	path = bundle/ferm
+	url = https://github.com/vim-scripts/ferm.vim
