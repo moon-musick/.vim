@@ -58,7 +58,7 @@ set backspace=start,eol,indent
 " enable airline
 set t_Co=256
 let g:airline_powerline_fonts=1
-let g:airline_theme='sol'
+let g:airline_theme='moonmusick'
 " print marker at specified column
 set colorcolumn=80
 " set the total number of tabs to be opened with the -p command line option
