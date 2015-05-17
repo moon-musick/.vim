@@ -136,9 +136,6 @@
 [submodule "bundle/ruby-xmpfilter"]
 	path = bundle/ruby-xmpfilter
 	url = https://github.com/t9md/vim-ruby-xmpfilter.git
-[submodule "bundle/vim-ctrlspace"]
-	path = bundle/vim-ctrlspace
-	url = https://github.com/szw/vim-ctrlspace.git
 [submodule "bundle/qargs"]
 	path = bundle/qargs
 	url = https://github.com/nelstrom/vim-qargs.git
@@ -208,3 +205,6 @@
 [submodule "bundle/ferm"]
 	path = bundle/ferm
 	url = https://github.com/vim-scripts/ferm.vim
+[submodule "bundle/vim-taskwarrior"]
+	path = bundle/vim-taskwarrior
+	url = https://github.com/farseer90718/vim-taskwarrior

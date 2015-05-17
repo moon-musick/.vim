@@ -286,10 +286,6 @@ autocmd FileType ruby nmap <buffer> <F3> <Plug>(xmpfilter-run)
 autocmd FileType ruby xmap <buffer> <F3> <Plug>(xmpfilter-run)
 autocmd FileType ruby imap <buffer> <F3> <Plug>(xmpfilter-run)
 
-" ctrlspace setup
-let g:airline_exclude_preview = 1
-nmap <leader>s :CtrlSpace<CR>
-
 " mapping for navigating visual lines
 " http://andrewradev.com/2011/04/26/my-vim-workflow-basic-moves/
 nnoremap j gj
@@ -397,10 +393,12 @@ let g:tagbar_type_haskell = {
 " http://mixandgo.com/blog/vim-config-for-rails-ninjas
 " Visually select the text that was last edited/pasted
 nnoremap gV `[v`]
-" selelct what you've just pasted
+" select what you've just pasted
 nnoremap gp `[v`]
 " reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
 " remap C-c in insert mode so that it triggers InsertLeave
 inoremap <C-c> <Esc>
+
+nnoremap <leader>rd :redraw!<CR>
