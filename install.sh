@@ -10,4 +10,8 @@ cd "${BASEDIR}/bundle/YouCompleteMe"
 cd "${BASEDIR}/bundle/ctrlp-cmatcher"
 ./install.sh
 
-touch "${BAASEDIR}/install.lock"
+# custom colorscheme for airline
+cp "${BASEDIR}/moonmusick.vim" \
+  "${BASEDIR}/bundle/vim-airline/autoload/airline/themes/"
+
+touch "${BASEDIR}/install.lock"
