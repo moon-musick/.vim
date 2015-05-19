@@ -13,9 +13,6 @@
 [submodule "bundle/vim-kickstart"]
 	path = bundle/vim-kickstart
 	url = https://github.com/tangledhelix/vim-kickstart
-[submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -100,9 +97,6 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
-[submodule "bundle/conque-shell"]
-	path = bundle/conque-shell
-	url = https://github.com/oplatek/Conque-Shell.git
 [submodule "bundle/csv"]
 	path = bundle/csv
 	url = https://github.com/chrisbra/csv.vim.git
@@ -130,15 +124,9 @@
 [submodule "bundle/coffee-script"]
 	path = bundle/coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "bundle/vim-coffee-script"]
-	path = bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "bundle/ruby-xmpfilter"]
 	path = bundle/ruby-xmpfilter
 	url = https://github.com/t9md/vim-ruby-xmpfilter.git
-[submodule "bundle/qargs"]
-	path = bundle/qargs
-	url = https://github.com/nelstrom/vim-qargs.git
 [submodule "bundle/UltiSnips"]
 	path = bundle/UltiSnips
 	url = https://github.com/SirVer/ultisnips.git
