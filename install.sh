@@ -11,7 +11,7 @@ cd "${BASEDIR}/bundle/ctrlp-cmatcher"
 ./install.sh
 
 # custom colorscheme for airline
-cp "${BASEDIR}/moonmusick.vim" \
-  "${BASEDIR}/bundle/vim-airline/autoload/airline/themes/"
+# cp "${BASEDIR}/moonmusick.vim" \
+#   "${BASEDIR}/bundle/vim-airline/autoload/airline/themes/"
 
 touch "${BASEDIR}/install.lock"
