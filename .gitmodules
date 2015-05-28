@@ -193,3 +193,6 @@
 [submodule "bundle/vim-taskwarrior"]
 	path = bundle/vim-taskwarrior
 	url = https://github.com/farseer90718/vim-taskwarrior
+[submodule "bundle/vim-signature"]
+	path = bundle/vim-signature
+	url = https://github.com/kshenoy/vim-signature
