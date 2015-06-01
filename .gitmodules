@@ -37,9 +37,6 @@
 [submodule "bundle/rust"]
 	path = bundle/rust
 	url = git://github.com/wting/rust.vim.git
-[submodule "bundle/puppet"]
-	path = bundle/puppet
-	url = https://github.com/rodjek/vim-puppet.git
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
@@ -121,18 +118,12 @@
 [submodule "bundle/coffee-script"]
 	path = bundle/coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "bundle/ruby-xmpfilter"]
-	path = bundle/ruby-xmpfilter
-	url = https://github.com/t9md/vim-ruby-xmpfilter.git
 [submodule "bundle/UltiSnips"]
 	path = bundle/UltiSnips
 	url = https://github.com/SirVer/ultisnips.git
 [submodule "bundle/vim-characterize"]
 	path = bundle/vim-characterize
 	url = git://github.com/tpope/vim-characterize.git
-[submodule "bundle/calendar"]
-	path = bundle/calendar
-	url = https://github.com/itchyny/calendar.vim.git
 [submodule "bundle/vim-rvm"]
 	path = bundle/vim-rvm
 	url = https://github.com/tpope/vim-rvm.git
@@ -175,27 +166,21 @@
 [submodule "bundle/gitv"]
 	path = bundle/gitv
 	url = https://github.com/gregsexton/gitv
-[submodule "bundle/splitjoin"]
-	path = bundle/splitjoin
-	url = https://github.com/AndrewRadev/splitjoin.vim
 [submodule "bundle/indexed-search"]
 	path = bundle/indexed-search
 	url = https://github.com/henrik/vim-indexed-search
 [submodule "bundle/easydir"]
 	path = bundle/easydir
 	url = https://github.com/duggiefresh/vim-easydir
-[submodule "bundle/vim-exchange"]
-	path = bundle/vim-exchange
-	url = https://github.com/tommcdo/vim-exchange
 [submodule "bundle/ferm"]
 	path = bundle/ferm
 	url = https://github.com/vim-scripts/ferm.vim
-[submodule "bundle/vim-taskwarrior"]
-	path = bundle/vim-taskwarrior
-	url = https://github.com/farseer90718/vim-taskwarrior
 [submodule "bundle/vim-signature"]
 	path = bundle/vim-signature
 	url = https://github.com/kshenoy/vim-signature
 [submodule "bundle/rainbow_parentheses"]
 	path = bundle/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim
+[submodule "bundle/fireplace"]
+	path = bundle/fireplace
+	url = https://github.com/tpope/vim-fireplace
