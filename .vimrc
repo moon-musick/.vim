@@ -263,6 +263,10 @@ vnoremap > >gv
 " remap C-c in insert mode so that it triggers InsertLeave
 inoremap <C-c> <Esc>
 
+" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 nnoremap <leader>rd :redraw!<CR>
 
 " syntastic mappings
@@ -445,9 +449,5 @@ let g:tagbar_type_haskell = {
         \ 'type'   : 't'
     \ }
 \ }
-
-" Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
 
 let g:task_rc_override = 'rc.defaultheight=0'

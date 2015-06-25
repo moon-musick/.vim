@@ -193,3 +193,6 @@
 [submodule "bundle/vim-taskwarrior"]
 	path = bundle/vim-taskwarrior
 	url = https://github.com/farseer90718/vim-taskwarrior
+[submodule "bundle/vim-projectionist"]
+	path = bundle/vim-projectionist
+	url = https://github.com/tpope/vim-projectionist
