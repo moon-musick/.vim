@@ -449,3 +449,5 @@ let g:tagbar_type_haskell = {
 " Move visual block
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+let g:task_rc_override = 'rc.defaultheight=0'
