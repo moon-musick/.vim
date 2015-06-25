@@ -33,6 +33,7 @@ endif
 set guioptions-=m
 set guioptions-=r
 set guioptions-=T
+set guioptions-=e
 
 " make vertical windows separator thinner
 set fillchars=vert:│
