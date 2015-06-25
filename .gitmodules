@@ -181,3 +181,12 @@
 [submodule "bundle/fireplace"]
 	path = bundle/fireplace
 	url = https://github.com/tpope/vim-fireplace
+[submodule "bundle/quickrun"]
+	path = bundle/quickrun
+	url = https://github.com/thinca/vim-quickrun
+[submodule "bundle/vim-bufferline"]
+	path = bundle/vim-bufferline
+	url = https://github.com/bling/vim-bufferline
+[submodule "bundle/YankRing"]
+	path = bundle/YankRing
+	url = https://github.com/vim-scripts/YankRing.vim
