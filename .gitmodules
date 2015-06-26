@@ -196,3 +196,6 @@
 [submodule "bundle/vim-projectionist"]
 	path = bundle/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist
+[submodule "bundle/vim-diff-enhanced"]
+	path = bundle/vim-diff-enhanced
+	url = https://github.com/chrisbra/vim-diff-enhanced
