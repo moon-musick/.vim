@@ -129,7 +129,8 @@ set incsearch
 " different indentation settings for various languages
 autocmd FileType ruby,cucumber,erb,yaml,html,css,scss,coffee setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
 autocmd FileType python,haskell setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
-au FileType lokis setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
+autocmd FileType lokis setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
+autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
 
 " filetype recognition
 autocmd BufRead,BufNewFile *.rsc  set filetype=rsc
@@ -450,4 +451,44 @@ let g:tagbar_type_haskell = {
     \ }
 \ }
 
+" taskwarrior tasklist may be truncated without this setting
 let g:task_rc_override = 'rc.defaultheight=0'
+
+" go-vim
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader>c <Plug>(go-coverage)
+
+" By default the mapping gd is enabled which opens the target identifier
+" in current buffer. You can also open the definition/declaration in a new
+" vertical, horizontal or tab for the word under your cursor:
+autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
+autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+autocmd FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+" Open the relevant Godoc for the word under the cursor with <leader>gd
+" or open it vertically with <leader>gv
+autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
+autocmd FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+
+" Open the Godoc in browser
+autocmd FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+
+" Show a list of interfaces which is implemented by the type under your
+" cursor with <leader>s
+autocmd FileType go nmap <Leader>s <Plug>(go-implements)
+
+" Show type info for the word under your cursor with <leader>i
+" (useful if you have disabled auto showing type info via g:go_auto_type_info)
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+
+" Rename the identifier under the cursor to a new name
+autocmd FileType go nmap <Leader>e <Plug>(go-rename)
+
+" Additional highlighting rules
+let g:go_highlight_functions         = 1
+let g:go_highlight_methods           = 1
+let g:go_highlight_structs           = 1
+let g:go_highlight_operators         = 1
+let g:go_highlight_build_constraints = 1
