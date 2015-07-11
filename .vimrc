@@ -394,11 +394,6 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" fix comments for puppet (Tim Pope's vim-commentary)
-autocmd FileType puppet set commentstring=#\ %s
-autocmd FileType conf   set commentstring=#\ %s
-autocmd FileType nagios set commentstring=#\ %s
-
 " enable syntastic checks
 let g:syntastic_check_on_open=0
 let g:syntastic_check_on_wq=0
@@ -415,6 +410,9 @@ let g:ycm_semantic_triggers = {'haskell': ['.']}
 " inoremap <C-Space> <C-x><C-o>
 " inoremap <C-@> <C-Space>
 inoremap <C-f> <C-x><C-o>
+
+" vim-commentary configuration
+source ~/.vim/custom/plugins/vim-commentary.vim
 
 " tagbar configuration
 source ~/.vim/custom/plugins/tagbar.vim
