@@ -230,6 +230,9 @@ vnoremap <F1> <nop>
 " spelling
 nmap <silent> <leader>sp :set spelllang=pl spell!<CR>
 
+" map omnifunc completion to something more convenient
+inoremap <C-f> <C-x><C-o>
+
 " CtrlP mappings
 let g:ctrlp_map = '<C-p>'
 
@@ -406,10 +409,6 @@ let g:syntastic_loc_list_height=5
 
 " neco-ghc completion https://github.com/eagletmt/neco-ghc
 let g:ycm_semantic_triggers = {'haskell': ['.']}
-" au FileType haskell imap <C-Space> <C-x><C-o>
-" inoremap <C-Space> <C-x><C-o>
-" inoremap <C-@> <C-Space>
-inoremap <C-f> <C-x><C-o>
 
 " vim-commentary configuration
 source ~/.vim/custom/plugins/vim-commentary.vim
