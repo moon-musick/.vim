@@ -299,7 +299,7 @@ au FileType haskell nnoremap <buffer> <leader>ht :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <leader>hc :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <leader>hi :HdevtoolsInfo<CR>
 
-" general & plugin-related stuff ----------------------------------------------
+" general stuff ---------------------------------------------------------------
 
 " disable backups
 set nobackup
@@ -369,19 +369,10 @@ function! StripTrailingWhitespaces()
 endfunction
 nmap <F7> :call StripTrailingWhitespaces()<CR>
 
-" http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+" plugin configuration --------------------------------------------------------
 
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-" neco-ghc completion https://github.com/eagletmt/neco-ghc
-let g:ycm_semantic_triggers = {'haskell': ['.']}
+" YouCompleteMe configuration
+source ~/.vim/custom/plugins/YouCompleteMe.vim
 
 " syntastic configuration
 source ~/.vim/custom/plugins/syntastic.vim
