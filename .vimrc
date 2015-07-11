@@ -354,20 +354,6 @@ runtime macros/matchit.vim
 " path expansion mapping for command mode
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" powerline separators for tmuxline
-" let g:tmuxline_separators = {
-"     \ 'left' : '',
-"     \ 'left_alt': '',
-"     \ 'right' : '',
-"     \ 'right_alt' : '',
-"     \ 'space' : ' '}
-
-" set better completion in command mode
-" (enable completion from history after with partial input given)
-" TODO; find out why it doesn't work
-" cnoremap <C-p> <Up>
-" cnoremap <C-n> <Down>
-
 " stripping whitespace - http://vimcasts.org/episodes/tidying-whitespace/
 " function! <SID>StripTrailingWhitespaces()
 function! StripTrailingWhitespaces()
@@ -382,9 +368,6 @@ function! StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 nmap <F7> :call StripTrailingWhitespaces()<CR>
-
-" quick buffer switching
-" :nnoremap <leader>s :ls<CR>:b<Space>
 
 " http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
 " make YCM compatible with UltiSnips (using supertab)
