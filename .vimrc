@@ -397,18 +397,11 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" enable syntastic checks
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_wq=0
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_loc_list_height=5
-
-" force syntastic to use python3
-"let g:syntastic_python_python_exe = 'python3'
-
 " neco-ghc completion https://github.com/eagletmt/neco-ghc
 let g:ycm_semantic_triggers = {'haskell': ['.']}
+
+" syntastic configuration
+source ~/.vim/custom/plugins/syntastic.vim
 
 " vim-commentary configuration
 source ~/.vim/custom/plugins/vim-commentary.vim
