@@ -422,6 +422,11 @@ set nofoldenable
 " enable man plugin - makes reading man pages in vim possible
 runtime! ftplugin/man.vim
 
+" delete comment character when joining commented lines
+if v:version > 703 || v:version == 703 && has("patch541")
+  set formatoptions+=j
+endif
+
 " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 " delete unneeded buffers left by browsing
 autocmd BufReadPost fugitive://* set bufhidden=delete
