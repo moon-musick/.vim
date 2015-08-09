@@ -385,3 +385,6 @@ source ~/.vim/custom/plugins/taskwarrior.vim
 
 " vim-go configuration
 source ~/.vim/custom/plugins/vim-go.vim
+
+" custom scripts --------------------------------------------------------------
+source ~/.vim/custom/scripts/perltidy.vim
