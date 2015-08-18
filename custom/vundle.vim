@@ -76,6 +76,7 @@ Plugin 'gregsexton/gitv'
 Plugin 'int3/vim-extradite'
 
 " syntax files
+Plugin 'derekwyatt/vim-scala'
 Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'mitsuhiko/vim-jinja'
