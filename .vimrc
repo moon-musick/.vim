@@ -75,6 +75,9 @@ set statusline+=\ 0x%04B\
 " used in statusline
 hi User1 ctermfg=0 ctermbg=1
 
+" use cursorline (highlight line where the cursor is currently)
+set cursorline
+
 " indentation and syntax options ----------------------------------------------
 
 " tab settings
