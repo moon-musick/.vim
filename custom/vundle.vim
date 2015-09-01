@@ -57,6 +57,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'wellle/targets.vim'
 Plugin 'vim-scripts/YankRing.vim'
+Plugin 'glts/vim-textobj-comment'
 
 " external tools
 Plugin 'mileszs/ack.vim'
