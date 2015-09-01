@@ -58,6 +58,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'wellle/targets.vim'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'glts/vim-textobj-comment'
+Plugin 'kana/vim-textobj-indent'
 
 " external tools
 Plugin 'mileszs/ack.vim'
