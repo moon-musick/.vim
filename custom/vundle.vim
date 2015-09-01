@@ -59,6 +59,7 @@ Plugin 'wellle/targets.vim'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'glts/vim-textobj-comment'
 Plugin 'kana/vim-textobj-indent'
+Plugin 'Julian/vim-textobj-variable-segment'
 
 " external tools
 Plugin 'mileszs/ack.vim'
