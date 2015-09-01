@@ -294,6 +294,9 @@ au FileType haskell nnoremap <buffer> <leader>ht :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <leader>hc :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <leader>hi :HdevtoolsInfo<CR>
 
+" yankring maps
+nnoremap <leader>y :YRShow<CR>
+
 " general stuff ---------------------------------------------------------------
 
 " disable backups

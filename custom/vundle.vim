@@ -56,6 +56,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'wellle/targets.vim'
+Plugin 'vim-scripts/YankRing.vim'
 
 " external tools
 Plugin 'mileszs/ack.vim'
