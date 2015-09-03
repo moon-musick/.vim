@@ -394,5 +394,8 @@ source ~/.vim/custom/plugins/taskwarrior.vim
 " vim-go configuration
 source ~/.vim/custom/plugins/vim-go.vim
 
+" vim-multiple-cursors configuration
+source ~/.vim/custom/plugins/vim-multiple-cursors.vim
+
 " custom scripts --------------------------------------------------------------
 source ~/.vim/custom/scripts/perltidy.vim
