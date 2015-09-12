@@ -103,6 +103,9 @@ Plugin 'farseer90718/vim-taskwarrior'
 Plugin 'bitc/hdevtools'
 Plugin 'eagletmt/neco-ghc'
 
+" outliner
+Plugin 'vimoutliner/vimoutliner'
+
 call vundle#end()
 " required by Vundle and useful otherwise
 filetype plugin indent on
