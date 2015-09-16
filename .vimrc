@@ -300,6 +300,12 @@ au FileType haskell nnoremap <buffer> <leader>hi :HdevtoolsInfo<CR>
 " yankring maps
 nnoremap <leader>y :YRShow<CR>
 
+" textobj-python mappings
+omap ak <Plug>(textobj-python-class-a)
+xmap ak <Plug>(textobj-python-class-a)
+omap ik <Plug>(textobj-python-class-i)
+xmap ik <Plug>(textobj-python-class-i)
+
 " general stuff ---------------------------------------------------------------
 
 " disable backups

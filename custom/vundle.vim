@@ -62,6 +62,7 @@ Plugin 'kana/vim-textobj-lastpat'
 Plugin 'glts/vim-textobj-comment'
 Plugin 'Julian/vim-textobj-variable-segment'
 Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'bps/vim-textobj-python'
 
 " external tools
 Plugin 'mileszs/ack.vim'
