@@ -413,3 +413,6 @@ source ~/.vim/custom/plugins/vim-multiple-cursors.vim
 
 " custom scripts --------------------------------------------------------------
 source ~/.vim/custom/scripts/perltidy.vim
+
+" enable transparent terminal background --------------------------------------
+highlight Normal ctermbg=none
