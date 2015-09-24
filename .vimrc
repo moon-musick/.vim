@@ -148,6 +148,9 @@ if has ("autocmd")
     autocmd FileType ruby,cucumber,yaml,css,scss,html,coffee let g:indent_guides_guide_size=2
 end
 
+" use autopep8 for python autoformat
+autocmd FileType python setlocal formatprg=autopep8\ -
+
 " key mappings ----------------------------------------------------------------
 
 " change mapleader for convenience
