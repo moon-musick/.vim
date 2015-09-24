@@ -308,6 +308,10 @@ xmap ik <Plug>(textobj-python-class-i)
 
 " general stuff ---------------------------------------------------------------
 
+" use exrc but disable shell & writing stuff
+set exrc
+set secure
+
 " disable backups
 set nobackup
 set nowritebackup
