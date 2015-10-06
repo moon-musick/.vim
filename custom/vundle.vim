@@ -33,6 +33,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'sjl/gundo.vim'
 
 " miscellaneous internal tools
+Plugin 'mhinz/vim-startify'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'chrisbra/vim-diff-enhanced'
 Plugin 'henrik/vim-indexed-search'
