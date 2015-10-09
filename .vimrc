@@ -411,6 +411,9 @@ source ~/.vim/custom/plugins/vim-go.vim
 " vim-multiple-cursors configuration
 source ~/.vim/custom/plugins/vim-multiple-cursors.vim
 
+" vim-abolish configuration
+source ~/.vim/custom/plugins/vim-abolish.vim
+
 " custom scripts --------------------------------------------------------------
 source ~/.vim/custom/scripts/perltidy.vim
 
