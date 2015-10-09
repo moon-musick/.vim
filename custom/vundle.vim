@@ -21,6 +21,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'JazzCore/ctrlp-cmatcher'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-vinegar'
 
 " tag browsing
 Plugin 'majutsushi/tagbar'
