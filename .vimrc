@@ -233,9 +233,7 @@ nmap <silent> <leader>sp :set spelllang=pl spell!<CR>
 inoremap <C-f> <C-x><C-o>
 
 " CtrlP mappings
-nnoremap <leader>f :CtrlP<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>m :CtrlPMRU<CR>
+let g:ctrlp_map = '<C-p>'
 
 " mapping for navigating visual lines
 " http://andrewradev.com/2011/04/26/my-vim-workflow-basic-moves/
