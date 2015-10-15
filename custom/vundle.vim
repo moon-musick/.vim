@@ -54,7 +54,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'wellle/targets.vim'
-Plugin 'vim-scripts/YankRing.vim'
 
 " textobj plugins
 Plugin 'kana/vim-textobj-user'
