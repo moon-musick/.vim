@@ -1,4 +1,5 @@
 .netrwhist
 install.lock
 bundle/*
+plugged/*
 !bundle/Vundle.vim/

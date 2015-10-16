@@ -1,7 +1,7 @@
-" Vundle setup ----------------------------------------------------------------
+" Plug setup ------------------------------------------------------------------
 
 " plugins installed in separate file to facilitate unattented installation
-source ~/.vim/custom/vundle.vim
+source ~/.vim/custom/plug.vim
 
 " apperarance stuff -----------------------------------------------------------
 
