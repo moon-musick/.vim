@@ -232,10 +232,16 @@ nmap <silent> <leader>sp :set spelllang=pl spell!<CR>
 " map omnifunc completion to something more convenient
 inoremap <C-f> <C-x><C-o>
 
-" CtrlP mappings
-nnoremap <leader>f :CtrlP<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>m :CtrlPMRU<CR>
+" fzf mappings
+nnoremap <leader>o :Buffers!<CR>
+nnoremap <leader>k :Windows!<CR>
+nnoremap <leader>e :Files!<CR>
+nnoremap <leader>f :History!<CR>
+nnoremap <leader>x :History:!<CR>
+nnoremap <leader>/ :History/!<CR>
+nnoremap <leader>c :Colors!<CR>
+nnoremap <leader>g :Ag! 
+nnoremap <leader>m :Marks!<CR>
 
 " mapping for navigating visual lines
 " http://andrewradev.com/2011/04/26/my-vim-workflow-basic-moves/
