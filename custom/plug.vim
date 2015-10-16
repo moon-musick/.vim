@@ -17,6 +17,8 @@ Plug 'altercation/vim-colors-solarized'
 " navigation & finders
 Plug 'kien/ctrlp.vim'
 Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-vinegar'
