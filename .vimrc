@@ -9,8 +9,8 @@ source ~/.vim/custom/plug.vim
 set background=dark
 colorscheme solarized
 " colors support indication
-" set t_Co=256
-set t_Co=16
+set t_Co=256
+" set t_Co=16
 let g:solarized_termcolors=16
 
 " toggle background color mapping

@@ -13,6 +13,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 
 " appearance
 Plug 'altercation/vim-colors-solarized'
+Plug 'junegunn/seoul256.vim'
 
 " navigation & finders
 Plug 'kien/ctrlp.vim'
