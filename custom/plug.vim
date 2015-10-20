@@ -94,6 +94,7 @@ Plug 'slim-template/vim-slim'
 Plug 'wting/rust.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'vim-scripts/ferm.vim'
+Plug 'rodjek/vim-puppet'
 
 " filetype-related tools
 Plug 'vim-ruby/vim-ruby'
