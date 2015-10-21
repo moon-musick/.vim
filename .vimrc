@@ -242,6 +242,8 @@ nnoremap <leader>/ :History/<CR>
 nnoremap <leader>c :Colors<CR>
 nnoremap <leader>g :Ag 
 nnoremap <leader>m :Marks<CR>
+imap <C-x><C-f> <Plug>(fzf-complete-path)
+imap <C-x><C-l> <Plug>(fzf-complete-line)
 
 " mapping for navigating visual lines
 " http://andrewradev.com/2011/04/26/my-vim-workflow-basic-moves/
