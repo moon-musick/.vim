@@ -255,9 +255,15 @@ xnoremap k gk
 " zeal mapping
 :nnoremap gz :!zeal --query "<cword>"&<CR><CR>
 
-" https://github.com/Lokaltog/vim-easymotion two character search
+" https://github.com/easymotion/vim-easymotion
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
+" Use uppercase target labels and type as a lower case
+let g:EasyMotion_use_upper = 1
+" type 'l' and match 'l' & 'L'
+let g:EasyMotion_smartcase = 1
+" Smartsign (type '3' and match '3' and '#')
+let g:EasyMotion_use_smartsign_us = 1
 
 " easier search highlighting clearing
 nmap <leader>hl :nohlsearch<CR>

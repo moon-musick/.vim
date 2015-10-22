@@ -36,7 +36,7 @@ Plug 'sjl/gundo.vim'
 
 " miscellaneous internal tools
 Plug 'mhinz/vim-startify'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'henrik/vim-indexed-search'
 Plug 'jiangmiao/auto-pairs'
