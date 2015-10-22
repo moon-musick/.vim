@@ -340,7 +340,7 @@ set wildmenu
 set wildmode=longest,list,full
 
 " enable longer history
-set history=200
+set history=2000
 
 " folding settings
 " enable folding based on indentation
