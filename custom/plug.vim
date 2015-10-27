@@ -56,6 +56,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
+Plug 'junegunn/vim-peekaboo'
 
 " textobj plugins
 Plug 'kana/vim-textobj-user'
