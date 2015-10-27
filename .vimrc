@@ -3,81 +3,6 @@
 " plugins installed in separate file to facilitate unattented installation
 source ~/.vim/custom/plug.vim
 
-" apperarance stuff -----------------------------------------------------------
-
-" colorscheme settings
-set background=dark
-colorscheme solarized
-" colors support indication
-set t_Co=256
-" set t_Co=16
-let g:solarized_termcolors=16
-
-" toggle background color mapping
-call togglebg#map('<F5>')
-
-" GUI font setting
-if has('gui_running')
-    set guifont=Inconsolata\ 11
-endif
-
-" disable toolbars in GUI
-set guioptions-=m
-set guioptions-=r
-set guioptions-=T
-set guioptions-=e
-
-" make vertical windows separator thinner
-set fillchars=vert:│
-hi VertSplit ctermbg=NONE guibg=NONE
-
-" print marker at specified column
-set colorcolumn=80
-
-" set the total number of tabs to be opened with the -p command line option
-set tabpagemax=15
-
-" always show the tabs bar
-set showtabline=2
-
-" show cursor position in status bar
-set ruler
-
-" show typed command in status bar
-set showcmd
-
-" show filename in status bar
-set title
-
-" show mode in status bar
-set showmode
-
-" show matching braces
-set showmatch
-
-" show line numbers
-set number
-
-" use 2 lines for status bar
-set laststatus=2
-
-" custom statusline
-set statusline=\ %F
-set statusline+=\ %r%h%w
-set statusline+=\ %{fugitive#statusline()}\ 
-set statusline+=\ %1*%m%*
-set statusline+=\ %=%{v:register}\ 
-set statusline+=\ %y
-set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}]
-set statusline+=\ [line\ %l\/%L]
-set statusline+=\ %4v\ 
-set statusline+=\ 0x%04B\ 
-" used in statusline
-hi User1 ctermfg=0 ctermbg=1
-
-" use cursorline (highlight line where the cursor is currently)
-set cursorline
-
 " indentation and syntax options ----------------------------------------------
 
 " tab settings
@@ -422,5 +347,86 @@ source ~/.vim/custom/plugins/vim-go.vim
 " custom scripts --------------------------------------------------------------
 source ~/.vim/custom/scripts/perltidy.vim
 
-" enable transparent terminal background --------------------------------------
+" apperarance stuff -----------------------------------------------------------
+
+" colors support indication
+set t_Co=256
+" set t_Co=16
+let g:solarized_termcolors=16
+
+" toggle background color mapping
+call togglebg#map('<F5>')
+
+" GUI font setting
+if has('gui_running')
+    set guifont=Inconsolata\ 11
+endif
+
+" disable toolbars in GUI
+set guioptions-=m
+set guioptions-=r
+set guioptions-=T
+set guioptions-=e
+
+" make vertical windows separator thinner
+set fillchars=vert:│
+hi VertSplit ctermbg=NONE guibg=NONE
+
+" print marker at specified column
+set colorcolumn=80
+
+" set the total number of tabs to be opened with the -p command line option
+set tabpagemax=15
+
+" always show the tabs bar
+set showtabline=2
+
+" show cursor position in status bar
+set ruler
+
+" show typed command in status bar
+set showcmd
+
+" show filename in status bar
+set title
+
+" show mode in status bar
+set showmode
+
+" show matching braces
+set showmatch
+
+" show line numbers
+set number
+
+" use 2 lines for status bar
+set laststatus=2
+
+" custom statusline
+set statusline=\ %F
+set statusline+=\ %r%h%w
+set statusline+=\ %{fugitive#statusline()}\ 
+set statusline+=\ %1*%m%*
+set statusline+=\ %=%{v:register}\ 
+set statusline+=\ %y
+set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}]
+set statusline+=\ [line\ %l\/%L]
+set statusline+=\ %4v\ 
+set statusline+=\ 0x%04B\ 
+" used in statusline
+hi User1 ctermfg=0 ctermbg=1
+
+" use cursorline (highlight line where the cursor is currently)
+set cursorline
+
+" colorscheme settings
+set background=dark
+colorscheme solarized
+
+" enable transparent terminal background
 highlight Normal ctermbg=none
+
+" use environment variable value for colorscheme if present
+if !empty($VIMCOLORSCHEME)
+  colorscheme $VIMCOLORSCHEME
+endif
