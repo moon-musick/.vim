@@ -344,6 +344,9 @@ source ~/.vim/custom/plugins/taskwarrior.vim
 " vim-go configuration
 source ~/.vim/custom/plugins/vim-go.vim
 
+" UltiSnips configuration
+source ~/.vim/custom/plugins/UltiSnips.vim
+
 " custom scripts --------------------------------------------------------------
 source ~/.vim/custom/scripts/perltidy.vim
 
