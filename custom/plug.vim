@@ -98,6 +98,7 @@ Plug 'wting/rust.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'vim-scripts/ferm.vim'
 Plug 'rodjek/vim-puppet'
+Plug 'Matt-Deacalion/vim-systemd-syntax'
 
 " filetype-related tools
 Plug 'vim-ruby/vim-ruby'
