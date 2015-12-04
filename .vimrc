@@ -347,6 +347,9 @@ source ~/.vim/custom/plugins/vim-go.vim
 " UltiSnips configuration
 source ~/.vim/custom/plugins/UltiSnips.vim
 
+" python-syntax configuration
+source ~/.vim/custom/plugins/python-syntax.vim
+
 " custom scripts --------------------------------------------------------------
 source ~/.vim/custom/scripts/perltidy.vim
 
