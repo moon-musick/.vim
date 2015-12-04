@@ -427,10 +427,10 @@ set cursorline
 
 " colorscheme settings
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 
 " enable transparent terminal background
-highlight Normal ctermbg=none
+" highlight Normal ctermbg=none
 
 " use environment variable value for colorscheme if present
 if !empty($VIMCOLORSCHEME)
