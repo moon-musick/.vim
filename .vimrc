@@ -78,14 +78,6 @@ autocmd FileType python setlocal formatprg=autopep8\ -
 
 " key mappings ----------------------------------------------------------------
 
-" insert mode mappings - alt/meta in terminal requires inputrc settings
-" http://vim.wikia.com/wiki/Get_Alt_key_to_work_in_terminal
-inoremap f <C-o>w
-inoremap b <C-o>b
-inoremap a <C-o>0
-inoremap e <C-o>$
-inoremap d <Esc>dei
-
 " change mapleader for convenience
 let mapleader=" "
 
