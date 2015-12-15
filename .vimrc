@@ -80,7 +80,7 @@ autocmd FileType python setlocal formatprg=autopep8\ -
 
 " autopairs
 " disable m-p - used by yankstack
-let g:AutoPairsShortcutToggle = ''
+let g:AutoPairsShortcutToggle = '<m-i>'
 " fly mode - easier jumping
 let g:AutoPairsFlyMode = 1
 
