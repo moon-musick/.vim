@@ -82,7 +82,7 @@ autocmd FileType python setlocal formatprg=autopep8\ -
 " disable m-p - used by yankstack
 let g:AutoPairsShortcutToggle = ''
 " fly mode - easier jumping
-leg g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 1
 
 " yankstack
 " needs 8bit terminal, e.g. uxterm
