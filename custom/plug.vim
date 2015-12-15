@@ -59,6 +59,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'maxbrunsfeld/vim-yankstack'
 
 " textobj plugins
 Plug 'kana/vim-textobj-user'

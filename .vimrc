@@ -78,6 +78,18 @@ autocmd FileType python setlocal formatprg=autopep8\ -
 
 " key mappings ----------------------------------------------------------------
 
+" autopairs
+" disable m-p - used by yankstack
+let g:AutoPairsShortcutToggle = ''
+" fly mode - easier jumping
+leg g:AutoPairsFlyMode = 1
+
+" yankstack
+" needs 8bit terminal, e.g. uxterm
+map <m-p> <Plug>yankstack_substitute_older_paste
+map <m-P> <Plug>yankstack_substitute_newer_paste
+let g:yankstack_yank_keys = ['y', 'd']
+
 " change mapleader for convenience
 let mapleader=" "
 
