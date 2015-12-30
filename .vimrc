@@ -120,20 +120,18 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " set shortcuts for moving between windows
 map <c-j> <c-w>j
-nmap <leader>wj <c-w>j
 map <c-k> <c-w>k
-nmap <leader>wk <c-w>k
 map <c-l> <c-w>l
-nmap <leader>wl <c-w>l
 map <c-h> <c-w>h
-nmap <leader>wh <c-w>h
-nmap <leader>ws <c-w>s
-nmap <leader>wv <c-w>v
+" nmap <leader>ws <c-w>s
+" nmap <leader>wv <c-w>v
 nmap <leader>w- <c-w>-
 nmap <leader>w+ <c-w>+
+
+" equalize windows
 nmap <leader>we <c-w>=
 
-" mazimize window
+" mazimize current window
 nmap <leader>wf <c-w><bar><c-w>_
 
 " set shortcuts for moving between tabs
