@@ -128,11 +128,17 @@ map <c-h> <c-w>h
 nmap <leader>w- <c-w>-
 nmap <leader>w+ <c-w>+
 
-" equalize windows
+" equalize visible buffers
 nmap <leader>we <c-w>=
 
-" mazimize current window
+" mazimize current buffer
 nmap <leader>wf <c-w><bar><c-w>_
+
+" rotate split buffers
+nmap <leader>H <c-w>H
+nmap <leader>J <c-w>J
+nmap <leader>K <c-w>K
+nmap <leader>L <c-w>L
 
 " set shortcuts for moving between tabs
 map <leader>p <esc>:tabprevious<CR>
