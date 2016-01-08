@@ -227,7 +227,11 @@ inoremap <C-c> <Esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-nnoremap <leader>rd :redraw!<CR>
+nnoremap <leader>d :redraw!<CR>
+
+" quickly edit your macros
+" https://github.com/mhinz/vim-galore#quickly-edit-your-macros
+nnoremap <leader>r :<C-u><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><Left>
 
 " syntastic mappings
 map <leader>sc :lclose<CR>
