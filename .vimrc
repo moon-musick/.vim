@@ -134,9 +134,17 @@ nmap <leader>we <c-w>=
 " mazimize current buffer
 nmap <leader>wf <c-w><bar><c-w>_
 
+" enable man plugin - makes reading man pages in vim possible
+" use before split buffer rotate mappings - man plugin defines <leader>K
+runtime! ftplugin/man.vim
+
+" remap <leader>K from man plugin
+nnoremap <leader>M :call <SNR>34_PreGetPage(0)<CR>
+
 " rotate split buffers
 nmap <leader>H <c-w>H
 nmap <leader>J <c-w>J
+" reuse man plugin map
 nmap <leader>K <c-w>K
 nmap <leader>L <c-w>L
 
@@ -298,9 +306,6 @@ set history=2000
 set foldmethod=indent
 " disable automatic folding on file opening
 set nofoldenable
-
-" enable man plugin - makes reading man pages in vim possible
-runtime! ftplugin/man.vim
 
 " delete comment character when joining commented lines
 if v:version > 703 || v:version == 703 && has("patch541")
