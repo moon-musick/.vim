@@ -87,6 +87,7 @@ Plug 'honza/vim-snippets'
 
 " git
 Plug 'tpope/vim-fugitive'
+Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'gregsexton/gitv'
 Plug 'int3/vim-extradite'
 

@@ -375,6 +375,9 @@ source ~/.vim/custom/plugins/UltiSnips.vim
 " python-syntax configuration
 source ~/.vim/custom/plugins/python-syntax.vim
 
+" fugitive-gitlab configuration
+source ~/.vim/custom/plugins/fugitive-gitlab.vim
+
 " custom scripts --------------------------------------------------------------
 source ~/.vim/custom/scripts/perltidy.vim
 
