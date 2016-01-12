@@ -117,6 +117,7 @@ Plug 'eagletmt/neco-ghc'
 
 " outliner
 Plug 'vimoutliner/vimoutliner'
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-notes'
 
 call plug#end()
 
