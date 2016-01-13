@@ -40,3 +40,6 @@ let g:go_auto_type_info              = 1
 
 let $GOROOT = "/usr/local/go"
 let $GOPATH = $HOME . "/go"
+
+" use goimports instead of gofmt to insert import clauses automatically
+let g:go_fmt_command = "goimports"
