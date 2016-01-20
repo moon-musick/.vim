@@ -72,6 +72,7 @@ Plug 'kana/vim-textobj-line'
 Plug 'Julian/vim-textobj-variable-segment'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'bps/vim-textobj-python'
+Plug 'beloglazov/vim-textobj-quotes'
 
 " external tools
 Plug 'mileszs/ack.vim'
