@@ -60,6 +60,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'Konfekt/FastFold'
 
 " textobj plugins
 Plug 'kana/vim-textobj-user'
