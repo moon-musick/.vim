@@ -114,7 +114,6 @@ Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-fireplace'
 Plug 'fatih/vim-go'
 Plug 'chrisbra/csv.vim'
-Plug 'farseer90718/vim-taskwarrior'
 Plug 'bitc/hdevtools'
 Plug 'eagletmt/neco-ghc'
 
