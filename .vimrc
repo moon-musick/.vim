@@ -163,6 +163,7 @@ nnoremap <F6> :GundoToggle<CR>
 
 " map write to something more sensible
 nnoremap <leader>ww :w<CR>
+nnoremap <leader>wq :wq<CR>
 
 " provide easy Tagbar toggle
 nmap <F8> :TagbarToggle<CR>
