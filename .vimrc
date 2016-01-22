@@ -15,9 +15,6 @@ set expandtab
 set softtabstop=2
 set shiftwidth=2
 
-" settings for indent-guides
-let g:indent_guides_guide_size=2
-
 " add < & > to quote and bracket pair search
 set matchpairs+=<:>
 
@@ -273,6 +270,9 @@ omap ak <Plug>(textobj-python-class-a)
 xmap ak <Plug>(textobj-python-class-a)
 omap ik <Plug>(textobj-python-class-i)
 xmap ik <Plug>(textobj-python-class-i)
+
+" indentLine mappings
+nmap <leader>i :IndentLinesToggle<CR>
 
 " general stuff ---------------------------------------------------------------
 
