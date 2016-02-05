@@ -313,6 +313,11 @@ if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j
 endif
 
+" 7.4.427 fixes terminal rendering glitches
+if v:version > 704 || v:version == 704 && has ("patch427")
+  set updatetime=250
+endif
+
 " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 " delete unneeded buffers left by browsing
 autocmd BufReadPost fugitive://* set bufhidden=delete

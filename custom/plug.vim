@@ -94,6 +94,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'gregsexton/gitv'
 Plug 'int3/vim-extradite'
+Plug 'airblade/vim-gitgutter'
 
 " syntax files
 Plug 'derekwyatt/vim-scala'
