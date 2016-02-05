@@ -2,4 +2,5 @@
 install.lock
 bundle/*
 plugged/*
+temp/*
 !bundle/Vundle.vim/
