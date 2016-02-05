@@ -158,9 +158,11 @@ nmap <leader>bd :bdelete<CR>
 " gundo toggle shortcut
 nnoremap <F6> :GundoToggle<CR>
 
-" map write to something more sensible
+" map write and quit to something more sensible
 nnoremap <leader>ww :w<CR>
 nnoremap <leader>wq :wq<CR>
+nnoremap <leader>qa :qa<CR>
+nnoremap <leader>Q  :qa!<CR>
 
 " provide easy Tagbar toggle
 nmap <F8> :TagbarToggle<CR>
