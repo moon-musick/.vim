@@ -190,6 +190,8 @@ nnoremap <leader>x :History:<CR>
 nnoremap <leader>/ :History/<CR>
 nnoremap <leader>c :Colors<CR>
 nnoremap <leader>g :Ag 
+" <leader>m mapping used by default by vim-tmuxify,
+" so there's a delay on this one
 nnoremap <leader>m :Marks<CR>
 imap <C-x><C-f> <Plug>(fzf-complete-path)
 imap <C-x><C-l> <Plug>(fzf-complete-line)

@@ -79,6 +79,7 @@ Plug 'beloglazov/vim-textobj-quotes'
 " external tools
 Plug 'mileszs/ack.vim'
 Plug 'xaviershay/tslime.vim'
+Plug 'jebaum/vim-tmuxify'
 Plug 'thinca/vim-quickrun'
 Plug 'duggiefresh/vim-easydir'
 
