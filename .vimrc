@@ -483,6 +483,13 @@ set cursorline
 set background=dark
 colorscheme gruvbox
 
+" set SignColumn color equal to general background (gruvbox colors)
+hi SignColumn            ctermbg=NONE guibg=NONE
+hi GitGutterAdd          ctermfg=142 ctermbg=235 guifg=#b8bb26 guibg=#3c3836
+hi GitGutterChange       ctermfg=108 ctermbg=235 guifg=#8ec07c guibg=#3c3836
+hi GitGutterDelete       ctermfg=167 ctermbg=235 guifg=#fb4934 guibg=#3c3836
+hi GitGutterChangeDelete ctermfg=108 ctermbg=235 guifg=#8ec07c guibg=#3c3836
+
 " enable transparent terminal background
 " highlight Normal ctermbg=none
 
