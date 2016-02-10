@@ -230,6 +230,9 @@ nnoremap gp `[v`]
 " reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
+" indent or de-indent a pasted block
+nnoremap <leader>> `[v`]>
+nnoremap <leader>< `[v`]<
 " remap C-c in insert mode so that it triggers InsertLeave
 inoremap <C-c> <Esc>
 
