@@ -62,6 +62,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'Konfekt/FastFold'
 Plug 'mhinz/vim-grepper'
+Plug 'airblade/vim-rooter'
 
 " textobj plugins
 Plug 'kana/vim-textobj-user'
