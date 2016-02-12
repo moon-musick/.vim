@@ -281,6 +281,10 @@ xmap ik <Plug>(textobj-python-class-i)
 " indentLine mappings
 nmap <leader>i :IndentLinesToggle<CR>
 
+" fzf menu mappings
+source ~/.vim/custom/fzfmenu.vim
+nmap <leader>f :call MakeFZFMenu()<CR>
+
 " general stuff ---------------------------------------------------------------
 
 " use exrc but disable shell & writing stuff
