@@ -492,23 +492,3 @@ hi GitGutterAdd          ctermfg=142 ctermbg=235 guifg=#b8bb26 guibg=#3c3836
 hi GitGutterChange       ctermfg=108 ctermbg=235 guifg=#8ec07c guibg=#3c3836
 hi GitGutterDelete       ctermfg=167 ctermbg=235 guifg=#fb4934 guibg=#3c3836
 hi GitGutterChangeDelete ctermfg=108 ctermbg=235 guifg=#8ec07c guibg=#3c3836
-
-" enable transparent terminal background
-" highlight Normal ctermbg=none
-
-" use environment variable value for colorscheme if present
-if !empty($VIMCOLORSCHEME)
-  colorscheme $VIMCOLORSCHEME
-endif
-
-" change cursor shape in different modes
-" http://vi.stackexchange.com/questions/3379/cursor-shape-under-vim-tmux
-if exists('$TMUX')
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\e[6 q\<Esc>\\"
-    let &t_SR = "\<Esc>Ptmux;\<Esc>\e[4 q\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
-else
-    let &t_SI = "\e[6 q"
-    let &t_SR = "\e[4 q"
-    let &t_EI = "\e[2 q"
-endif
