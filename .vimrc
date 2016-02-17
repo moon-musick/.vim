@@ -192,6 +192,10 @@ nnoremap k gk
 xnoremap j gj
 xnoremap k gk
 
+" easily edit configuration files
+nnoremap <leader>ev :edit $MYVIMRC<CR>
+nnoremap <leader>ep :edit ~/.vim/custom/plug.vim<CR>
+
 " zeal mapping
 :nnoremap gz :!zeal --query "<cword>"&<CR><CR>
 
