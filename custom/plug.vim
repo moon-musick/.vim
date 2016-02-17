@@ -37,7 +37,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'sjl/gundo.vim'
 
 " miscellaneous internal tools
-Plug 'mhinz/vim-startify'
 Plug 'easymotion/vim-easymotion'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'henrik/vim-indexed-search'
