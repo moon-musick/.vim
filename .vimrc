@@ -181,18 +181,7 @@ nmap <silent> <leader>sp :set spelllang=pl spell!<CR>
 " map omnifunc completion to something more convenient
 inoremap <C-f> <C-x><C-o>
 
-" fzf mappings
-nnoremap <leader>o :Buffers<CR>
-nnoremap <leader>k :Windows<CR>
-nnoremap <leader>e :Files<CR>
-nnoremap <leader>f :History<CR>
-nnoremap <leader>x :History:<CR>
-nnoremap <leader>/ :History/<CR>
-nnoremap <leader>c :Colors<CR>
-nnoremap <leader>g :Ag 
-" <leader>m mapping used by default by vim-tmuxify,
-" so there's a delay on this one
-nnoremap <leader>m :Marks<CR>
+" fzf completion mappings
 imap <C-x><C-f> <Plug>(fzf-complete-path)
 imap <C-x><C-l> <Plug>(fzf-complete-line)
 
