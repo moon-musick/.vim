@@ -1,0 +1,29 @@
+snippet qvar "Quote as Ansible variable"
+"{{ ${VISUAL} }}"
+endsnippet
+
+snippet var "Ansible variable"
+{{ ${VISUAL} }}
+endsnippet
+
+snippet handler "restart service handler"
+- name: restart $1
+	service:
+		name:  $1
+		state: restarted
+endsnippet
+
+snippet handler "reload service handler"
+- name: reload $1
+	service:
+		name:  $1
+		state: reloaded
+endsnippet
+
+snippet service "simple service definition"
+- name: ensure $1 is enabled and running
+	service:
+		name:    $1
+		state:   started
+		enabled: yes
+endsnippet
