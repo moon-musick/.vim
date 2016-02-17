@@ -414,6 +414,9 @@ source ~/.vim/custom/plugins/delimitMate.vim
 " custom scripts --------------------------------------------------------------
 source ~/.vim/custom/scripts/perltidy.vim
 
+" abbreviations ---------------------------------------------------------------
+source ~/.vim/custom/abbreviations.vim
+
 " apperarance stuff -----------------------------------------------------------
 
 " colors support indication
