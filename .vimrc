@@ -243,14 +243,6 @@ nnoremap <leader>r :<C-u><C-r>='let @'. v:register .' = '. string(getreg(v:regis
 map <leader>sc :lclose<CR>
 map <leader>so :SyntasticCheck<CR>
 
-" ruby-xmpfilter mappings
-autocmd FileType ruby nmap <buffer> <F2> <Plug>(xmpfilter-mark)
-autocmd FileType ruby xmap <buffer> <F2> <Plug>(xmpfilter-mark)
-autocmd FileType ruby imap <buffer> <F2> <Plug>(xmpfilter-mark)
-autocmd FileType ruby nmap <buffer> <F3> <Plug>(xmpfilter-run)
-autocmd FileType ruby xmap <buffer> <F3> <Plug>(xmpfilter-run)
-autocmd FileType ruby imap <buffer> <F3> <Plug>(xmpfilter-run)
-
 " preserve flags from previous :substitute invocation
 " Practical Vim by Drew Neill, p. 227
 nnoremap & :&&<CR>
