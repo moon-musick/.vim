@@ -346,15 +346,15 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " stripping whitespace - http://vimcasts.org/episodes/tidying-whitespace/
 " function! <SID>StripTrailingWhitespaces()
 function! StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
 endfunction
 nmap <F7> :call StripTrailingWhitespaces()<CR>
 
@@ -411,7 +411,7 @@ call togglebg#map('<F5>')
 
 " GUI font setting
 if has('gui_running')
-    set guifont=Inconsolata\ 11
+  set guifont=Inconsolata\ 11
 endif
 
 " disable toolbars in GUI
@@ -422,7 +422,7 @@ set guioptions-=e
 
 " make vertical windows separator thinner
 set fillchars=vert:│
-hi VertSplit ctermbg=NONE guibg=NONE
+highlight VertSplit ctermbg=NONE guibg=NONE
 
 " print marker at specified column
 set colorcolumn=80
@@ -466,7 +466,7 @@ set statusline+=\ [line\ %l\/%L]
 set statusline+=\ %4v\ 
 set statusline+=\ 0x%04B\ 
 " used in statusline
-hi User1 ctermfg=0 ctermbg=1
+highlight User1 ctermfg=0 ctermbg=1
 
 " use cursorline (highlight line where the cursor is currently)
 set cursorline
@@ -476,8 +476,8 @@ set background=dark
 colorscheme gruvbox
 
 " set SignColumn color equal to general background (gruvbox colors)
-hi SignColumn            ctermbg=NONE guibg=NONE
-hi GitGutterAdd          ctermfg=142 ctermbg=235 guifg=#b8bb26 guibg=#3c3836
-hi GitGutterChange       ctermfg=108 ctermbg=235 guifg=#8ec07c guibg=#3c3836
-hi GitGutterDelete       ctermfg=167 ctermbg=235 guifg=#fb4934 guibg=#3c3836
-hi GitGutterChangeDelete ctermfg=108 ctermbg=235 guifg=#8ec07c guibg=#3c3836
+highlight SignColumn            ctermbg=NONE guibg=NONE
+highlight GitGutterAdd          ctermfg=142 ctermbg=235 guifg=#b8bb26 guibg=#3c3836
+highlight GitGutterChange       ctermfg=108 ctermbg=235 guifg=#8ec07c guibg=#3c3836
+highlight GitGutterDelete       ctermfg=167 ctermbg=235 guifg=#fb4934 guibg=#3c3836
+highlight GitGutterChangeDelete ctermfg=108 ctermbg=235 guifg=#8ec07c guibg=#3c3836
