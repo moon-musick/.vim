@@ -387,9 +387,6 @@ source ~/.vim/custom/plugins/python-syntax.vim
 " fugitive-gitlab configuration
 source ~/.vim/custom/plugins/fugitive-gitlab.vim
 
-" vim-grepper configuration
-source ~/.vim/custom/plugins/vim-grepper.vim
-
 " indentLine configuration
 source ~/.vim/custom/plugins/indentLine.vim
 
