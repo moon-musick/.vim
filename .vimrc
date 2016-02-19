@@ -44,34 +44,39 @@ set incsearch
 " filetype-related stuff ------------------------------------------------------
 
 " different indentation settings for various languages
-autocmd FileType ruby,cucumber,erb,yaml,html,css,scss,coffee setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
-autocmd FileType python,haskell setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
-autocmd FileType lokis setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
-autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
-autocmd FileType votl setlocal softtabstop=4
+augroup indentation
+  autocmd!
+  autocmd FileType ruby,cucumber,erb,yaml,html,css,scss,coffee setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
+  autocmd FileType python,haskell setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
+  autocmd FileType lokis setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
+  autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
+  autocmd FileType votl setlocal softtabstop=4
+augroup END
 
 " filetype recognition
-autocmd BufRead,BufNewFile *.rsc  set filetype=rsc
-autocmd BufRead,BufNewFile *.ks   set filetype=kickstart
-autocmd BufRead,BufNewFile *.html set filetype=html
-autocmd BufRead,BufNewFile *.css  set filetype=css
-autocmd BufRead,BufNewFile *.j2   set filetype=jinja
+augroup filetype_setting
+  autocmd!
+  autocmd BufRead,BufNewFile *.rsc  set filetype=rsc
+  autocmd BufRead,BufNewFile *.ks   set filetype=kickstart
+  autocmd BufRead,BufNewFile *.html set filetype=html
+  autocmd BufRead,BufNewFile *.css  set filetype=css
+  autocmd BufRead,BufNewFile *.j2   set filetype=jinja
+augroup END
 
 " enable omnicompletion for ruby and python
-if has ("autocmd")
-    autocmd FileType ruby set omnifunc=rubycomplete#Complete
-    autocmd FileType ruby let g:rubycomplete_buffer_loading=1
-    autocmd FileType ruby let g:rubycomplete_classes_in_global=1
-    autocmd FileType python set omnifunc=pythoncomplete#Complete
-end
-
-" different indent guides settings for specific filetypes
-if has ("autocmd")
-    autocmd FileType ruby,cucumber,yaml,css,scss,html,coffee let g:indent_guides_guide_size=2
-end
+augroup completion
+  autocmd!
+  autocmd FileType ruby set omnifunc=rubycomplete#Complete
+  autocmd FileType ruby let g:rubycomplete_buffer_loading=1
+  autocmd FileType ruby let g:rubycomplete_classes_in_global=1
+  autocmd FileType python set omnifunc=pythoncomplete#Complete
+augroup END
 
 " use autopep8 for python autoformat
-autocmd FileType python setlocal formatprg=autopep8\ -
+augroup formatting
+  autocmd!
+  autocmd FileType python setlocal formatprg=autopep8\ -
+augroup END
 
 " key mappings ----------------------------------------------------------------
 
@@ -107,7 +112,10 @@ set listchars=tab:»\ ,eol:¬
 nmap <leader>tr :NERDTreeToggle<CR>
 
 " autoclose nerdtree window if closing all other windows and exit
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup nerdtree
+  autocmd!
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup END
 
 " set shortcut for ack plugin
 nmap <leader>a <Esc>:Ack!
@@ -253,9 +261,12 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap ga      <Plug>(EasyAlign)
 
 " hdevtools mappings
-au FileType haskell nnoremap <buffer> <leader>ht :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <leader>hc :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <leader>hi :HdevtoolsInfo<CR>
+augroup haskell
+  autocmd!
+  autocmd FileType haskell nnoremap <buffer> <leader>ht :HdevtoolsType<CR>
+  autocmd FileType haskell nnoremap <buffer> <leader>hc :HdevtoolsClear<CR>
+  autocmd FileType haskell nnoremap <buffer> <leader>hi :HdevtoolsInfo<CR>
+augroup END
 
 " textobj-python mappings
 omap ak <Plug>(textobj-python-class-a)
@@ -323,19 +334,26 @@ endif
 
 " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 " delete unneeded buffers left by browsing
-autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup fugitive
+  autocmd!
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup END
 
 " remember last position of cursor within buffer, but don't do that for
 " invalid position or when inside an event handler
-if has("autocmd")
+augroup cursors
+  autocmd!
   autocmd BufReadPost *
       \ if line("'\"") > 0 && line("'\"") <= line("$") |
       \   exe "normal g`\"" |
       \ endif
-endif
+augroup END
 
 " autoload VIMRC after editing
-au BufWritePost .vimrc so $MYVIMRC
+augroup vimrc
+  autocmd!
+  autocmd BufWritePost .vimrc so $MYVIMRC
+augroup END
 
 " enable textobj-rubyblock matching
 runtime macros/matchit.vim
