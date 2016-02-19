@@ -121,7 +121,7 @@ augroup END
 nmap <leader>a <Esc>:Ack!
 
 " use ag instead of ack (better performance)
-let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'sift -n -i --binary-skip'
 
 " set shortcuts for moving between windows
 map <c-j> <c-w>j
