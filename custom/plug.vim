@@ -34,7 +34,7 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
 
 " undo
-Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree'
 
 " miscellaneous internal tools
 Plug 'easymotion/vim-easymotion'

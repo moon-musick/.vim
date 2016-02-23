@@ -164,7 +164,7 @@ nmap <leader>bl :buffers<CR>
 nmap <leader>bd :bdelete<CR>
 
 " gundo toggle shortcut
-nnoremap <F6> :GundoToggle<CR>
+nnoremap <F6> :UndotreeToggle<CR>
 
 " map write and quit to something more sensible
 nnoremap <leader>ww :w<CR>
