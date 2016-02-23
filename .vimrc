@@ -281,6 +281,11 @@ nmap <leader>i :IndentLinesToggle<CR>
 source ~/.vim/custom/fzfmenu.vim
 nmap <leader>f :call MakeFZFMenu()<CR>
 
+" visual-split mappings
+xnoremap <leader>sa :VSSplitAbove<CR>
+xnoremap <leader>sb :VSSplitBelow<CR>
+xnoremap <leader>sr :VSResize<CR>
+
 " general stuff ---------------------------------------------------------------
 
 " use exrc but disable shell & writing stuff
