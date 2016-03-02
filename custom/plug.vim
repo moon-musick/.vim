@@ -72,8 +72,8 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-fold'
 Plug 'Julian/vim-textobj-variable-segment'
-Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'bps/vim-textobj-python'
+Plug 'nelstrom/vim-textobj-rubyblock',  {'for': 'ruby'}
+Plug 'bps/vim-textobj-python',          {'for': 'python'}
 Plug 'beloglazov/vim-textobj-quotes'
 
 " external tools
@@ -98,31 +98,32 @@ Plug 'int3/vim-extradite'
 Plug 'airblade/vim-gitgutter'
 
 " syntax files
-Plug 'derekwyatt/vim-scala'
-Plug 'evanmiller/nginx-vim-syntax'
-Plug 'chase/vim-ansible-yaml'
-Plug 'mitsuhiko/vim-jinja'
-Plug 'tangledhelix/vim-kickstart'
-Plug 'slim-template/vim-slim'
-Plug 'wting/rust.vim'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'vim-scripts/ferm.vim'
-Plug 'rodjek/vim-puppet'
+Plug 'derekwyatt/vim-scala',        {'for': 'scala'}
+Plug 'evanmiller/nginx-vim-syntax', {'for': 'nginx'}
+Plug 'chase/vim-ansible-yaml',      {'for': 'ansible'}
+Plug 'mitsuhiko/vim-jinja',         {'for': 'jinja'}
+Plug 'tangledhelix/vim-kickstart',  {'for': 'kickstart'}
+Plug 'slim-template/vim-slim',      {'for': 'slim'}
+Plug 'wting/rust.vim',              {'for': 'rust'}
+Plug 'ekalinin/Dockerfile.vim',     {'for': 'Dockerfile'}
+Plug 'vim-scripts/ferm.vim',        {'for': 'ferm'}
+Plug 'rodjek/vim-puppet',           {'for': 'puppet'}
 Plug 'Matt-Deacalion/vim-systemd-syntax'
-Plug 'hdima/python-syntax'
+Plug 'hdima/python-syntax',         {'for': 'python'}
 
 " filetype-related tools
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rbenv'
+Plug 'vim-ruby/vim-ruby',           {'for': 'ruby'}
+Plug 'tpope/vim-rbenv',             {'for': 'ruby'}
 Plug 'tpope/vim-cucumber'
-Plug 'tpope/vim-fireplace'
-Plug 'fatih/vim-go'
-Plug 'chrisbra/csv.vim'
-Plug 'bitc/hdevtools'
-Plug 'eagletmt/neco-ghc'
+Plug 'tpope/vim-fireplace',         {'for': 'clojure'}
+Plug 'fatih/vim-go',                {'for': 'go'}
+Plug 'chrisbra/csv.vim',            {'for': 'csv'}
+Plug 'bitc/hdevtools',              {'for': 'haskell'}
+Plug 'eagletmt/neco-ghc',           {'for': 'haskell'}
+Plug 'tweekmonster/braceless.vim'
 
 " outliner
-Plug 'vimoutliner/vimoutliner'
+Plug 'vimoutliner/vimoutliner',     {'for': 'votl'}
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-notes'
 
 call plug#end()
