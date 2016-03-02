@@ -18,13 +18,10 @@ Plug 'morhetz/gruvbox'
 Plug 'zeis/vim-kolor'
 
 " navigation & finders
-Plug 'kien/ctrlp.vim'
-Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-vinegar'
 
 " tag browsing
 Plug 'majutsushi/tagbar'
@@ -60,7 +57,6 @@ Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'Konfekt/FastFold'
-Plug 'mhinz/vim-grepper'
 Plug 'airblade/vim-rooter'
 
 " textobj plugins
