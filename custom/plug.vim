@@ -16,6 +16,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/seoul256.vim'
 Plug 'morhetz/gruvbox'
 Plug 'zeis/vim-kolor'
+Plug 'vim-airline/vim-airline'
 
 " navigation & finders
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }

@@ -416,6 +416,9 @@ source ~/.vim/custom/plugins/indentLine.vim
 " delimitMate configuration
 source ~/.vim/custom/plugins/delimitMate.vim
 
+" vim-airline configuration
+source ~/.vim/custom/plugins/vim-airline.vim
+
 " custom scripts --------------------------------------------------------------
 source ~/.vim/custom/scripts/perltidy.vim
 
@@ -476,20 +479,6 @@ set number
 
 " use 2 lines for status bar
 set laststatus=2
-
-" custom statusline
-set statusline=\ %F
-set statusline+=\ %r%h%w
-set statusline+=\ %{fugitive#statusline()}\ 
-set statusline+=\ %1*%m%*
-set statusline+=\ %=%{v:register}\ 
-set statusline+=\ %y
-set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}]
-set statusline+=\ [line\ %l\/%L]
-set statusline+=\ %4v\ 
-set statusline+=\ 0x%04B\ 
-" used in statusline
-highlight User1 ctermfg=0 ctermbg=1
 
 " use cursorline (highlight line where the cursor is currently)
 set cursorline
