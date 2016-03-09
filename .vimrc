@@ -73,9 +73,10 @@ augroup completion
 augroup END
 
 " use autopep8 for python autoformat
-augroup formatting
+augroup python_formatting
   autocmd!
   autocmd FileType python setlocal formatprg=autopep8\ -
+  autocmd FileType python nnoremap <leader>y :0,$!yapf<CR>
 augroup END
 
 " key mappings ----------------------------------------------------------------
