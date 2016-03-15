@@ -98,7 +98,7 @@ Plug 'airblade/vim-gitgutter'
 " syntax files
 Plug 'derekwyatt/vim-scala',        {'for': 'scala'}
 Plug 'evanmiller/nginx-vim-syntax', {'for': 'nginx'}
-Plug 'chase/vim-ansible-yaml',      {'for': 'ansible'}
+Plug 'pearofducks/ansible-vim',     {'for': 'ansible'}
 Plug 'mitsuhiko/vim-jinja',         {'for': 'jinja'}
 Plug 'tangledhelix/vim-kickstart',  {'for': 'kickstart'}
 Plug 'slim-template/vim-slim',      {'for': 'slim'}
