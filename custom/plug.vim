@@ -108,6 +108,7 @@ Plug 'vim-scripts/ferm.vim',        {'for': 'ferm'}
 Plug 'rodjek/vim-puppet',           {'for': 'puppet'}
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'hdima/python-syntax',         {'for': 'python'}
+Plug 'plasticboy/vim-markdown',     {'for': 'markdown'}
 
 " filetype-related tools
 Plug 'vim-ruby/vim-ruby',           {'for': 'ruby'}
