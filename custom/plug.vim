@@ -30,6 +30,7 @@ Plug 'majutsushi/tagbar'
 " auto-alignment
 Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
+Plug 'tommcdo/vim-lion'
 
 " undo
 Plug 'mbbill/undotree'
