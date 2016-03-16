@@ -298,13 +298,6 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-" enable persistent undo
-try
-  set undodir=~/.vim/temp/undodir
-  set undofile
-catch
-endtry
-
 " split settings
 set splitbelow
 set splitright
