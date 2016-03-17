@@ -474,8 +474,12 @@ set number
 " use 2 lines for status bar
 set laststatus=2
 
-" use cursorline (highlight line where the cursor is currently)
-set cursorline
+" show cursorline only in active window
+augroup highlight_follows_focus
+  autocmd!
+  autocmd WinEnter * set cursorline
+  autocmd WinLeave * set nocursorline
+augroup END
 
 " colorscheme settings
 set background=dark
