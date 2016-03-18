@@ -474,6 +474,9 @@ set number
 " use 2 lines for status bar
 set laststatus=2
 
+" show cursorline
+set cursorline
+
 " show cursorline only in active window
 augroup highlight_follows_focus
   autocmd!
