@@ -112,6 +112,7 @@ Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'hdima/python-syntax',         {'for': 'python'}
 Plug 'plasticboy/vim-markdown',     {'for': 'markdown'}
 Plug 'moon-musick/vim-logrotate',   {'for': 'logrotate'}
+Plug 'moon-musick/vim-i3-config-syntax', {'for': 'i3'}
 
 " filetype-related tools
 Plug 'vim-ruby/vim-ruby',           {'for': 'ruby'}
