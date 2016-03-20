@@ -110,7 +110,7 @@ nmap <leader>l :set list!<CR>
 set listchars=tab:»\ ,eol:¬
 
 " set shortcut for nerdtree plugin
-nmap <leader>tr :NERDTreeToggle<CR>
+nmap <leader>t :NERDTreeToggle<CR>
 
 " autoclose nerdtree window if closing all other windows and exit
 augroup nerdtree
@@ -220,9 +220,6 @@ let g:EasyMotion_use_smartsign_us = 1
 
 " easier search highlighting clearing
 nmap <leader>hl :nohlsearch<CR>
-
-" new tab shortcut
-nmap <leader>tn :tabnew
 
 " http://mixandgo.com/blog/vim-config-for-rails-ninjas
 " Visually select the text that was last edited/pasted
