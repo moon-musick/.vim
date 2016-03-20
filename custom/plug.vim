@@ -111,6 +111,7 @@ Plug 'rodjek/vim-puppet',           {'for': 'puppet'}
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'hdima/python-syntax',         {'for': 'python'}
 Plug 'plasticboy/vim-markdown',     {'for': 'markdown'}
+Plug 'moon-musick/vim-logrotate',   {'for': 'logrotate'}
 
 " filetype-related tools
 Plug 'vim-ruby/vim-ruby',           {'for': 'ruby'}
