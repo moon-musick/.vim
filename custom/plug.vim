@@ -61,6 +61,7 @@ Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'Konfekt/FastFold'
 Plug 'airblade/vim-rooter'
 Plug 'wellle/visual-split.vim'
+Plug 'tommcdo/vim-exchange'
 
 " textobj plugins
 Plug 'kana/vim-textobj-user'
