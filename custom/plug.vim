@@ -82,6 +82,7 @@ Plug 'xaviershay/tslime.vim'
 Plug 'jebaum/vim-tmuxify'
 Plug 'thinca/vim-quickrun'
 Plug 'duggiefresh/vim-easydir'
+Plug 'mhinz/vim-grepper'
 
 " syntax checking and linting
 Plug 'scrooloose/syntastic'

@@ -284,6 +284,8 @@ xnoremap <leader>sa :VSSplitAbove<CR>
 xnoremap <leader>sb :VSSplitBelow<CR>
 xnoremap <leader>sr :VSResize<CR>
 
+" vim-grepper custom command
+nnoremap <leader>/ :Sift 
 " general stuff ---------------------------------------------------------------
 
 " use exrc but disable shell & writing stuff
@@ -409,6 +411,9 @@ source ~/.vim/custom/plugins/delimitMate.vim
 
 " vim-airline configuration
 source ~/.vim/custom/plugins/vim-airline.vim
+
+" vim-grepper configuration
+source ~/.vim/custom/plugins/vim-grepper.vim
 
 " custom scripts --------------------------------------------------------------
 source ~/.vim/custom/scripts/perltidy.vim
