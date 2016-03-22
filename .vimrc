@@ -374,6 +374,15 @@ function! StripTrailingWhitespaces()
 endfunction
 nmap <F7> :call StripTrailingWhitespaces()<CR>
 
+" reading files via ssh into buffer
+function! SSHFile(hostname, filename)
+  execute "r!" . "ssh " . a:hostname . " cat " . a:filename
+endfunction
+
+command! -nargs=* SSHFile :call SSHFile(<f-args>)
+
+nnoremap <leader>sh :SSHFile 
+
 " plugin configuration --------------------------------------------------------
 
 " YouCompleteMe configuration
