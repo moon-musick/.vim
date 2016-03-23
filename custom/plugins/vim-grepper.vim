@@ -1,8 +1,6 @@
 let g:grepper = {
-  \ 'next_tool': '<C-j>',
-  \ 'tools': ['sift', 'siftp'],
   \ 'sift': {
-  \   'grepprg':     'sift -n --binary-skip $*',
+  \   'grepprg':     'sift -n --binary-skip',
   \   'grepformat': '%f:%l:%m',
   \   'escape':     '\+*?^$%#()[]' }
   \ }
