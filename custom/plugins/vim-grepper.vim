@@ -7,5 +7,5 @@ let g:grepper = {
 
 command! -nargs=* -complete=file Sift Grepper -tool sift -query <args>
 
-nnoremap gs <Plug>(GrepperOperator)
-xnoremap gs <Plug>(GrepperOperator)
+nmap gs <Plug>(GrepperOperator)
+xmap gs <Plug>(GrepperOperator)
