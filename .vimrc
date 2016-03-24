@@ -379,7 +379,7 @@ function! SSHFile(hostname, filename)
   execute "r!" . "ssh " . a:hostname . " cat " . a:filename
 endfunction
 
-command! -nargs=* SSHFile :call SSHFile(<f-args>)
+command! -complete=file -nargs=* SSHFile :call SSHFile(<f-args>)
 
 nnoremap <leader>sh :SSHFile 
 
