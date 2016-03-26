@@ -127,6 +127,7 @@ Plug 'chrisbra/csv.vim',            {'for': 'csv'}
 Plug 'bitc/hdevtools',              {'for': 'haskell'}
 Plug 'eagletmt/neco-ghc',           {'for': 'haskell'}
 Plug 'tweekmonster/braceless.vim'
+Plug 'klen/python-mode',            {'for': 'python'}
 
 " outliner
 Plug 'vimoutliner/vimoutliner',     {'for': 'votl'}
