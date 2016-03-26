@@ -81,18 +81,6 @@ augroup END
 
 " key mappings ----------------------------------------------------------------
 
-" autopairs
-" disable m-p - used by yankstack
-let g:AutoPairsShortcutToggle = '<m-i>'
-" fly mode - easier jumping
-let g:AutoPairsFlyMode = 1
-
-" yankstack
-" needs 8bit terminal, e.g. uxterm
-map <m-p> <Plug>yankstack_substitute_older_paste
-map <m-P> <Plug>yankstack_substitute_newer_paste
-let g:yankstack_yank_keys = ['y', 'd']
-
 " change mapleader for convenience
 let mapleader=" "
 
@@ -286,6 +274,12 @@ xnoremap <leader>sr :VSResize<CR>
 
 " vim-grepper custom command
 nnoremap <leader>/ :Sift 
+
+" yankstack
+nmap <leader>y <Plug>yankstack_substitute_older_paste
+nmap <leader>Y <Plug>yankstack_substitute_newer_paste
+" let g:yankstack_yank_keys = ['y', 'd']
+
 " general stuff ---------------------------------------------------------------
 
 " use exrc but disable shell & writing stuff
