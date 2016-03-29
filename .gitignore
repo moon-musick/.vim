@@ -4,3 +4,4 @@ bundle/*
 plugged/*
 temp/*
 !bundle/Vundle.vim/
+init.vim
