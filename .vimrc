@@ -119,14 +119,17 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 " nmap <leader>ws <c-w>s
 " nmap <leader>wv <c-w>v
-nmap <leader>w- <c-w>-
-nmap <leader>w+ <c-w>+
+nnoremap <leader>- :resize -5<CR>
+nnoremap <leader>+ :resize +5<CR>
+nnoremap <leader>, :vertical resize -5<CR>
+nnoremap <leader>. :vertical resize +5<CR>
 
 " equalize visible buffers
-nmap <leader>we <c-w>=
+nnoremap <leader>we <c-w>=
+nnoremap <leader>=  <c-w>=
 
 " mazimize current buffer
-nmap <leader>wf <c-w><bar><c-w>_
+nnoremap <leader>wf <c-w><bar><c-w>_
 
 " enable man plugin - makes reading man pages in vim possible
 " use before split buffer rotate mappings - man plugin defines <leader>K
