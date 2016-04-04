@@ -282,7 +282,7 @@ nnoremap <leader>/ :Sift
 nmap <leader>y <Plug>yankstack_substitute_older_paste
 nmap <leader>Y <Plug>yankstack_substitute_newer_paste
 " preserve 'S' visual mode binding with vim-surround
-let g:yankstack_yank_keys = ['c', 'C', 'd', 'D', 's', 'x', 'X', 'y', 'Y']
+let g:yankstack_yank_keys = ['c', 'C', 'd', 'D', 'x', 'X', 'y', 'Y']
 
 " general stuff ---------------------------------------------------------------
 
