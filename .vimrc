@@ -196,9 +196,6 @@ xnoremap k gk
 nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>ep :edit ~/.vim/custom/plug.vim<CR>
 
-" zeal mapping
-:nnoremap gz :!zeal --query "<cword>"&<CR><CR>
-
 " https://github.com/easymotion/vim-easymotion
 nmap s <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-t2)
