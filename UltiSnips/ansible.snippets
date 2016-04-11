@@ -95,6 +95,20 @@ snippet aptrepo "ansible apt repo task" b
 		state: present
 endsnippet
 
+snippet ppa "ansible ppa (key + repo) tasks" bm
+- name: add $1 repository key
+	apt_key:
+		keyserver: '${2:keyserver.ubuntu.com}'
+		id: '$3'
+		state: present
+
+- name: add $1 repository
+	apt_repository:
+		repo: 'ppa:$4'
+		update_cache: yes
+		state: present
+endsnippet
+
 snippet inittype "ansible check init type and set fact" bm
 - name: check init type
 	command: ps -p 1 -o comm=
