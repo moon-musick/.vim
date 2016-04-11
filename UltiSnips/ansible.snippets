@@ -1,3 +1,7 @@
+snippet item "jinja item"
+"{{ item }}"
+endsnippet
+
 snippet qvar "Quote as Ansible variable"
 "{{ ${VISUAL} }}"
 endsnippet
@@ -6,21 +10,21 @@ snippet var "Ansible variable"
 {{ ${VISUAL} }}
 endsnippet
 
-snippet handler "restart service handler"
+snippet restart "restart service handler" b
 - name: restart $1
 	service:
 		name:  $1
 		state: restarted
 endsnippet
 
-snippet handler "reload service handler"
+snippet reload "reload service handler" b
 - name: reload $1
 	service:
 		name:  $1
 		state: reloaded
 endsnippet
 
-snippet aservice "ansible simple service definition"
+snippet service "ansible simple service definition" b
 - name: ensure $1 is enabled and running
 	service:
 		name: $1
@@ -28,7 +32,7 @@ snippet aservice "ansible simple service definition"
 		enabled: yes
 endsnippet
 
-snippet adir "ansible directory task"
+snippet dir "ansible directory task" b
 - name: ensure $1 exists
 	file:
 		path: $2
@@ -38,7 +42,7 @@ snippet adir "ansible directory task"
 		state: directory
 endsnippet
 
-snippet alink "ansible symlink task"
+snippet link "ansible symlink task" b
 - name: ensure a symlink to $1 exists
 	file:
 		path: $2
@@ -48,7 +52,7 @@ snippet alink "ansible symlink task"
 		state: link
 endsnippet
 
-snippet atemplate "ansible template task"
+snippet template "ansible template task" b
 - name: render $1
 	template:
 		dest: $2
@@ -58,7 +62,7 @@ snippet atemplate "ansible template task"
 		mode: '${6:0644}'
 endsnippet
 
-snippet acopy "ansible copy task"
+snippet copy "ansible copy task" b
 - name: provide $1
 	copy:
 		dest: $2
@@ -68,7 +72,7 @@ snippet acopy "ansible copy task"
 		mode: '${6:0644}'
 endsnippet
 
-snippet aptkey "ansible apt key task (keyserver)"
+snippet aptkey "ansible apt key task (keyserver)" b
 - name: add $1 repository key
 	apt_key:
 		keyserver: $2
@@ -76,14 +80,14 @@ snippet aptkey "ansible apt key task (keyserver)"
 		state: present
 endsnippet
 
-snippet aptkey "ansible apt key task (url)"
+snippet aptkey "ansible apt key task (url)" b
 - name: add $1 repository key
 	apt_key:
 		url: '$2'
 		state: present
 endsnippet
 
-snippet aptrepo "ansible apt repo task"
+snippet aptrepo "ansible apt repo task" b
 - name: add $1 repository
 	apt_repository:
 		repo: '$2'
@@ -91,7 +95,7 @@ snippet aptrepo "ansible apt repo task"
 		state: present
 endsnippet
 
-snippet inittype "ansible check init type and set fact"
+snippet inittype "ansible check init type and set fact" bm
 - name: check init type
 	command: ps -p 1 -o comm=
 	register: init_type
@@ -103,7 +107,7 @@ snippet inittype "ansible check init type and set fact"
 		init_type: "{{ init_type.stdout }}"
 endsnippet
 
-snippet aptitems "ansible apt task with multiple packages"
+snippet aptitems "ansible apt task with multiple packages" b
 - name: ensure $1 packages are installed
 	apt:
 		name: "{{ item }}"
@@ -112,14 +116,14 @@ snippet aptitems "ansible apt task with multiple packages"
 		- $2
 endsnippet
 
-snippet aptpackage "ansible apt task with single package"
+snippet aptpackage "ansible apt task with single package" b
 - name: ensure $1 is installed
 	apt:
 		name: $2
 		state: present
 endsnippet
 
-snippet aplay "ansible play header"
+snippet play "ansible play header" b
 ---
 - name: $1
 	hosts: $2
