@@ -75,8 +75,8 @@ endsnippet
 snippet aptkey "ansible apt key task (keyserver)" b
 - name: add $1 repository key
 	apt_key:
-		keyserver: $2
-		id: $3
+		keyserver: '${2:keyserver.ubuntu.com}'
+		id: '$3'
 		state: present
 endsnippet
 
