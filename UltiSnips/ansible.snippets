@@ -20,10 +20,110 @@ snippet handler "reload service handler"
 		state: reloaded
 endsnippet
 
-snippet service "simple service definition"
+snippet aservice "ansible simple service definition"
 - name: ensure $1 is enabled and running
 	service:
-		name:    $1
-		state:   started
+		name: $1
+		state: started
 		enabled: yes
+endsnippet
+
+snippet adir "ansible directory task"
+- name: ensure $1 exists
+	file:
+		path: $2
+		owner: ${3:root}
+		group: ${4:root}
+		mode: '${5:0755}'
+		state: directory
+endsnippet
+
+snippet alink "ansible symlink task"
+- name: ensure a symlink to $1 exists
+	file:
+		path: $2
+		src: $3
+		owner: ${4:root}
+		group: ${5:root}
+		state: link
+endsnippet
+
+snippet atemplate "ansible template task"
+- name: render $1
+	template:
+		dest: $2
+		src: $3
+		owner: ${4:root}
+		group: ${5:root}
+		mode: '${6:0644}'
+endsnippet
+
+snippet acopy "ansible copy task"
+- name: provide $1
+	copy:
+		dest: $2
+		src: $3
+		owner: ${4:root}
+		group: ${5:root}
+		mode: '${6:0644}'
+endsnippet
+
+snippet aptkey "ansible apt key task (keyserver)"
+- name: add $1 repository key
+	apt_key:
+		keyserver: $2
+		id: $3
+		state: present
+endsnippet
+
+snippet aptkey "ansible apt key task (url)"
+- name: add $1 repository key
+	apt_key:
+		url: '$2'
+		state: present
+endsnippet
+
+snippet aptrepo "ansible apt repo task"
+- name: add $1 repository
+	apt_repository:
+		repo: '$2'
+		update_cache: yes
+		state: present
+endsnippet
+
+snippet inittype "ansible check init type and set fact"
+- name: check init type
+	command: ps -p 1 -o comm=
+	register: init_type
+	changed_when: false
+	always_run: yes
+
+- name: set init type fact
+	set_fact:
+		init_type: "{{ init_type.stdout }}"
+endsnippet
+
+snippet aptitems "ansible apt task with multiple packages"
+- name: ensure $1 packages are installed
+	apt:
+		name: "{{ item }}"
+		state: present
+	with_items:
+		- $2
+endsnippet
+
+snippet aptpackage "ansible apt task with single package"
+- name: ensure $1 is installed
+	apt:
+		name: $2
+		state: present
+endsnippet
+
+snippet aplay "ansible play header"
+---
+- name: $1
+	hosts: $2
+	remote_user: ${3:ansible}
+	roles:
+		- $4
 endsnippet
