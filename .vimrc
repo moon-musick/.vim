@@ -163,6 +163,8 @@ nnoremap <leader>ww :w<CR>
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>qa :qa<CR>
 nnoremap <leader>Q  :qa!<CR>
+nnoremap <leader>u  :update<CR>
+nnoremap <leader>x  :xit<CR>
 
 " provide easy Tagbar toggle
 nmap <F8> :TagbarToggle<CR>
