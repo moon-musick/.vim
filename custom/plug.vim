@@ -131,6 +131,7 @@ Plug 'bitc/hdevtools',              {'for': 'haskell'}
 Plug 'eagletmt/neco-ghc',           {'for': 'haskell'}
 Plug 'tweekmonster/braceless.vim'
 Plug 'klen/python-mode',            {'for': 'python'}
+Plug 'lervag/vimtex',               {'for': 'tex'}
 
 " outliner
 Plug 'vimoutliner/vimoutliner',     {'for': 'votl'}
