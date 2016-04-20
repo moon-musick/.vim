@@ -63,6 +63,8 @@ Plug 'Konfekt/FastFold'
 Plug 'airblade/vim-rooter'
 Plug 'wellle/visual-split.vim'
 Plug 'tommcdo/vim-exchange'
+Plug 'vim-scripts/SyntaxRange'
+Plug 'Olical/vim-enmasse'
 
 " textobj plugins
 Plug 'kana/vim-textobj-user'
