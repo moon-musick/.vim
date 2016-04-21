@@ -79,6 +79,26 @@ augroup python_formatting
   autocmd FileType python nnoremap <leader>y :0,$!yapf<CR>
 augroup END
 
+" custom folding for indent-based languages
+source ~/.vim/custom/fold.vim
+augroup custom_indent_folding
+  autocmd!
+  autocmd FileType python,yaml,ansible,votl setlocal foldmethod=expr
+  autocmd FileType python,yaml,ansible,votl setlocal foldexpr=GetFold(v:lnum)
+  autocmd FileType python,yaml,ansible,votl setlocal foldlevel=99
+  autocmd FileType python,yaml,ansible,votl setlocal foldtext=FoldText()
+  autocmd FileType python,yaml,ansible,votl nnoremap <leader>0 :setlocal foldlevel=0<CR>
+  autocmd FileType python,yaml,ansible,votl nnoremap <leader>1 :setlocal foldlevel=1<CR>
+  autocmd FileType python,yaml,ansible,votl nnoremap <leader>2 :setlocal foldlevel=2<CR>
+  autocmd FileType python,yaml,ansible,votl nnoremap <leader>3 :setlocal foldlevel=3<CR>
+  autocmd FileType python,yaml,ansible,votl nnoremap <leader>4 :setlocal foldlevel=4<CR>
+  autocmd FileType python,yaml,ansible,votl nnoremap <leader>5 :setlocal foldlevel=5<CR>
+  autocmd FileType python,yaml,ansible,votl nnoremap <leader>6 :setlocal foldlevel=6<CR>
+  autocmd FileType python,yaml,ansible,votl nnoremap <leader>7 :setlocal foldlevel=7<CR>
+  autocmd FileType python,yaml,ansible,votl nnoremap <leader>8 :setlocal foldlevel=8<CR>
+  autocmd FileType python,yaml,ansible,votl nnoremap <leader>9 :setlocal foldlevel=9<CR>
+augroup END
+
 " key mappings ----------------------------------------------------------------
 
 " change mapleader for convenience
