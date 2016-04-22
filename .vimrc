@@ -396,6 +396,9 @@ source ~/.vim/custom/plugins/delimitMate.vim
 source ~/.vim/custom/plugins/vim-airline.vim
 source ~/.vim/custom/plugins/vim-grepper.vim
 
+" stop vim-rooter from changing directory automatically
+let g:rooter_manual_only = 1
+
 " custom scripts --------------------------------------------------------------
 source ~/.vim/custom/scripts/perltidy.vim
 
