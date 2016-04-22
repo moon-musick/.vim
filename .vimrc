@@ -382,43 +382,18 @@ nnoremap <leader>sh :SSHFile
 
 " plugin configuration --------------------------------------------------------
 
-" YouCompleteMe configuration
 source ~/.vim/custom/plugins/YouCompleteMe.vim
-
-" syntastic configuration
 source ~/.vim/custom/plugins/syntastic.vim
-
-" vim-commentary configuration
 source ~/.vim/custom/plugins/vim-commentary.vim
-
-" tagbar configuration
 source ~/.vim/custom/plugins/tagbar.vim
-
-" vim-taskwarrior configuration
 source ~/.vim/custom/plugins/taskwarrior.vim
-
-" vim-go configuration
 source ~/.vim/custom/plugins/vim-go.vim
-
-" UltiSnips configuration
 source ~/.vim/custom/plugins/UltiSnips.vim
-
-" python-syntax configuration
 source ~/.vim/custom/plugins/python-syntax.vim
-
-" fugitive-gitlab configuration
 source ~/.vim/custom/plugins/fugitive-gitlab.vim
-
-" indentLine configuration
 source ~/.vim/custom/plugins/indentLine.vim
-
-" delimitMate configuration
 source ~/.vim/custom/plugins/delimitMate.vim
-
-" vim-airline configuration
 source ~/.vim/custom/plugins/vim-airline.vim
-
-" vim-grepper configuration
 source ~/.vim/custom/plugins/vim-grepper.vim
 
 " custom scripts --------------------------------------------------------------
