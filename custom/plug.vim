@@ -9,7 +9,7 @@ call plug#begin('~/.vim/plugged')
 
 " completion
 Plug 'ervandew/supertab'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
 
 " appearance
 Plug 'altercation/vim-colors-solarized'
