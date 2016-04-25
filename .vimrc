@@ -208,6 +208,11 @@ let g:EasyMotion_use_smartsign_us = 1
 " easier search highlighting clearing
 nmap <leader>hl :nohlsearch<CR>
 
+" more consistent n/N behaviour
+" https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+nnoremap <expr> n 'Nn'[v:searchforward]
+nnoremap <expr> N 'nN'[v:searchforward]
+
 " http://mixandgo.com/blog/vim-config-for-rails-ninjas
 " Visually select the text that was last edited/pasted
 nnoremap gV `[v`]
