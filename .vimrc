@@ -358,6 +358,10 @@ runtime macros/matchit.vim
 " path expansion mapping for command mode
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" smarter command-line history
+cnoremap <C-n> <Down>
+cnoremap <C-p> <Up>
+
 " stripping whitespace - http://vimcasts.org/episodes/tidying-whitespace/
 " function! <SID>StripTrailingWhitespaces()
 function! StripTrailingWhitespaces()
