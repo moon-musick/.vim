@@ -84,9 +84,6 @@ augroup END
 " change mapleader for convenience
 let mapleader=" "
 
-" remap backslash to reverse char search
-noremap \ ,
-
 " swap mark jump commands
 nnoremap ` '
 nnoremap ' `
