@@ -405,6 +405,9 @@ source ~/.vim/custom/plugins/vim-grepper.vim
 " stop vim-rooter from changing directory automatically
 let g:rooter_manual_only = 1
 
+" use rainbow parentheses for '[]' too
+let g:rainbow#pairs = [['(', ')'], ['[', ']']]
+
 " custom scripts --------------------------------------------------------------
 source ~/.vim/custom/scripts/perltidy.vim
 
