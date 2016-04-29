@@ -109,7 +109,7 @@ Plug 'pearofducks/ansible-vim',     {'for': 'ansible'}
 Plug 'mitsuhiko/vim-jinja',         {'for': 'jinja'}
 Plug 'tangledhelix/vim-kickstart',  {'for': 'kickstart'}
 Plug 'slim-template/vim-slim',      {'for': 'slim'}
-Plug 'wting/rust.vim',              {'for': 'rust'}
+Plug 'wting/rust.vim'
 Plug 'ekalinin/Dockerfile.vim',     {'for': 'Dockerfile'}
 Plug 'vim-scripts/ferm.vim',        {'for': 'ferm'}
 Plug 'rodjek/vim-puppet',           {'for': 'puppet'}
@@ -132,6 +132,7 @@ Plug 'eagletmt/neco-ghc',           {'for': 'haskell'}
 Plug 'tweekmonster/braceless.vim'
 Plug 'klen/python-mode',            {'for': 'python'}
 Plug 'lervag/vimtex',               {'for': 'tex'}
+Plug 'rust-lang/rust.vim',          {'for': 'rust', 'dir': '~/.vim/plugged/rust-lang.vim'}
 
 " outliner
 Plug 'vimoutliner/vimoutliner',     {'for': 'votl'}

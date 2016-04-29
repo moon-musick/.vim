@@ -61,6 +61,7 @@ augroup filetype_setting
   autocmd BufRead,BufNewFile *.html set filetype=html
   autocmd BufRead,BufNewFile *.css  set filetype=css
   autocmd BufRead,BufNewFile *.j2   set filetype=jinja
+  autocmd BufRead,BufNewFile *.rs   set filetype=rust
 augroup END
 
 " enable omnicompletion for ruby and python
