@@ -389,6 +389,7 @@ nnoremap <leader>sh :SSHFile
 
 " plugin configuration --------------------------------------------------------
 
+source ~/.vim/custom/plugins/autoformat.vim
 source ~/.vim/custom/plugins/YouCompleteMe.vim
 source ~/.vim/custom/plugins/syntastic.vim
 source ~/.vim/custom/plugins/vim-commentary.vim

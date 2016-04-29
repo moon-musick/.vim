@@ -65,6 +65,7 @@ Plug 'wellle/visual-split.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'Olical/vim-enmasse'
+Plug 'Chiel92/vim-autoformat'
 
 " textobj plugins
 Plug 'kana/vim-textobj-user'
