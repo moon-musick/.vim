@@ -79,6 +79,7 @@ Plug 'Julian/vim-textobj-variable-segment'
 Plug 'nelstrom/vim-textobj-rubyblock',  {'for': 'ruby'}
 Plug 'bps/vim-textobj-python',          {'for': 'python'}
 Plug 'beloglazov/vim-textobj-quotes'
+Plug 'coderifous/textobj-word-column.vim'
 
 " external tools
 Plug 'mileszs/ack.vim'
