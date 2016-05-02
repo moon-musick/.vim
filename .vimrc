@@ -278,7 +278,7 @@ xnoremap <leader>sb :VSSplitBelow<CR>
 xnoremap <leader>sr :VSResize<CR>
 
 " vim-grepper custom command
-nnoremap <leader>/ :Sift 
+nnoremap <leader>/ :Sift<Space>
 
 " yankstack
 nmap <leader>y <Plug>yankstack_substitute_older_paste
@@ -385,7 +385,7 @@ endfunction
 
 command! -complete=file -nargs=* SSHFile :call SSHFile(<f-args>)
 
-nnoremap <leader>sh :SSHFile 
+nnoremap <leader>sh :SSHFile<Space>
 
 " plugin configuration --------------------------------------------------------
 
