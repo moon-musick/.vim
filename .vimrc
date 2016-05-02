@@ -445,7 +445,7 @@ highlight VertSplit ctermbg=NONE guibg=NONE
 set colorcolumn=80
 
 " set the total number of tabs to be opened with the -p command line option
-set tabpagemax=15
+set tabpagemax=30
 
 " always show the tabs bar
 set showtabline=2
