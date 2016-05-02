@@ -432,10 +432,7 @@ if has('gui_running')
 endif
 
 " disable toolbars in GUI
-set guioptions-=m
-set guioptions-=r
-set guioptions-=T
-set guioptions-=e
+set guioptions=c
 
 " make vertical windows separator thinner
 set fillchars=vert:│
