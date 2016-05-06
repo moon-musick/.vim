@@ -47,7 +47,7 @@ set incsearch
 augroup indentation
   autocmd!
   autocmd FileType ruby,cucumber,erb,yaml,html,css,scss,coffee setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
-  autocmd FileType python,haskell setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
+  autocmd FileType python,haskell,markdown setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
   autocmd FileType lokis setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
   autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
   autocmd FileType votl setlocal softtabstop=4
