@@ -416,6 +416,9 @@ source ~/.vim/custom/scripts/perltidy.vim
 " abbreviations ---------------------------------------------------------------
 source ~/.vim/custom/abbreviations.vim
 
+" backlog functions -----------------------------------------------------------
+source ~/.vim/custom/backlog.vim
+
 " apperarance stuff -----------------------------------------------------------
 
 " colors support indication
