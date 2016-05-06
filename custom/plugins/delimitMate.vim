@@ -6,3 +6,8 @@ let delimitMate_expand_cr = 1
 
 " enable jump expansion
 let delimitMate_jump_expansion = 1
+
+augroup delimitmate_filetype
+  autocmd!
+  autocmd FileType haskell let b:delimitMate_matchpairs = "(:),[:],{:}"
+augroup END
