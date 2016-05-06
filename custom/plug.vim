@@ -129,8 +129,9 @@ Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-fireplace',         {'for': 'clojure'}
 Plug 'fatih/vim-go',                {'for': 'go'}
 Plug 'chrisbra/csv.vim',            {'for': 'csv'}
-Plug 'bitc/hdevtools',              {'for': 'haskell'}
+Plug 'bitc/vim-hdevtools',          {'for': 'haskell'}
 Plug 'eagletmt/neco-ghc',           {'for': 'haskell'}
+Plug 'neovimhaskell/haskell-vim',   {'for': 'haskell'}
 Plug 'tweekmonster/braceless.vim'
 Plug 'klen/python-mode',            {'for': 'python'}
 Plug 'lervag/vimtex',               {'for': 'tex'}
