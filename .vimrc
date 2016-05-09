@@ -46,7 +46,6 @@ set incsearch
 " different indentation settings for various languages
 augroup indentation
   autocmd!
-  autocmd FileType ruby,cucumber,erb,yaml,html,css,scss,coffee setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent
   autocmd FileType python,haskell,markdown setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
   autocmd FileType lokis setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
   autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
@@ -95,21 +94,6 @@ nmap <leader>l :set list!<CR>
 " set characters for whitespace display
 set listchars=tab:»\ ,eol:¬
 
-" set shortcut for nerdtree plugin
-nmap <leader>t :NERDTreeToggle<CR>
-
-" autoclose nerdtree window if closing all other windows and exit
-augroup nerdtree
-  autocmd!
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-augroup END
-
-" set shortcut for ack plugin
-nmap <leader>a <Esc>:Ack!
-
-" use ag instead of ack (better performance)
-let g:ackprg = 'sift -n -i --binary-skip'
-
 " set shortcuts for moving between windows
 map <c-j> <c-w>j
 map <c-k> <c-w>k
@@ -153,9 +137,6 @@ nmap <leader>bp :bprevious<CR>
 nmap <leader>bl :buffers<CR>
 nmap <leader>bd :bdelete<CR>
 
-" gundo toggle shortcut
-nnoremap <F6> :UndotreeToggle<CR>
-
 " map write and quit to something more sensible
 nnoremap <leader>ww :w<CR>
 nnoremap <leader>wq :wq<CR>
@@ -163,9 +144,6 @@ nnoremap <leader>qa :qa<CR>
 nnoremap <leader>Q  :qa!<CR>
 nnoremap <leader>u  :update<CR>
 nnoremap <leader>x  :xit<CR>
-
-" provide easy Tagbar toggle
-nmap <F8> :TagbarToggle<CR>
 
 " disable Ex mode shortcut
 nnoremap Q <nop>
@@ -181,10 +159,6 @@ nmap <silent> <leader>sp :set spelllang=pl spell!<CR>
 " map omnifunc completion to something more convenient
 inoremap <C-f> <C-x><C-o>
 
-" fzf completion mappings
-imap <C-x><C-f> <Plug>(fzf-complete-path)
-imap <C-x><C-l> <Plug>(fzf-complete-line)
-
 " mapping for navigating visual lines
 " http://andrewradev.com/2011/04/26/my-vim-workflow-basic-moves/
 nnoremap j gj
@@ -195,16 +169,6 @@ xnoremap k gk
 " easily edit configuration files
 nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>ep :edit ~/.vim/custom/plug.vim<CR>
-
-" https://github.com/easymotion/vim-easymotion
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
-" Use uppercase target labels and type as a lower case
-let g:EasyMotion_use_upper = 1
-" type 'l' and match 'l' & 'L'
-let g:EasyMotion_smartcase = 1
-" Smartsign (type '3' and match '3' and '#')
-let g:EasyMotion_use_smartsign_us = 1
 
 " easier search highlighting clearing
 nmap <leader>hl :nohlsearch<CR>
@@ -247,6 +211,11 @@ map <leader>so :SyntasticCheck<CR>
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
+" plugin key mappings ---------------------------------------------------------
+
+" set shortcut for nerdtree plugin
+nmap <leader>t :NERDTreeToggle<CR>
+
 " https://github.com/junegunn/vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
 nmap ga      <Plug>(EasyAlign)
@@ -259,12 +228,6 @@ augroup haskell
   autocmd FileType haskell nnoremap <buffer> <leader>hi :HdevtoolsInfo<CR>
 augroup END
 
-" textobj-python mappings
-omap ak <Plug>(textobj-python-class-a)
-xmap ak <Plug>(textobj-python-class-a)
-omap ik <Plug>(textobj-python-class-i)
-xmap ik <Plug>(textobj-python-class-i)
-
 " indentLine mappings
 nmap <leader>i :IndentLinesToggle<CR>
 
@@ -272,19 +235,15 @@ nmap <leader>i :IndentLinesToggle<CR>
 source ~/.vim/custom/fzfmenu.vim
 nmap <leader>f :call MakeFZFMenu()<CR>
 
-" visual-split mappings
-xnoremap <leader>sa :VSSplitAbove<CR>
-xnoremap <leader>sb :VSSplitBelow<CR>
-xnoremap <leader>sr :VSResize<CR>
+" fzf completion mappings
+imap <C-x><C-f> <Plug>(fzf-complete-path)
+imap <C-x><C-l> <Plug>(fzf-complete-line)
+
+" gundo toggle shortcut
+nnoremap <F6> :UndotreeToggle<CR>
 
 " vim-grepper custom command
 nnoremap <leader>/ :Sift<Space>
-
-" yankstack
-nmap <leader>y <Plug>yankstack_substitute_older_paste
-nmap <leader>Y <Plug>yankstack_substitute_newer_paste
-" preserve 'S' visual mode binding with vim-surround
-let g:yankstack_yank_keys = ['c', 'C', 'd', 'D', 'x', 'X', 'y', 'Y']
 
 " general stuff ---------------------------------------------------------------
 
@@ -329,13 +288,6 @@ endif
 if v:version > 704 || v:version == 704 && has ("patch427")
   set updatetime=250
 endif
-
-" http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
-" delete unneeded buffers left by browsing
-augroup fugitive
-  autocmd!
-  autocmd BufReadPost fugitive://* set bufhidden=delete
-augroup END
 
 " remember last position of cursor within buffer, but don't do that for
 " invalid position or when inside an event handler
@@ -393,8 +345,6 @@ source ~/.vim/custom/plugins/autoformat.vim
 source ~/.vim/custom/plugins/YouCompleteMe.vim
 source ~/.vim/custom/plugins/syntastic.vim
 source ~/.vim/custom/plugins/vim-commentary.vim
-source ~/.vim/custom/plugins/tagbar.vim
-source ~/.vim/custom/plugins/taskwarrior.vim
 source ~/.vim/custom/plugins/vim-go.vim
 source ~/.vim/custom/plugins/UltiSnips.vim
 source ~/.vim/custom/plugins/python-syntax.vim
@@ -404,11 +354,18 @@ source ~/.vim/custom/plugins/delimitMate.vim
 source ~/.vim/custom/plugins/vim-airline.vim
 source ~/.vim/custom/plugins/vim-grepper.vim
 
-" stop vim-rooter from changing directory automatically
-let g:rooter_manual_only = 1
+" autoclose nerdtree window if closing all other windows and exit
+augroup nerdtree
+  autocmd!
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup END
 
-" use rainbow parentheses for '[]' too
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+" http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
+" delete unneeded buffers left by browsing
+augroup fugitive
+  autocmd!
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+augroup END
 
 " custom scripts --------------------------------------------------------------
 source ~/.vim/custom/scripts/perltidy.vim
@@ -423,11 +380,6 @@ source ~/.vim/custom/backlog.vim
 
 " colors support indication
 set t_Co=256
-" set t_Co=16
-let g:solarized_termcolors=16
-
-" toggle background color mapping
-call togglebg#map('<F5>')
 
 " GUI font setting
 if has('gui_running')
@@ -485,9 +437,5 @@ augroup END
 set background=dark
 colorscheme gruvbox
 
-" set SignColumn color equal to general background (gruvbox colors)
-highlight SignColumn            ctermbg=NONE guibg=NONE
-highlight GitGutterAdd          ctermfg=142 ctermbg=235 guifg=#b8bb26 guibg=#3c3836
-highlight GitGutterChange       ctermfg=108 ctermbg=235 guifg=#8ec07c guibg=#3c3836
-highlight GitGutterDelete       ctermfg=167 ctermbg=235 guifg=#fb4934 guibg=#3c3836
-highlight GitGutterChangeDelete ctermfg=108 ctermbg=235 guifg=#8ec07c guibg=#3c3836
+" set SignColumn color equal to general background
+highlight SignColumn ctermbg=NONE guibg=NONE
