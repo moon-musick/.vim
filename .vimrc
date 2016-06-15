@@ -245,6 +245,14 @@ nnoremap <F6> :UndotreeToggle<CR>
 " vim-grepper custom command
 nnoremap <leader>/ :Sift<Space>
 
+" vim-interestingwords
+let g:interestingWordsDefaultMappings = 0
+nnoremap <silent> <leader>a :call InterestingWords('n')<CR>
+vnoremap <silent> <leader>a :call InterestingWords('v')<CR>
+nnoremap <silent> <leader>A :call UncolorAllWords()<CR>
+nnoremap <silent> n :call WordNavigation(1)<CR>
+nnoremap <silent> N :call WordNavigation(0)<CR>
+
 " general stuff ---------------------------------------------------------------
 
 " use exrc but disable shell & writing stuff
