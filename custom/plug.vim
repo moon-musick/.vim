@@ -24,6 +24,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'kshenoy/vim-signature'
 Plug 'Yggdroot/indentLine'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'lfv89/vim-interestingwords'
 
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-capslock'
