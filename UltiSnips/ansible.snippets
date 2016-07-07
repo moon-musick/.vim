@@ -139,9 +139,9 @@ endsnippet
 
 snippet play "ansible play header" b
 ---
-- name: $1
-	hosts: $2
+- name: ${1:''}
+	hosts: ${2:all}
 	remote_user: ${3:ansible}
 	roles:
-		- $4
+		- ${4:default}
 endsnippet
