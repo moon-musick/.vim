@@ -447,3 +447,5 @@ colorscheme gruvbox
 
 " set SignColumn color equal to general background
 highlight SignColumn ctermbg=NONE guibg=NONE
+
+language en_US.utf8
