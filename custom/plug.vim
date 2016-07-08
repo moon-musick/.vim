@@ -49,6 +49,7 @@ Plug 'honza/vim-snippets'
 
 Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
+Plug 'junegunn/gv.vim'
 Plug 'mhinz/vim-signify'
 
 " syntax files
