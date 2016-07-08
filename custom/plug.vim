@@ -48,6 +48,7 @@ Plug 'SirVer/UltiSnips'
 Plug 'honza/vim-snippets'
 
 Plug 'tpope/vim-fugitive'
+Plug 'idanarye/vim-merginal'
 Plug 'mhinz/vim-signify'
 
 " syntax files
