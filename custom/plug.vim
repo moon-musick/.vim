@@ -36,6 +36,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
 
+Plug 'ap/vim-buftabline'
+
 Plug 'duggiefresh/vim-easydir'
 
 Plug 'mhinz/vim-grepper'
