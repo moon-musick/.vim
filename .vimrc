@@ -128,8 +128,10 @@ nmap <leader>K <c-w>K
 nmap <leader>L <c-w>L
 
 " set shortcuts for moving between tabs
-map <leader>p <esc>:tabprevious<CR>
-map <leader>n <esc>:tabnext<CR>
+nnoremap <leader>p :tabprevious<CR>
+nnoremap <leader>n :tabnext<CR>
+nnoremap <C-p> :bprev<CR>
+nnoremap <C-n> :bnext<CR>
 
 " switch buffers
 nmap <leader>bn :bnext<CR>
