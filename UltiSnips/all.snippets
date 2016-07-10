@@ -24,3 +24,23 @@ T UNDONE
 
 INTERRUPTS
 endsnippet
+
+snippet "(\w+)\.par" "Parenthesis (post)" r
+(`!p snip.rv = match.group(1)`$1)$0
+endsnippet
+
+snippet "(\w+)\.avar" "Ansible variable" r
+\{\{ `!p snip.rv = match.group(1)`$1 \}\}$0
+endsnippet
+
+snippet "(\w+)\.qvar" "Ansible variable with double quotation" r
+"\{\{ `!p snip.rv = match.group(1)`$1 \}\}"$0
+endsnippet
+
+snippet "(\w+)\.sqt" "Single quotes" r
+'`!p snip.rv = match.group(1)`$1'$0
+endsnippet
+
+snippet "(\w+)\.dqt" "Double quotes" r
+"`!p snip.rv = match.group(1)`$1"$0
+endsnippet
