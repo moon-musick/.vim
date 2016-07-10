@@ -11,21 +11,21 @@ snippet var "Ansible variable"
 endsnippet
 
 snippet restart "restart service handler" b
-- name: restart $1
+- name: restart ${1:SERVICE_NAME}
 	service:
 		name:  $1
 		state: restarted
 endsnippet
 
 snippet reload "reload service handler" b
-- name: reload $1
+- name: reload ${1:SERVICE_NAME}
 	service:
 		name:  $1
 		state: reloaded
 endsnippet
 
 snippet service "ansible simple service definition" b
-- name: ensure $1 is enabled and running
+- name: ensure ${1:SERVICE_NAME} is enabled and running
 	service:
 		name: $1
 		state: started
@@ -33,9 +33,9 @@ snippet service "ansible simple service definition" b
 endsnippet
 
 snippet dir "ansible directory task" b
-- name: ensure $1 exists
+- name: ensure ${1:DIR_DESCRIPTION} exists
 	file:
-		path: $2
+		path: ${2:PATH}
 		owner: ${3:root}
 		group: ${4:root}
 		mode: '${5:0755}'
@@ -43,68 +43,68 @@ snippet dir "ansible directory task" b
 endsnippet
 
 snippet link "ansible symlink task" b
-- name: ensure a symlink to $1 exists
+- name: ensure a symlink to ${1:TARGET_DESCRIPTION} exists
 	file:
-		path: $2
-		src: $3
+		path: ${2:SYMLINK_PATH}
+		src: ${3:TARGET_PATH}
 		owner: ${4:root}
 		group: ${5:root}
 		state: link
 endsnippet
 
 snippet template "ansible template task" b
-- name: render $1
+- name: render ${1:TEMPLATE_DESCRIPTION}
 	template:
-		dest: $2
-		src: $3
+		dest: /${2:PATH}
+		src: ${3:$2}
 		owner: ${4:root}
 		group: ${5:root}
 		mode: '${6:0644}'
 endsnippet
 
 snippet copy "ansible copy task" b
-- name: provide $1
+- name: provide ${1:COPIED_FILE_DESCRIPTION}
 	copy:
-		dest: $2
-		src: $3
+		dest: /${2:PATH}
+		src: ${3:$2}
 		owner: ${4:root}
 		group: ${5:root}
 		mode: '${6:0644}'
 endsnippet
 
 snippet aptkey "ansible apt key task (keyserver)" b
-- name: add $1 repository key
+- name: add ${1:package} repository key
 	apt_key:
 		keyserver: '${2:keyserver.ubuntu.com}'
-		id: '$3'
+		id: '${3:KEY_ID}'
 		state: present
 endsnippet
 
 snippet aptkey "ansible apt key task (url)" b
-- name: add $1 repository key
+- name: add ${1:package} repository key
 	apt_key:
-		url: '$2'
+		url: '${2:URL}'
 		state: present
 endsnippet
 
 snippet aptrepo "ansible apt repo task" b
-- name: add $1 repository
+- name: add ${1:package} repository
 	apt_repository:
-		repo: '$2'
+		repo: '${2:REPO_STRING}'
 		update_cache: yes
 		state: present
 endsnippet
 
 snippet ppa "ansible ppa (key + repo) tasks" bm
-- name: add $1 repository key
+- name: add ${1:package} repository key
 	apt_key:
 		keyserver: '${2:keyserver.ubuntu.com}'
-		id: '$3'
+		id: '${3:KEY_ID}'
 		state: present
 
 - name: add $1 repository
 	apt_repository:
-		repo: 'ppa:$4'
+		repo: 'ppa:${4:PPA_STRING}'
 		update_cache: yes
 		state: present
 endsnippet
@@ -127,13 +127,13 @@ snippet aptitems "ansible apt task with multiple packages" b
 		name: "{{ item }}"
 		state: present
 	with_items:
-		- $2
+		- ${2:ITEM}
 endsnippet
 
 snippet aptpackage "ansible apt task with single package" b
 - name: ensure $1 is installed
 	apt:
-		name: $2
+		name: ${2:PACKAGE_NAME}
 		state: present
 endsnippet
 
