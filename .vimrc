@@ -133,11 +133,13 @@ nnoremap <leader>n :tabnext<CR>
 nnoremap <C-p> :bprev<CR>
 nnoremap <C-n> :bnext<CR>
 
+" switch to the alternate (last used) buffer
+nnoremap <C-e> <C-^>
+
 " switch buffers
-nmap <leader>bn :bnext<CR>
-nmap <leader>bp :bprevious<CR>
-nmap <leader>bl :buffers<CR>
-nmap <leader>bd :bdelete<CR>
+nnoremap <leader>b :ls<CR>:b<Space>
+" delete buffer
+nnoremap <leader>d :bdelete<CR>
 
 " map write and quit to something more sensible
 nnoremap <leader>ww :w<CR>
@@ -198,11 +200,11 @@ inoremap <C-c> <Esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-nnoremap <leader>d :redraw!<CR>
+nnoremap <leader>r :redraw!<CR>
 
 " quickly edit your macros
 " https://github.com/mhinz/vim-galore#quickly-edit-your-macros
-nnoremap <leader>r :<C-u><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><Left>
+nnoremap <leader>m :<C-u><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><Left>
 
 " syntastic mappings
 map <leader>sc :lclose<CR>
