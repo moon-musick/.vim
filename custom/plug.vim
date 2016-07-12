@@ -48,6 +48,7 @@ Plug 'scrooloose/syntastic'
 
 Plug 'SirVer/UltiSnips'
 Plug 'honza/vim-snippets'
+Plug 'moon-musick/vim-snippets-tsi'
 
 Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
