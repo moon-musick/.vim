@@ -113,17 +113,9 @@ nnoremap <leader>=  <c-w>=
 " mazimize current buffer
 nnoremap <leader>wf <c-w><bar><c-w>_
 
-" enable man plugin - makes reading man pages in vim possible
-" use before split buffer rotate mappings - man plugin defines <leader>K
-runtime! ftplugin/man.vim
-
-" remap <leader>K from man plugin
-nnoremap <leader>M :call <SNR>34_PreGetPage(0)<CR>
-
 " rotate split buffers
 nmap <leader>H <c-w>H
 nmap <leader>J <c-w>J
-" reuse man plugin map
 nmap <leader>K <c-w>K
 nmap <leader>L <c-w>L
 
