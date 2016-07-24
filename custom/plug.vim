@@ -14,6 +14,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-projectionist'
 Plug 'mbbill/undotree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
 "
 Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'

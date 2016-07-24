@@ -128,8 +128,6 @@ nnoremap <C-n> :bnext<CR>
 " switch to the alternate (last used) buffer
 nnoremap <C-e> <C-^>
 
-" switch buffers
-nnoremap <leader>b :ls<CR>:b<Space>
 " delete buffer
 nnoremap <leader>d :bdelete<CR>
 
@@ -166,9 +164,6 @@ xnoremap k gk
 nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>ep :edit ~/.vim/custom/plug.vim<CR>
 
-" easier search highlighting clearing
-nmap <leader>hl :nohlsearch<CR>
-
 " more consistent n/N behaviour
 " https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 nnoremap <expr> n 'Nn'[v:searchforward]
@@ -192,7 +187,7 @@ inoremap <C-c> <Esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-nnoremap <leader>r :redraw!<CR>
+nnoremap <leader>r :nohlsearch<CR> :redraw!<CR>
 
 " quickly edit your macros
 " https://github.com/mhinz/vim-galore#quickly-edit-your-macros
@@ -208,6 +203,11 @@ nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
 " plugin key mappings ---------------------------------------------------------
+
+" CtrlP
+nmap <leader>o :CtrlP<CR>
+nmap <leader>h :CtrlPMRUFiles<CR>
+nmap <leader>b :CtrlPBuffer<CR>
 
 " set shortcut for nerdtree plugin
 nmap <leader>t :NERDTreeToggle<CR>
