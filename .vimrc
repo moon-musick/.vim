@@ -205,6 +205,7 @@ xnoremap & :&&<CR>
 " plugin key mappings ---------------------------------------------------------
 
 " CtrlP
+let g:ctrlp_map = ''
 nmap <leader>o :CtrlP<CR>
 nmap <leader>h :CtrlPMRUFiles<CR>
 nmap <leader>b :CtrlPBuffer<CR>
