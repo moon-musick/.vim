@@ -4,13 +4,14 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 Plug 'ervandew/supertab'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --gocode-completer' }
 
 Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/seoul256.vim'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-projectionist'
 Plug 'mbbill/undotree'
@@ -45,6 +46,8 @@ Plug 'duggiefresh/vim-easydir'
 
 Plug 'mhinz/vim-grepper'
 
+Plug 'christoomey/vim-system-copy'
+
 Plug 'KabbAmine/zeavim.vim'
 
 Plug 'scrooloose/syntastic'
@@ -61,7 +64,7 @@ Plug 'mhinz/vim-signify'
 " syntax files
 Plug 'derekwyatt/vim-scala',        {'for': 'scala'}
 Plug 'evanmiller/nginx-vim-syntax', {'for': 'nginx'}
-Plug 'pearofducks/ansible-vim',     {'for': 'ansible'}
+Plug 'pearofducks/ansible-vim'
 Plug 'mitsuhiko/vim-jinja',         {'for': 'jinja'}
 Plug 'tangledhelix/vim-kickstart',  {'for': 'kickstart'}
 Plug 'slim-template/vim-slim',      {'for': 'slim'}
@@ -76,6 +79,7 @@ Plug 'davinche/godown-vim',         {'for': 'markdown'}
 Plug 'moon-musick/vim-logrotate',   {'for': 'logrotate'}
 Plug 'moon-musick/vim-i3-config-syntax', {'for': 'i3'}
 Plug 'cespare/vim-toml',            {'for': 'toml'}
+Plug 'glidenote/keepalived-syntax.vim'
 
 " filetype-related tools
 Plug 'vim-ruby/vim-ruby',           {'for': 'ruby'}

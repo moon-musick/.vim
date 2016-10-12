@@ -110,7 +110,7 @@ nnoremap <leader>. :vertical resize +5<CR>
 nnoremap <leader>we <c-w>=
 nnoremap <leader>=  <c-w>=
 
-" mazimize current buffer
+" maximize current buffer
 nnoremap <leader>wf <c-w><bar><c-w>_
 
 " rotate split buffers
@@ -187,7 +187,7 @@ inoremap <C-c> <Esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-nnoremap <leader>r :nohlsearch<CR> :redraw!<CR>
+nnoremap <leader>r :nohlsearch<CR>:redraw!<CR>
 
 " quickly edit your macros
 " https://github.com/mhinz/vim-galore#quickly-edit-your-macros
@@ -228,19 +228,11 @@ augroup END
 " indentLine mappings
 nmap <leader>i :IndentLinesToggle<CR>
 
-" fzf menu mappings
-source ~/.vim/custom/fzfmenu.vim
-nmap <leader>f :call MakeFZFMenu()<CR>
-
-" fzf completion mappings
-imap <C-x><C-f> <Plug>(fzf-complete-path)
-imap <C-x><C-l> <Plug>(fzf-complete-line)
-
 " gundo toggle shortcut
 nnoremap <F6> :UndotreeToggle<CR>
 
 " vim-grepper custom command
-nnoremap <leader>/ :Sift<Space>
+nnoremap <leader>/ :Rg<Space>
 
 " vim-interestingwords
 let g:interestingWordsDefaultMappings = 0

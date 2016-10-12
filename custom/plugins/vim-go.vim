@@ -42,4 +42,4 @@ let $GOROOT = "/usr/local/go"
 let $GOPATH = $HOME . "/go"
 
 " use goimports instead of gofmt to insert import clauses automatically
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "gofmt"

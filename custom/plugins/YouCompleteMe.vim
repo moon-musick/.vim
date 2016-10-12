@@ -18,3 +18,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " neco-ghc completion https://github.com/eagletmt/neco-ghc
 let g:ycm_semantic_triggers = {'haskell': ['.']}
+
+let g:ycm_server_keep_logfiles = 1
+
+let g:ycm_server_python_interpreter = '/usr/bin/python3.4'

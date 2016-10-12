@@ -7,7 +7,7 @@ let g:grepper = {
   \   'grepprg': 'rg -n -i --column --color=never --no-heading',
   \   'grepformat': '%f:%l:%c:%m',
   \   'escape':     '\+*?^$%#()[]' },
-  \ 'tools': ['sift', 'rg'],
+  \ 'tools': ['rg', 'sift'],
   \ }
 
 command! -nargs=* -complete=file Sift Grepper -tool sift -query <args>
