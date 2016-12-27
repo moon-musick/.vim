@@ -400,6 +400,7 @@ source ~/.vim/custom/backlog.vim
 
 " colors support indication
 set t_Co=256
+" set t_Co=16
 
 " GUI font setting
 if has('gui_running')
@@ -455,7 +456,15 @@ augroup END
 
 " colorscheme settings
 set background=dark
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme solarized
+highlight TabLineFill ctermbg=NONE guibg=NONE
+call togglebg#map("<F5>")
+
+let anyfold_activate=1
+let anyfold_fold_comments=1
+set foldlevel=0
+highlight Folded term=NONE cterm=NONE
 
 " set SignColumn color equal to general background
 highlight SignColumn ctermbg=NONE guibg=NONE
