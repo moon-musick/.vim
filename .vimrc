@@ -353,6 +353,9 @@ command! -complete=file -nargs=* SSHFile :call SSHFile(<f-args>)
 
 nnoremap <leader>sh :SSHFile<Space>
 
+" easier map for setting syntax coloring for a specific filetype
+nnoremap <leader>ft :set ft=
+
 " plugin configuration --------------------------------------------------------
 
 source ~/.vim/custom/plugins/autoformat.vim
