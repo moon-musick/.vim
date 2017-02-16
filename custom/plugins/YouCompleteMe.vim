@@ -21,4 +21,4 @@ let g:ycm_semantic_triggers = {'haskell': ['.']}
 
 let g:ycm_server_keep_logfiles = 1
 
-let g:ycm_server_python_interpreter = '/usr/bin/python3.4'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
