@@ -10,7 +10,7 @@ let g:syntastic_loc_list_height=5
 
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['go', 'ansible']}
-let g:go_list_type = "quickfix"
+let g:go_list_type = 'quickfix'
 " let g:syntastic_ansible_checkers = ['ansible_lint']
 " let g:syntastic_ansible_checkers_ansible_lint_exec = '/usr/local/bin/ansible-lint'
 

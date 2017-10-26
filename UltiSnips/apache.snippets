@@ -1,0 +1,23 @@
+snippet ssltvhost "an ssl vhost declaration for an svn trunk" b
+<VirtualHost *:443>
+	DocumentRoot /home/${1:DEV}/sites/$1/tsi
+	ServerName $1.trojmiasto.pl
+	ErrorLog /var/log/apache2/$1.log
+	SetEnv vhost_mode developer
+	Header setifempty Cache-Control "no-cache, no-store, must-revalidate"
+</VirtualHost>
+endsnippet
+
+snippet sslbvhost "an ssl vhost declaration for an svn branch" b
+<VirtualHost *:443>
+	DocumentRoot /home/${1:DEV}/sites/${2:BRANCH}/tsi
+	ServerName $2.$1.trojmiasto.pl
+	ErrorLog /var/log/apache2/$1.log
+	SetEnv vhost_mode developer
+	SSLEngine on
+	SSLCertificateFile    /etc/letsencrypt/live/$2.$1.trojmiasto.pl/cert.pem
+	SSLCertificateKeyFile /etc/letsencrypt/live/$2.$1.trojmiasto.pl/privkey.pem
+	SSLCACertificateFile  /etc/letsencrypt/live/$2.$1.trojmiasto.pl/fullchain.pem
+	Header setifempty Cache-Control "no-cache, no-store, must-revalidate"
+</VirtualHost>
+endsnippet

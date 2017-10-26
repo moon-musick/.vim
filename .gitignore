@@ -5,3 +5,5 @@ plugged/*
 temp/*
 !bundle/Vundle.vim/
 init.vim
+spell/*.spl
+spell/*.sug

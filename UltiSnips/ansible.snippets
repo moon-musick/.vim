@@ -1,0 +1,15 @@
+snippet pip "pip package" b
+- name: ensure ${1:PACKAGE} pip package is installed
+	pip:
+		name: $1
+		executable: ${2:pip2}
+		state: present
+	tags: ['install', 'pip']
+endsnippet
+
+snippet systemd "reload systemctl" b
+- name: reload systemctl daemon if needed
+	command: systemctl daemon-reload
+	when: ${1:variable}
+	tags: ['config', 'systemd']
+endsnippet

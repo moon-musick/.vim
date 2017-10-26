@@ -1,0 +1,30 @@
+snippet gsrv "goss service" b
+${1:NAME}:
+	enabled: ${2:true}
+	running: ${3:true}
+endsnippet
+
+snippet gpkg "goss package" b
+${1:NAME}:
+	installed: ${2:true}
+endsnippet
+
+snippet ghttp "goss http check" b
+${1:URL}:
+	status: ${2:200}
+	timeout: ${3:5000}
+	body:
+		- '${4:STRING}'
+endsnippet
+
+snippet gproc "goss process" b
+${1:NAME}:
+	running: ${2:true}
+endsnippet
+
+snippet gport "goss port" b
+${1:tcp}:${2:NUMBER}:  # ${3:COMMENT}
+	listening: ${4:true}
+	ip:
+		- ${5:0.0.0.0}
+endsnippet
