@@ -479,7 +479,6 @@ set scrolloff=3
 " plugin configuration --------------------------------------------------------
 
 source ~/.vim/custom/plugins/autoformat.vim
-source ~/.vim/custom/plugins/YouCompleteMe.vim
 source ~/.vim/custom/plugins/vim-commentary.vim
 source ~/.vim/custom/plugins/vim-go.vim
 source ~/.vim/custom/plugins/UltiSnips.vim
