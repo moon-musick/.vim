@@ -160,9 +160,12 @@ nnoremap <C-n> :bnext<CR>
 " switch to the alternate (last used) buffer
 nnoremap <C-e> <C-^>
 
-" delete buffer
-nnoremap <leader>d :enew<bar>bdelete #<CR>
-nnoremap <leader>x :bdelete<CR>
+" delete buffer, leave window intact
+nnoremap <leader>d :Sayonara!<CR>
+" delete buffer and close window
+nnoremap <leader>x :Sayonara<CR>
+" nnoremap <leader>d :enew<bar>bdelete #<CR>
+" nnoremap <leader>x :bdelete<CR>
 nnoremap <leader>D :bdelete!<CR>
 
 " open new split

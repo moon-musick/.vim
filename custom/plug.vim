@@ -57,6 +57,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
 
+Plug 'mhinz/vim-sayonara'
+
 " custom folding formatting (indentation-based)
 Plug 'pseewald/vim-anyfold'
 Plug 'Konfekt/FastFold'
