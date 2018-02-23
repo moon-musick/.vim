@@ -619,7 +619,7 @@ source ~/.vim/custom/backlog.vim
 
 " GUI font setting
 if has('gui_running')
-  set guifont=Inconsolata\ 11
+  set guifont=Iosevka\ 10
 endif
 
 " disable toolbars in GUI
