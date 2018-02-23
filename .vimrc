@@ -89,11 +89,12 @@ augroup END
 " enable omnicompletion for ruby and python
 augroup completion_settings
   autocmd!
-  autocmd FileType ruby set omnifunc=rubycomplete#Complete
+  autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
   autocmd FileType ruby let g:rubycomplete_buffer_loading=1
   autocmd FileType ruby let g:rubycomplete_classes_in_global=1
   " autocmd FileType python set omnifunc=pythoncomplete#Complete
-  autocmd FileType python set omnifunc=lsp#complete
+  autocmd FileType python setlocal omnifunc=lsp#complete
+  autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 augroup END
 
 augroup fish
