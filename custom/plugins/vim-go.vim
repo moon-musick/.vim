@@ -1,7 +1,7 @@
 augroup vimgo_customizations
   autocmd!
   " vim-go
-  autocmd FileType go nmap <leader>gr <Plug>(go-run)
+  autocmd FileType go nmap <leader>gr <Plug>(go-run-split)
   autocmd FileType go nmap <leader>gb <Plug>(go-build)
   autocmd FileType go nmap <leader>gt <Plug>(go-test)
   autocmd FileType go nmap <leader>gc <Plug>(go-coverage)
@@ -31,6 +31,8 @@ augroup vimgo_customizations
 
   " Rename the identifier under the cursor to a new name
   autocmd FileType go nmap <Leader>e <Plug>(go-rename)
+
+  autocmd FileType go setlocal foldmethod=syntax
 augroup END
 
 " Additional highlighting rules
