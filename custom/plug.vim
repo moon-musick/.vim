@@ -88,7 +88,7 @@ Plug 'pearofducks/ansible-vim'
 Plug 'mitsuhiko/vim-jinja',         {'for': 'jinja'}
 Plug 'tangledhelix/vim-kickstart',  {'for': 'kickstart'}
 Plug 'slim-template/vim-slim',      {'for': 'slim'}
-Plug 'wting/rust.vim'
+Plug 'rust-lang/rust.vim',          {'for': 'rust'}
 Plug 'ekalinin/Dockerfile.vim',     {'for': 'Dockerfile'}
 Plug 'vim-scripts/ferm.vim',        {'for': 'ferm'}
 Plug 'rodjek/vim-puppet',           {'for': 'puppet'}
