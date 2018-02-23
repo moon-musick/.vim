@@ -263,10 +263,6 @@ nnoremap <leader>r :nohlsearch<CR>:redraw!<CR>
 " https://github.com/mhinz/vim-galore#quickly-edit-your-macros
 nnoremap <leader>m :<C-u><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><Left>
 
-" syntastic mappings
-map <leader>sc :lclose<CR>
-map <leader>so :SyntasticCheck<CR>
-
 " preserve flags from previous :substitute invocation
 " Practical Vim by Drew Neill, p. 227
 nnoremap & :&&<CR>
@@ -325,20 +321,11 @@ nnoremap <silent> <leader>lc :lclose<CR>
 nnoremap <silent> <leader>ln :lnext<CR>
 nnoremap <silent> <leader>lp :lprev<CR>
 
-" https://github.com/zhamlin/tiler.vim
-" test later, when more mature
-" nnoremap <leader>jj :TilerFocus<CR>
-" nnoremap <leader>ja :TilerNew<CR>
-" nnoremap <leader>jk :TilerClose<CR>
-" nnoremap <leader>jf :TilerOpen<Space>
-" nnoremap <leader>jr :TilerResize<Space>
-" nnoremap <leader>js :TilerSwitch<Space>
-
 " plugin key mappings ---------------------------------------------------------
 
 " fzf
 nnoremap <leader>o :Files<CR>
-nnoremap <leader>h :History<CR>
+nnoremap <leader>hh :History<CR>
 nnoremap <leader>b :Buffers<CR>
 
 " https://github.com/junegunn/vim-easy-align
@@ -388,22 +375,9 @@ nnoremap <silent> <leader>A :call UncolorAllWords()<CR>
 nnoremap <silent> n :call WordNavigation(1)<CR>
 nnoremap <silent> N :call WordNavigation(0)<CR>
 
-" vim-buftabline
-nmap <leader>1 <Plug>BufTabLine.Go(1)
-nmap <leader>2 <Plug>BufTabLine.Go(2)
-nmap <leader>3 <Plug>BufTabLine.Go(3)
-nmap <leader>4 <Plug>BufTabLine.Go(4)
-nmap <leader>5 <Plug>BufTabLine.Go(5)
-nmap <leader>6 <Plug>BufTabLine.Go(6)
-nmap <leader>7 <Plug>BufTabLine.Go(7)
-nmap <leader>8 <Plug>BufTabLine.Go(8)
-nmap <leader>9 <Plug>BufTabLine.Go(9)
-nmap <leader>0 <Plug>BufTabLine.Go(10)
-
-" vim-operator-flashy
-" map y <Plug>(operator-flashy)
-" nmap Y <Plug>(operator-flashy)$
-" let g:operator#flashy#group = 'Error'
+" vim-sandwich recommendation
+nmap s <NOP>
+xmap s <NOP>
 
 " general stuff ---------------------------------------------------------------
 
@@ -506,7 +480,6 @@ set scrolloff=3
 
 source ~/.vim/custom/plugins/autoformat.vim
 source ~/.vim/custom/plugins/YouCompleteMe.vim
-source ~/.vim/custom/plugins/syntastic.vim
 source ~/.vim/custom/plugins/vim-commentary.vim
 source ~/.vim/custom/plugins/vim-go.vim
 source ~/.vim/custom/plugins/UltiSnips.vim
@@ -516,7 +489,6 @@ source ~/.vim/custom/plugins/indentLine.vim
 source ~/.vim/custom/plugins/delimitMate.vim
 source ~/.vim/custom/plugins/vim-airline.vim
 source ~/.vim/custom/plugins/fzf.vim
-source ~/.vim/custom/projectionist.vim
 
 " vim-grepper settings and mappings
 let g:grepper = {}
@@ -550,20 +522,7 @@ nmap <leader>wk <Plug>VimwikiDiaryPrevDay
 " vim-sneak
 let g:sneak#label = 1
 
-"replace 'f' with 1-char Sneak
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-xmap f <Plug>Sneak_f
-xmap F <Plug>Sneak_F
-omap f <Plug>Sneak_f
-omap F <Plug>Sneak_F
-"replace 't' with 1-char Sneak
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
-xmap t <Plug>Sneak_t
-xmap T <Plug>Sneak_T
-omap t <Plug>Sneak_t
-omap T <Plug>Sneak_T
+nmap <leader>S <Plug>Sneak_s
 
 augroup vimwiki_markdown_formatting
   autocmd!
@@ -703,7 +662,6 @@ let g:gruvbox_color_column='bg2'
 let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_contrast_light='hard'
 colorscheme gruvbox
-call togglebg#map('<F5>')
 " gruvbox orange (listchars, wrapped line marks etc.)
 highlight NonText guifg=#fe8019
 

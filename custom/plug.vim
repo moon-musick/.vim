@@ -4,33 +4,25 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 Plug 'ervandew/supertab'
-" Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --gocode-completer' }
 Plug 'maralla/completor.vim'
 
 Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'lifepillar/vim-solarized8'
-
-Plug 'sbdchd/neoformat'
 
 Plug 'tpope/vim-projectionist'
-Plug 'mbbill/undotree'
-
-Plug 'stefandtw/quickfix-reflector.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | Plug 'junegunn/fzf.vim'
-"
 Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
 Plug 'tommcdo/vim-lion'
 
 Plug 'wellle/visual-split.vim'
 
-" Plug 'terryma/vim-multiple-cursors'
-
 Plug 'justinmk/vim-sneak'
+
+Plug 'machakann/vim-sandwich'
+Plug 'machakann/vim-swap'
 
 " show number of search results found
 Plug 'henrik/vim-indexed-search'
@@ -64,11 +56,6 @@ Plug 'pseewald/vim-anyfold'
 Plug 'Konfekt/FastFold'
 Plug 'nelstrom/vim-markdown-folding'
 
-" show buffers instead of tabs in tabline
-" Plug 'ap/vim-buftabline'
-
-" Plug 'zhamlin/tiler.vim'
-
 " create missing dirs automatically on write
 Plug 'duggiefresh/vim-easydir'
 
@@ -80,9 +67,6 @@ Plug 'christoomey/vim-system-copy'
 " zeal bindings
 Plug 'KabbAmine/zeavim.vim'
 
-" show diffs of dirs
-" Plug 'will133/vim-dirdiff'
-
 Plug 'w0rp/ale'
 
 Plug 'SirVer/UltiSnips'
@@ -90,14 +74,10 @@ Plug 'honza/vim-snippets'
 Plug 'Trojmiasto-pl/vim-snippets-tsi'
 
 Plug 'tpope/vim-fugitive'
-" git visualisation stuff
-" Plug 'junegunn/gv.vim'
 " show changed lines in sign column
 Plug 'mhinz/vim-signify'
 
 Plug 'dhruvasagar/vim-table-mode'
-
-Plug 'kassio/neoterm'
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -109,7 +89,7 @@ Plug 'mitsuhiko/vim-jinja',         {'for': 'jinja'}
 Plug 'tangledhelix/vim-kickstart',  {'for': 'kickstart'}
 Plug 'slim-template/vim-slim',      {'for': 'slim'}
 Plug 'wting/rust.vim'
-" Plug 'ekalinin/Dockerfile.vim',     {'for': 'Dockerfile'}
+Plug 'ekalinin/Dockerfile.vim',     {'for': 'Dockerfile'}
 Plug 'vim-scripts/ferm.vim',        {'for': 'ferm'}
 Plug 'rodjek/vim-puppet',           {'for': 'puppet'}
 Plug 'Matt-Deacalion/vim-systemd-syntax', {'for': 'systemd'}
@@ -126,8 +106,6 @@ Plug 'ClockworkNet/vim-bacula', {'for': 'bacula'}
 
 " filetype-related tools
 Plug 'vim-ruby/vim-ruby',           {'for': 'ruby'}
-Plug 'tpope/vim-rbenv',             {'for': 'ruby'}
-Plug 'tpope/vim-cucumber'
 Plug 'fatih/vim-go',                {'for': ['go', 'gotexttmpl', 'markdown', 'vimwiki'], 'do': ':GoInstallBinaries'}
 Plug 'chrisbra/csv.vim',            {'for': 'csv'}
 " Plug 'bitc/vim-hdevtools',          {'for': 'haskell'}
@@ -138,7 +116,6 @@ Plug 'lervag/vimtex',               {'for': 'tex'}
 Plug 'rust-lang/rust.vim',          {'for': 'rust', 'dir': '~/.vim/plugged/rust-lang.vim'}
 Plug 'vimoutliner/vimoutliner',     {'for': 'votl'}
 Plug 'fatih/vim-hclfmt'
-Plug 'dag/vim-fish',                {'for': 'fish'}
 Plug 'vimwiki/vimwiki'
 Plug 'ledger/vim-ledger'
 
