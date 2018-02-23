@@ -1,5 +1,5 @@
 " general indentation settings
-autocmd FileType perl set expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
+autocmd FileType perl setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
 
 " perltidy function
 " http://stackoverflow.com/questions/2345519/how-can-i-script-vim-to-run-perltidy-on-a-buffer
