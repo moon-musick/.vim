@@ -49,9 +49,11 @@ set nojoinspaces
 
 " disable redraw during macro execution etc.
 set lazyredraw
+
 " search options --------------------------------------------------------------
 
 " smart case handling - case insensitive, but not when using uppercase
+set ignorecase
 set smartcase
 " enable hidden buffers (switch to other buffer without saving first)
 set hidden
@@ -195,8 +197,8 @@ nnoremap <leader>Q  :qa!<CR>
 nnoremap <C-q>      :confirm qall<CR>
 nnoremap <leader>X  :close<CR>
 
-" disable Ex mode shortcut
-nnoremap Q <nop>
+" use Q for macro repeat instead of Ex command mode trigger
+nnoremap Q @@
 
 " disable accidental help triggering
 inoremap <F1> <nop>
@@ -683,8 +685,8 @@ let g:gruvbox_color_column='bg2'
 let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_contrast_light='hard'
 colorscheme gruvbox
-" gruvbox orange (listchars, wrapped line marks etc.)
-highlight NonText guifg=#fe8019
+" gruvbox light blue (listchars, wrapped line marks etc.)
+highlight NonText guifg=#83a598
 
 highlight ExtraWhitespace guibg=#fb4934 guifg=#fbf1c7 gui=underline
 match ExtraWhitespace /\s\+$/
