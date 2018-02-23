@@ -47,6 +47,8 @@ set synmaxcol=512
 " disable joining lines with two spaces after a period sign
 set nojoinspaces
 
+" disable redraw during macro execution etc.
+set lazyredraw
 " search options --------------------------------------------------------------
 
 " smart case handling - case insensitive, but not when using uppercase
