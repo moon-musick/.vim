@@ -473,6 +473,12 @@ command! -complete=file -nargs=* SSHFile :call SSHFile(<f-args>)
 
 nnoremap <leader>sh :SSHFile<Space>
 
+" paste stuff into termbin, get back URL
+" https://www.reddit.com/r/vim/comments/7bj837/favorite_console_tools_to_use_with_vim/
+if executable('nc') && executable('tr') && executable('xclip')
+  command! -range=% TB <line1>,<line2>w !nc termbin.com 9999 | tr -d '\n' | xclip -selection clipboard
+endif
+
 " leave 3 lines at the top or bottom of view when scrolling up or down
 set scrolloff=3
 
