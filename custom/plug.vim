@@ -104,6 +104,8 @@ Plug 'glidenote/keepalived-syntax.vim'
 Plug 'b4b4r07/vim-hcl'
 Plug 'ClockworkNet/vim-bacula', {'for': 'bacula'}
 
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
+
 " filetype-related tools
 Plug 'vim-ruby/vim-ruby',           {'for': 'ruby'}
 Plug 'fatih/vim-go',                {'for': ['go', 'gotexttmpl', 'markdown', 'vimwiki'], 'do': ':GoInstallBinaries'}

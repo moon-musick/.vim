@@ -567,6 +567,15 @@ let g:ansible_unindent_after_newline = 1
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_normal_keywords_highlight = 'Constant'
 
+" rust LSP
+let g:LanguageClient_serverCommands = {
+      \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+      \ }
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+
 " custom scripts --------------------------------------------------------------
 
 source ~/.vim/custom/scripts/perltidy.vim
