@@ -482,6 +482,13 @@ endif
 " leave 3 lines at the top or bottom of view when scrolling up or down
 set scrolloff=3
 
+" show option values
+" https://www.reddit.com/r/vim/comments/7g4afp/using_tabs_only/
+command! -bar -nargs=1 -complete=option Vov echo 'local: '
+      \| verbose setlocal <args>?
+      \| echo 'global: '
+      \| verbose setglobal <args>?
+
 " plugin configuration --------------------------------------------------------
 
 source ~/.vim/custom/plugins/autoformat.vim
