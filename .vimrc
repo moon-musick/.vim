@@ -591,6 +591,13 @@ nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
+" racer
+let g:racer_cmd = '/home/lucas/.cargo/bin/racer'
+let g:racer_experimental_completer = 1
+
+" rust.vim
+let g:rustfmt_autosave = 1
+
 " custom scripts --------------------------------------------------------------
 
 source ~/.vim/custom/scripts/perltidy.vim

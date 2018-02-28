@@ -89,6 +89,7 @@ Plug 'mitsuhiko/vim-jinja',         {'for': 'jinja'}
 Plug 'tangledhelix/vim-kickstart',  {'for': 'kickstart'}
 Plug 'slim-template/vim-slim',      {'for': 'slim'}
 Plug 'rust-lang/rust.vim',          {'for': 'rust'}
+Plug 'racer-rust/vim-racer',        {'for': 'rust'}
 Plug 'ekalinin/Dockerfile.vim',     {'for': 'Dockerfile'}
 Plug 'vim-scripts/ferm.vim',        {'for': 'ferm'}
 Plug 'rodjek/vim-puppet',           {'for': 'puppet'}
