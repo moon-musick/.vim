@@ -121,6 +121,7 @@ Plug 'vimoutliner/vimoutliner',     {'for': 'votl'}
 Plug 'fatih/vim-hclfmt'
 Plug 'vimwiki/vimwiki'
 Plug 'ledger/vim-ledger'
+Plug 'fgsch/vim-varnish', {'for': 'vcl'}
 
 Plug 'mtth/scratch.vim'
 
