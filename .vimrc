@@ -598,6 +598,9 @@ let g:racer_experimental_completer = 1
 " rust.vim
 let g:rustfmt_autosave = 1
 
+" vim-shfmt
+let g:shfmt_extra_args = '-i 2 -bn -ci'
+
 " custom scripts --------------------------------------------------------------
 
 source ~/.vim/custom/scripts/perltidy.vim

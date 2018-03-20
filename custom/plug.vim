@@ -123,6 +123,8 @@ Plug 'vimwiki/vimwiki'
 Plug 'ledger/vim-ledger'
 Plug 'fgsch/vim-varnish', {'for': 'vcl'}
 
+Plug 'z0mbix/vim-shfmt', {'for': ['sh', 'bash']}
+
 Plug 'mtth/scratch.vim'
 
 call plug#end()
