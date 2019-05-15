@@ -1,0 +1,32 @@
+snippet pnpopt "pnp4nagios opt definition" b
+\$opt[${1:INDEX}] = "${2:--lower-limit 0 }${3:--vertical-label \"${4:LABEL}\" }${5:--title \"${6:TITLE}\" }";$0
+endsnippet
+
+snippet pnphead "pnp4nagios legend header" b
+\$def[${1:INDEX}]  = rrd::comment("                               max       avg        min      last");
+\$def[$1] .= rrd::comment("\\\n");$0
+endsnippet
+
+snippet pnpds "pnp4nagios datasource" b
+\$ds_name[${1:INDEX}] = "${2:NAME}";$0
+endsnippet
+
+snippet pnpdef "pnp4nagios def" b
+\$def[${1:INDEX}] .= rrd::def("${2:NAME}", \$RRDFILE[${3:INDEX}], \$DS[${4:DSINDEX}], "${5:AVERAGE}");$0
+endsnippet
+
+snippet pnpitem "pnp4nagios graph item" b
+\$def[${1:INDEX}] .= rrd::${2:line1}("${3:NAME}", "#${4:COLOR}", str_pad("$3", ${5:22})${6:, true});$0
+endsnippet
+
+snippet pnpcdef "pnp4nagios cdef" b
+\$def[${1:INDEX}] .= rrd::cdef("${2:NAME}", "${3:DEFINITION}");$0
+endsnippet
+
+snippet pnpleg "pnp4nagios legend" b
+\$def[${1:INDEX}] .= rrd::gprint("${2:NAME}", "MAX", "%${3:8.1lf}");
+\$def[$1] .= rrd::gprint("$2", "AVERAGE", "%$3");
+\$def[$1] .= rrd::gprint("$2", "MIN", "%$3");
+\$def[$1] .= rrd::gprint("$2", "LAST", "%$3");
+\$def[$1] .= rrd::comment("\\\n");$0
+endsnippet

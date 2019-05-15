@@ -1,0 +1,128 @@
+snippet e "echo"
+echo ${1:"$2"}$0
+endsnippet
+
+snippet v "var" b
+var
+endsnippet
+
+# snippet i "int"
+# int
+# endsnippet
+
+snippet st "string"
+string
+endsnippet
+
+snippet "\b(if|elif|when|of)\b" "if elif when of" br
+`!p snip.rv = match.group(1)` ${1:condition}:$0
+endsnippet
+
+snippet else "else" b
+else:$0
+endsnippet
+
+snippet co "const" b
+const
+endsnippet
+
+snippet "(\w+)=" "var or const definition" r
+`!p snip.rv = match.group(1)` ${1:name} = ${2:value}$0
+endsnippet
+
+snippet bl "block" b
+block${1: ${2:name}}:
+	$0
+endsnippet
+
+snippet br "break" b
+break${1: ${2:name}}$0
+endsnippet
+
+snippet rl "readLine"
+readLine($0)
+endsnippet
+
+snippet from "from import" b
+from ${1:module} import ${2:names}$0
+endsnippet
+
+snippet froma "from as import" b
+from ${1:module} as ${2:modulealias} import ${3:name}$0
+endsnippet
+
+snippet im "import" b
+import ${1:module}$0
+endsnippet
+
+snippet inc "include" b
+include ${1:files}$0
+endsnippet
+
+snippet wh "while" b
+while ${1:condition}:
+	$0
+endsnippet
+
+snippet con "continue"
+continue
+endsnippet
+
+snippet proc "proc" b
+proc ${1:name}(${2:params})${3/(.+)/: /}${3:type} =
+	${0:${VISUAL}}
+endsnippet
+
+snippet iter "iterator" b
+iterator ${1:name}(${2:params})${3/(.+)/: /}${3:type} =
+	${0:${VISUAL}}
+endsnippet
+
+snippet case "case" b
+case ${1:var}
+$0
+endsnippet
+
+snippet cup "countup"
+countup(${1:start}, ${2:end})$0
+endsnippet
+
+snippet cdn "countdown"
+countdown(${1:start}, ${2:end})$0
+endsnippet
+
+snippet for "for loop" b
+for ${1:var} in ${2:expr}:$0
+endsnippet
+
+snippet res "result"
+result
+endsnippet
+
+snippet ret "return"
+return
+endsnippet
+
+snippet dis "discard"
+discard
+endsnippet
+
+snippet "(\w+).ret" "return postfix" r
+return `!p snip.rv = match.group(1)`$0
+endsnippet
+
+snippet enum "enum definition" b
+${1:name} = enum$0
+endsnippet
+
+snippet tuple "tuple definition" b
+${1:name} = tuple[${2:fields}]$0
+endsnippet
+
+snippet ass "assert"
+assert
+endsnippet
+
+snippet ismain "when isMainModule" b
+when isMainModule:$0
+endsnippet

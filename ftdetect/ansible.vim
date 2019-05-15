@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead */*ansible*/*.yml set filetype=ansible
+autocmd BufNewFile,BufRead */*ansible*/*.yml set filetype=yaml.ansible

@@ -95,7 +95,7 @@ augroup completion_settings
   autocmd FileType ruby let g:rubycomplete_buffer_loading=1
   autocmd FileType ruby let g:rubycomplete_classes_in_global=1
   " autocmd FileType python set omnifunc=pythoncomplete#Complete
-  autocmd FileType python setlocal omnifunc=lsp#complete
+  " autocmd FileType python setlocal omnifunc=lsp#complete
   autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 augroup END
 
@@ -206,7 +206,9 @@ nnoremap <F1> <nop>
 vnoremap <F1> <nop>
 
 " spelling
-nnoremap <silent> <leader>sp :set spelllang=pl spell!<CR>
+nnoremap <silent> <leader>sp :setlocal spelllang=pl spell!<CR>
+nnoremap <silent> <leader>se :setlocal spelllang=en_US spell!<CR>
+nnoremap <silent> <leader>sb :setlocal spelllang=en_GB spell!<CR>
 
 " map omnifunc completion to something more convenient
 inoremap <C-f> <C-x><C-o>
@@ -328,6 +330,7 @@ nnoremap <silent> <leader>lp :lprev<CR>
 " fzf
 nnoremap <leader>o :Files<CR>
 nnoremap <leader>hh :History<CR>
+nnoremap <leader>: :History:<CR>
 nnoremap <leader>b :Buffers<CR>
 
 " https://github.com/junegunn/vim-easy-align
@@ -380,6 +383,17 @@ nnoremap <silent> N :call WordNavigation(0)<CR>
 " vim-sandwich recommendation
 nmap s <NOP>
 xmap s <NOP>
+
+" zeavim filetype -> docset mappings
+let g:zv_file_types = {
+  \ 'Dockerfile': 'docker',
+  \ 'sh': 'bash',
+  \ 'tex': 'latex',
+  \ 'yaml.ansible': 'ansible',
+  \ 'python': 'python_3'
+  \ }
+
+vmap gz <Plug>ZVVisSelection
 
 " general stuff ---------------------------------------------------------------
 
@@ -584,9 +598,10 @@ let g:ansible_normal_keywords_highlight = 'Constant'
 
 " rust LSP
 let g:LanguageClient_serverCommands = {
-      \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
       \ }
 
+nnoremap <silent> <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
@@ -600,6 +615,16 @@ let g:rustfmt_autosave = 1
 
 " vim-shfmt
 let g:shfmt_extra_args = '-i 2 -bn -ci'
+
+" vim-prettier
+let g:prettier#autoformat = 0
+" augroup prettier
+"   autocmd!
+"   autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
+" augroup END
+
+let g:better_whitespace_enabled = 1
+let g:strip_whitespace_on_save = 1
 
 " custom scripts --------------------------------------------------------------
 
@@ -699,15 +724,48 @@ colorscheme gruvbox
 highlight NonText guifg=#83a598
 
 highlight ExtraWhitespace guibg=#fb4934 guifg=#fbf1c7 gui=underline
-match ExtraWhitespace /\s\+$/
+" match ExtraWhitespace /\s\+$/
 
 source ~/.vim/custom/colors/gruvbox-terminal.vim
 " source ~/.vim/custom/colors/solarized-terminal.vim
 
+" vim-illuminate
+" highlight link illuminatedWord Visual
+
+" semshi
+" highlight semshiLocal           ctermfg=209 guifg=#ff875f
+" highlight semshiGlobal          ctermfg=214 guifg=#ffaf00
+" highlight semshiImported        ctermfg=214 guifg=#ffaf00 cterm=bold gui=bold
+" highlight semshiParameter       ctermfg=75  guifg=#5fafff
+" highlight semshiParameterUnused ctermfg=117 guifg=#87d7ff cterm=underline gui=underline
+" highlight semshiFree            ctermfg=218 guifg=#ffafd7
+" highlight semshiBuiltin         ctermfg=207 guifg=#ff5fff
+" highlight semshiAttribute       ctermfg=49  guifg=#00ffaf
+" highlight semshiSelf            ctermfg=249 guifg=#b2b2b2
+" highlight semshiUnresolved      ctermfg=226 guifg=#ffff00 cterm=underline gui=underline
+" " highlight semshiSelected        ctermfg=231 guifg=#ffffff ctermbg=161 guibg=#d7005f
+" highlight semshiSelected        ctermfg=231 guifg=#fbf1c7 ctermbg=161 guibg=#b16286
+
+" highlight semshiErrorSign       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
+" highlight semshiErrorChar       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
+" sign define semshiError text=E> texthl=semshiErrorSign
+
+" function SemshiCustomization()
+"     highlight semshiGlobal ctermfg=red guifg=#ff0000
+" endfunction
+
+" augroup semshi_custom
+"   autocmd!
+"   autocmd FileType python call SemshiCustomization()
+"   autocmd ColorScheme * call SemshiCustomization()
+" augroup end
+
 " folding settings ------------------------------------------------------------
 
 " enable folding based on indentation
-set foldmethod=indent
+" set foldmethod=indent
+" manual folding - testing
+set foldmethod=manual
 " disable automatic folding on file opening
 set nofoldenable
 
@@ -726,3 +784,32 @@ highlight Folded term=NONE cterm=NONE
 " -----------------------------------------------------------------------------
 
 language en_US.utf8
+
+" completor lsp support testing
+" let g:completor_filetype_map = {
+"       \ 'go': {'ft': 'lsp', 'cmd': 'gopls'},
+"       \ 'rust': {'ft': 'lsp', 'cmd': 'rls'},
+"       \ }
+
+" coc testing
+
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+
+" Use <c-space> for trigger completion.
+" inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>""

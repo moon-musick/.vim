@@ -1,0 +1,26 @@
+snippet menuitem "darkdoc menuitem" b
+---
+title: "${1:TITLE}"
+date: `date --iso-8601=seconds`
+weight: ${3:0}
+menu:
+	main:
+		parent: "${4:PARENT}"
+		identifier: /${5:PARENT}/${6:$2}/
+		weight: ${7:10}
+
+---
+endsnippet
+
+snippet standup "standup entry" b
+#standup `date +%Y-%m-%d`
+
+${1:wczoraj}:
+
+* $2
+
+dzisiaj:
+
+* $3
+
+endsnippet

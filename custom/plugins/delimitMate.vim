@@ -9,5 +9,5 @@ let g:delimitMate_jump_expansion = 1
 
 augroup delimitmate_filetype
   autocmd!
-  autocmd FileType haskell,go,sh,zsh let b:delimitMate_matchpairs = '(:),[:],{:}'
+  autocmd FileType haskell,go,sh,zsh,nim let b:delimitMate_matchpairs = '(:),[:],{:}'
 augroup END

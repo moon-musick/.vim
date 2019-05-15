@@ -6,3 +6,5 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsExpandTrigger = '<tab>'
 
 let g:SuperTabDefaultCompletionType = '<C-n>'
+
+let g:snips_author = 'Łukasz Górski'

@@ -1,0 +1,28 @@
+snippet watot "WATO tuple" b
+('${1:VAR}', Tuple(
+		title=_('${2:TITLE}'),
+		elements=[
+			${3:Integer}(
+				title=_('warning at'),
+				unit='${4:per second}',
+				default_value=${5:9999999999999999}),
+			$3(
+				title=_('critical at'),
+				unit='$4',
+				default_value=${6:9999999999999999}),
+		]))$0
+endsnippet
+
+snippet cls "class" b
+class ${1:NAME}${2:(${3:SUPERCLASS})}:
+	$0
+endsnippet
+
+snippet #3 "python3 shebang" b
+#!/usr/bin/env python3
+$0
+endsnippet
+
+snippet pr "print"
+print(${0:${VISUAL}})
+endsnippet

@@ -28,3 +28,11 @@ ${1:tcp}:${2:NUMBER}:  # ${3:COMMENT}
 	ip:
 		- ${5:0.0.0.0}
 endsnippet
+
+snippet envs "k8s env secret" b
+- name: ${1:NAME}
+	valueFrom:
+		secretKeyRef:
+			name: ${2:SECRET_NAME}
+			key: ${3:`!p snip.rv = t[1].lower()`}
+endsnippet

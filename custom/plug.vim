@@ -6,9 +6,33 @@ call plug#begin('~/.vim/plugged')
 Plug 'ervandew/supertab'
 Plug 'maralla/completor.vim'
 
+Plug 'junegunn/goyo.vim'
+
+Plug 'altercation/vim-colors-solarized'
+" Plug 'connorholyday/vim-snazzy'
+" Plug 'jacoborus/tender.vim'
+" Plug 'hauleth/blame.vim'
+" Plug 'arcticicestudio/nord-vim'
+Plug 'junegunn/seoul256.vim'
+" Plug 'whatyouhide/vim-gotham'
+" Plug 'nightsense/snow'
+Plug 'cormacrelf/vim-colors-github'
+" Plug 'Nequo/vim-allomancer'
+" Plug 'chrisdiana/itg_flat_vim'
+" Plug 'MaxSt/FlatColor'
+" Plug 'chriskempson/base16-vim'
+
+" Plug 'RRethy/vim-illuminate'
+
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'rakr/vim-two-firewatch'
+Plug 'roosta/vim-srcery'
+
+Plug 'ntpeters/vim-better-whitespace'
+
+Plug 'vim-scripts/vis', {'frozen': 1}
 
 Plug 'tpope/vim-projectionist'
 
@@ -74,6 +98,8 @@ Plug 'honza/vim-snippets'
 Plug 'Trojmiasto-pl/vim-snippets-tsi'
 
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+
 " show changed lines in sign column
 Plug 'mhinz/vim-signify'
 
@@ -95,17 +121,22 @@ Plug 'vim-scripts/ferm.vim',        {'for': 'ferm'}
 Plug 'rodjek/vim-puppet',           {'for': 'puppet'}
 Plug 'Matt-Deacalion/vim-systemd-syntax', {'for': 'systemd'}
 Plug 'hdima/python-syntax',         {'for': 'python'}
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'plasticboy/vim-markdown',     {'for': 'markdown'}
 " Plug 'tpope/vim-markdown',     {'for': 'markdown'}
 Plug 'davinche/godown-vim',         {'for': 'markdown'}
 Plug 'moon-musick/vim-logrotate',   {'for': 'logrotate'}
 Plug 'moon-musick/vim-i3-config-syntax', {'for': 'i3'}
-Plug 'cespare/vim-toml',            {'for': 'toml'}
+Plug 'cespare/vim-toml'
 Plug 'glidenote/keepalived-syntax.vim'
 Plug 'b4b4r07/vim-hcl'
 Plug 'ClockworkNet/vim-bacula', {'for': 'bacula'}
+Plug 'zah/nim.vim', {'for': 'nim'}
+Plug 'tmux-plugins/vim-tmux'
 
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
+
+" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
 
 " filetype-related tools
 Plug 'vim-ruby/vim-ruby',           {'for': 'ruby'}
@@ -116,12 +147,14 @@ Plug 'chrisbra/csv.vim',            {'for': 'csv'}
 " Plug 'neovimhaskell/haskell-vim',   {'for': 'haskell'}
 " Plug 'klen/python-mode',            {'for': 'python'}
 Plug 'lervag/vimtex',               {'for': 'tex'}
-Plug 'rust-lang/rust.vim',          {'for': 'rust', 'dir': '~/.vim/plugged/rust-lang.vim'}
+" Plug 'rust-lang/rust.vim',          {'for': 'rust', 'dir': '~/.vim/plugged/rust-lang.vim'}
 Plug 'vimoutliner/vimoutliner',     {'for': 'votl'}
 Plug 'fatih/vim-hclfmt'
 Plug 'vimwiki/vimwiki'
 Plug 'ledger/vim-ledger'
 Plug 'fgsch/vim-varnish', {'for': 'vcl'}
+
+Plug 'justinmk/vim-dirvish'
 
 Plug 'z0mbix/vim-shfmt', {'for': ['sh', 'bash']}
 

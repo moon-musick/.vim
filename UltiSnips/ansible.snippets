@@ -4,12 +4,185 @@ snippet pip "pip package" b
 		name: $1
 		executable: ${2:pip2}
 		state: present
-	tags: ['install', 'pip']
+	tags: ['install', 'pip', '${3:$1}']$0
 endsnippet
 
-snippet systemd "reload systemctl" b
+snippet gem "gem package" b
+- name: ensure ${1:NAME} gem is installed
+	gem:
+		name: '${2:$1}'
+		state: ${3:present}
+		user_install: ${4:no}
+	tags: ['install', 'ruby', 'gem', '${5:$1}']
+endsnippet
+
+snippet sysrel "reload systemctl" b
 - name: reload systemctl daemon if needed
 	command: systemctl daemon-reload
 	when: ${1:variable}
-	tags: ['config', 'systemd']
+	tags: ['config', 'systemd']$0
+endsnippet
+
+snippet itemplate "template with default params from items list" b
+- name: render ${1:DESCRIPTION}
+	template:
+		dest: "/${2:}${3:{{ item.path }}}"
+		src: "$2$3"
+		owner: ${5:"{{ item.owner|default('${4:root}') }}"}
+		group: ${7:"{{ item.group|default('${6:root}') }}"}
+		mode: ${9:"{{ item.mode|default('${8:0644}') }}"}
+	with_items:
+		- ${11:path: }$0
+	tags: ['${10:$1}']
+endsnippet
+
+snippet icopy "copy with default params from items list" b
+- name: ensure ${1:DESCRIPTION} are up to date
+	copy:
+		dest: "/${2:}${3:{{ item.path }}}"
+		src: "$2$3"
+		owner: ${5:"{{ item.owner|default('${4:root}') }}"}
+		group: ${7:"{{ item.group|default('${6:root}') }}"}
+		mode: ${9:"{{ item.mode|default('${8:0644}') }}"}
+	with_items:
+		- ${11:path: }$0
+	tags: ['${10:$1}']
+endsnippet
+
+snippet idir "directory with default params from items list" b
+- name: ensure ${1:DESCRIPTION} directories exist
+	file:
+		path: "${2:}${3:{{ item.path }}}"
+		owner: ${4:"{{ item.owner|default('${3:root}') }}"}
+		group: ${6:"{{ item.group|default('${5:root}') }}"}
+		mode: ${8:"{{ item.mode|default('${7:0755}') }}"}
+		state: directory
+	with_items:
+		- ${10:path: }$0
+	tags: ['${9:$1}', 'dirs']
+endsnippet
+
+snippet iservice "service with item placeholders" b
+- name: ensure ${1:DESCRIPTION} services are enabled and running
+	service:
+		name: "{{ item }}"
+		enabled: yes
+		state: started
+	with_items:
+		- $0
+	tags: ['service', '${2:$1}']
+endsnippet
+
+snippet upstart "upstart service file template" b
+- name: render upstart service file for ${1:NAME} service
+	template:
+		dest: /etc/init/$1.conf
+		src: etc/init/$1.conf
+		owner: root
+		group: root
+		mode: '0644'
+	tags: ['upstart', 'service', '${2:$1}']$0
+endsnippet
+
+snippet sysservice "systemd service file template" b
+- name: render systemd service unit file for ${1:NAME} service
+	template:
+		dest: /etc/systemd/system/${2:$1}.service
+		src: etc/systemd/system/$2.service
+		owner: root
+		group: root
+		mode: '0644'
+	register: ${3:$1}_unit_file
+	tags: ['systemd', 'service', '${4:$1}']
+
+- name: reload systemd if needed
+	command: systemctl daemon-reload
+	when: $3_unit_file.changed
+	tags: ['systemd', 'service', '$4']$0
+endsnippet
+
+snippet nolog "no_log entry with standardized condition" b
+no_log: "{{ no_log|default('yes')|bool }}"$0
+endsnippet
+
+snippet logrotate "logrotate script" b
+- name: provide logrotate script for ${1:NAME}
+	template:
+		dest: /etc/logrotate.d/${2:$1}
+		src: ${4:etc/logrotate.d/${3:$2}}
+		owner: root
+		group: root
+		mode: '0644'
+	tags: ['logrotate', '${5:$1}']
+endsnippet
+
+snippet sshkey "ssh key dictionary entry" b
+- server: ${1:SERVER}
+	name: ${2:id_rsa}
+	user: ${3:root}${5:
+	homedir: ${4:/root}}
+	private: |$7
+	public: '$8
+	accepted_by: ${6:[]}
+endsnippet
+
+snippet url "get url" b
+- name: get ${1:DESCRIPTION}
+	get_url:
+		url: '${2:URL}'
+		dest: '${3:DEST}'
+		mode: '${4:0644}'
+	tags: ['${5:$1}']
+endsnippet
+
+snippet cron "cron task" b
+- name: setup a ${1:DESCRIPTION} cron task
+	cron:
+		name: '${2:$1}'
+		minute: '${3:0}'
+		hour: '${4:0}'
+		day: '${5:*}'
+		month: '${6:*}'
+		weekday: '${7:*}'
+		job: '${8:JOB}'
+		user: '${10:root}'${11:
+		cron_file: '${12:FILENAME}'}
+	tags: ['cron', '${13:$1}']$0
+endsnippet
+
+snippet debug "debug task" b
+- name: debug FIXME
+	debug:
+		msg: "{{ ${1:somevar} }}"
+endsnippet
+
+snippet sysctl "sysctl entry" b
+- name: set ${1:DESCRIPTION}
+	sysctl:
+		name: ${2:$1}
+		value: '${3:VALUE}'
+		state: ${4:present}${5:
+		sysctl_file: '${6:SYSCTL_FILE}'}
+		reload: ${7:yes}
+	tags: ['sysctl', '${8:$1}']
+endsnippet
+
+# snippet clr "" i
+# .classList.remove("$1")
+# endsnippet
+
+snippet im "import_tasks" b
+import_tasks:$0
+endsnippet
+
+snippet ic "include_tasks" b
+include_tasks:$0
+endsnippet
+
+snippet devel "developer entry" b
+- name: '${1:USERNAME}'
+	comment: '${2:FULL_NAME}'
+	password: '${3:`text=$(openssl rand -base64 16 | colrm 12); mkpasswd -m sha-512 "$text" | tr -d '\n'; echo "' # $text"`}
+	svn_password: '${4:`openssl rand -base64 16 | colrm 12`}'
+	smb_password: '${5:`openssl rand -base64 16 | colrm 12`}'
 endsnippet

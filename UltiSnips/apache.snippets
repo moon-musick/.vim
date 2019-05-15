@@ -21,3 +21,14 @@ snippet sslbvhost "an ssl vhost declaration for an svn branch" b
 	Header setifempty Cache-Control "no-cache, no-store, must-revalidate"
 </VirtualHost>
 endsnippet
+
+snippet bvhost "" b
+<VirtualHost *:80>
+	DocumentRoot /home/${1:DEVELOPER}/sites/${2:SLOT}/${3:tsi}
+	ServerName ${4:$2}.${5:$1}.trojmiasto.pl
+	ErrorLog /var/log/apache2/$1.log
+	SetEnv vhost_mode developer
+	CustomLog /var/log/apache2/marcin_debug.log marcin_debug
+	Header setifempty Cache-Control "no-cache, no-store, must-revalidate"
+</VirtualHost>
+endsnippet

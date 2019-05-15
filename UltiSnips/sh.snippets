@@ -1,0 +1,7 @@
+snippet bash "bash shebang" b
+#!/bin/bash
+endsnippet
+
+snippet basedir "basedir setting" b
+BASEDIR="$(dirname "$(readlink -f "\${0}")")"
+endsnippet

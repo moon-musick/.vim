@@ -1,0 +1,16 @@
+extends yaml
+
+snippet lb "load balancer service" b
+apiVersion: v1
+kind: Service
+metadata:
+	name: ${1:NAME}
+	labels:
+		${2:KEY}: ${3:VALUE}
+spec:
+	ports:
+		- port: ${4:PORT}
+	selector:
+		${5:$2}: ${6:$3}
+	type: LoadBalancer
+endsnippet

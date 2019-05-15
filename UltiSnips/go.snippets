@@ -1,0 +1,11 @@
+snippet init "init() func" b
+func init() {
+	$1
+}$0
+endsnippet
+
+snippet ife "if err != nil" b
+if err != nil {
+	${1:log.Fatal}(${2:err})
+}$0
+endsnippet
