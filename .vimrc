@@ -554,6 +554,16 @@ xmap gr <Plug>(GrepperOperator)
 " vimtex
 let g:vimtex_view_method = 'zathura'
 
+let g:vimtex_compiler_latexmk = {
+        \ 'executable' : 'latexmk',
+        \ 'options' : [
+        \   '-xelatex',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-interaction=nonstopmode',
+        \ ],
+        \}
+
 " vimwiki
 " defines a list of wikis with optional properties
 let g:vimwiki_list = [
