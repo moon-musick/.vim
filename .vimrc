@@ -115,6 +115,12 @@ augroup END
 
 " key mappings ----------------------------------------------------------------
 
+" copying and pasting to/from system clipboard
+nnoremap cv "+p
+nnoremap cp "+y
+xnoremap cv "+p
+xnoremap cp "+y
+
 " change mapleader for convenience
 let g:mapleader=' '
 
