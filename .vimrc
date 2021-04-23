@@ -110,7 +110,8 @@ augroup END
 augroup python_formatting
   autocmd!
   autocmd FileType python setlocal formatprg=autopep8\ -
-  autocmd FileType python nnoremap <leader>y :0,$!yapf<CR>
+  autocmd FileType python nnoremap <leader>y :Black<CR>
+  " autocmd FileType python nnoremap <leader>y :0,$!yapf<CR>
 augroup END
 
 " key mappings ----------------------------------------------------------------
@@ -512,6 +513,8 @@ command! -bar -nargs=1 -complete=option Vov echo 'local: '
       \| verbose setglobal <args>?
 
 " plugin configuration --------------------------------------------------------
+
+let g:black_linelength = 79
 
 source ~/.vim/custom/plugins/autoformat.vim
 source ~/.vim/custom/plugins/vim-commentary.vim
