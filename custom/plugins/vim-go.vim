@@ -50,8 +50,13 @@ let g:go_auto_type_info              = 1
 let $GOROOT = '/usr/local/go'
 let $GOPATH = $HOME . '/go'
 
-" use goimports instead of gofmt to insert import clauses automatically
-let g:go_fmt_command = 'goimports'
+let g:go_gopls_enabled    = 1
+let g:go_fmt_command      = 'gopls'
+let g:go_imports_mode     = 'gopls'
+let g:go_imports_autosave = 1
+let g:go_gopls_gofumpt    = 1
+
+let g:go_metalinter_command = 'golangci-lint'
 
 let g:go_def_mode = 'gopls'
 let g:go_info_mode = 'gopls'
