@@ -3,32 +3,23 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'ervandew/supertab'
-Plug 'maralla/completor.vim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+endif
 
 Plug 'junegunn/goyo.vim'
 
-Plug 'altercation/vim-colors-solarized'
-" Plug 'connorholyday/vim-snazzy'
-" Plug 'jacoborus/tender.vim'
-" Plug 'hauleth/blame.vim'
-" Plug 'arcticicestudio/nord-vim'
-Plug 'junegunn/seoul256.vim'
-" Plug 'whatyouhide/vim-gotham'
-" Plug 'nightsense/snow'
-Plug 'cormacrelf/vim-colors-github'
-" Plug 'Nequo/vim-allomancer'
-" Plug 'chrisdiana/itg_flat_vim'
-" Plug 'MaxSt/FlatColor'
-" Plug 'chriskempson/base16-vim'
+Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}
+if has('nvim')
+Plug 'norcalli/nvim-colorizer.lua'
+endif
 
-" Plug 'RRethy/vim-illuminate'
-
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'rakr/vim-two-firewatch'
-Plug 'roosta/vim-srcery'
+Plug 'pineapplegiant/spaceduck', {'branch': 'main'}
 
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -41,7 +32,7 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
 Plug 'tommcdo/vim-lion'
 
-Plug 'wellle/visual-split.vim'
+" Plug 'wellle/visual-split.vim'
 
 Plug 'justinmk/vim-sneak'
 
@@ -78,15 +69,12 @@ Plug 'mhinz/vim-sayonara'
 " custom folding formatting (indentation-based)
 Plug 'pseewald/vim-anyfold'
 Plug 'Konfekt/FastFold'
-Plug 'nelstrom/vim-markdown-folding'
+Plug 'nelstrom/vim-markdown-folding', {'for': 'markdown'}
 
 " create missing dirs automatically on write
 Plug 'duggiefresh/vim-easydir'
 
 Plug 'mhinz/vim-grepper'
-
-" cp cP cv - copy and paste from system clipboard
-Plug 'christoomey/vim-system-copy'
 
 " zeal bindings
 Plug 'KabbAmine/zeavim.vim'
@@ -103,40 +91,33 @@ Plug 'junegunn/gv.vim'
 " show changed lines in sign column
 Plug 'mhinz/vim-signify'
 
-Plug 'dhruvasagar/vim-table-mode'
-
 Plug 'christoomey/vim-tmux-navigator'
+
+" Plug 'mhinz/vim-startify'
 
 " syntax files
 Plug 'derekwyatt/vim-scala',        {'for': 'scala'}
-Plug 'evanmiller/nginx-vim-syntax', {'for': 'nginx'}
+Plug 'chr4/nginx.vim',              {'for': 'nginx'}
 Plug 'pearofducks/ansible-vim'
 Plug 'mitsuhiko/vim-jinja',         {'for': 'jinja'}
 Plug 'tangledhelix/vim-kickstart',  {'for': 'kickstart'}
 Plug 'slim-template/vim-slim',      {'for': 'slim'}
 Plug 'rust-lang/rust.vim',          {'for': 'rust'}
-Plug 'racer-rust/vim-racer',        {'for': 'rust'}
+" Plug 'racer-rust/vim-racer',        {'for': 'rust'}
 Plug 'ekalinin/Dockerfile.vim',     {'for': 'Dockerfile'}
 Plug 'vim-scripts/ferm.vim',        {'for': 'ferm'}
 Plug 'rodjek/vim-puppet',           {'for': 'puppet'}
 Plug 'Matt-Deacalion/vim-systemd-syntax', {'for': 'systemd'}
 Plug 'hdima/python-syntax',         {'for': 'python'}
-" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'psf/black',                   {'for': 'python'}
 Plug 'plasticboy/vim-markdown',     {'for': 'markdown'}
-" Plug 'tpope/vim-markdown',     {'for': 'markdown'}
+" Plug 'tpope/vim-markdown',          {'for': 'markdown'}
 Plug 'davinche/godown-vim',         {'for': 'markdown'}
 Plug 'moon-musick/vim-logrotate',   {'for': 'logrotate'}
-Plug 'moon-musick/vim-i3-config-syntax', {'for': 'i3'}
-Plug 'cespare/vim-toml'
-Plug 'glidenote/keepalived-syntax.vim'
-Plug 'b4b4r07/vim-hcl'
-Plug 'ClockworkNet/vim-bacula', {'for': 'bacula'}
-Plug 'zah/nim.vim', {'for': 'nim'}
-Plug 'tmux-plugins/vim-tmux'
-
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
-
-" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'cespare/vim-toml',            {'for': 'toml'}
+Plug 'glidenote/keepalived-syntax.vim', {'for': 'keepalived'}
+Plug 'tmux-plugins/vim-tmux',       {'for': 'tmux'}
 
 " filetype-related tools
 Plug 'vim-ruby/vim-ruby',           {'for': 'ruby'}
@@ -144,21 +125,28 @@ Plug 'fatih/vim-go',                {'for': ['go', 'gotexttmpl', 'markdown', 'vi
 Plug 'chrisbra/csv.vim',            {'for': 'csv'}
 " Plug 'bitc/vim-hdevtools',          {'for': 'haskell'}
 " Plug 'eagletmt/neco-ghc',           {'for': 'haskell'}
-" Plug 'neovimhaskell/haskell-vim',   {'for': 'haskell'}
-" Plug 'klen/python-mode',            {'for': 'python'}
+Plug 'neovimhaskell/haskell-vim',   {'for': 'haskell'}
+" Plug 'ndmitchell/ghcid',            {'rtp': 'plugins/nvim'}
 Plug 'lervag/vimtex',               {'for': 'tex'}
 " Plug 'rust-lang/rust.vim',          {'for': 'rust', 'dir': '~/.vim/plugged/rust-lang.vim'}
 Plug 'vimoutliner/vimoutliner',     {'for': 'votl'}
-Plug 'fatih/vim-hclfmt'
-Plug 'vimwiki/vimwiki'
-Plug 'ledger/vim-ledger'
-Plug 'fgsch/vim-varnish', {'for': 'vcl'}
+" Plug 'vimwiki/vimwiki'
+Plug 'ledger/vim-ledger',           {'for': 'ledger'}
+Plug 'fgsch/vim-varnish',           {'for': 'vcl'}
+Plug 'z0mbix/vim-shfmt',            {'for': ['sh', 'bash']}
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
+Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
+if has('nvim')
+  Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
+endif
+
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
 
 Plug 'justinmk/vim-dirvish'
-
-Plug 'z0mbix/vim-shfmt', {'for': ['sh', 'bash']}
-
-Plug 'mtth/scratch.vim'
 
 call plug#end()
 
