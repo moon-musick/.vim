@@ -1,0 +1,34 @@
+# vim: ft=snippets ts=2:sts=2:sw=2:et
+snippet apt "apt install" b
+RUN apt-get update && apt-get install -y \\
+			$0 \
+		&& rm -rf /var/lib/apt/lists/*
+endsnippet
+
+snippet maint "maintainer" b
+LABEL maintainer="${1:Łukasz Górski <l.gorski@trojmiasto.pl>}"$0
+endsnippet
+
+snippet arg "arg" b
+ARG ${1:KEY}=${2:VALUE}$0
+endsnippet
+
+snippet ep "entrypoint" b
+ENTRYPOINT ["${1:/bin/sh}"]$0
+endsnippet
+
+snippet cmd "cmd" b
+CMD ["${1:/bin/sh}"]$0
+endsnippet
+
+snippet wd "workdir" b
+WORKDIR ${1:DIR}$0
+endsnippet
+
+snippet from "from" b
+FROM ${1:${2:REPO}/}${3:IMAGE}${4::${5:TAG}}$0
+endsnippet
+
+snippet copy "copy" b
+COPY ${1:--chown=${2:USER}:${3:GROUP} }${4:SOURCE} ${5:TARGET}$0
+endsnippet
