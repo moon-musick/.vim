@@ -6,4 +6,6 @@ augroup commentstring
   autocmd FileType cfg    set commentstring=#\ %s
   autocmd FileType nagios set commentstring=#\ %s
   autocmd FileType i3     set commentstring=#\ %s
+  autocmd FileType lilypond set commentstring=%\ %s
+  autocmd FileType v      set commentstring=//\ %s
 augroup END
