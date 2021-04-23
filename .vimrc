@@ -627,10 +627,6 @@ let g:shfmt_extra_args = '-i 2 -bn -ci'
 
 " vim-prettier
 let g:prettier#autoformat = 0
-" augroup prettier
-"   autocmd!
-"   autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
-" augroup END
 
 let g:better_whitespace_enabled = 1
 let g:strip_whitespace_on_save = 1
