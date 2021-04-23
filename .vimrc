@@ -114,6 +114,11 @@ augroup python_formatting
   " autocmd FileType python nnoremap <leader>y :0,$!yapf<CR>
 augroup END
 
+augroup vcl
+  autocmd!
+  autocmd FileType vcl setlocal commentstring=#\ %s
+augroup END
+
 " key mappings ----------------------------------------------------------------
 
 " copying and pasting to/from system clipboard
