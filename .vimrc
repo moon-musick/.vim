@@ -631,6 +631,10 @@ let g:prettier#autoformat = 0
 let g:better_whitespace_enabled = 1
 let g:strip_whitespace_on_save = 1
 
+" pandoc
+let g:pandoc#spell#default_langs = ['pl', 'en']
+let g:pandoc#fomatting#textwidth = 79
+
 " custom scripts --------------------------------------------------------------
 
 source ~/.vim/custom/scripts/perltidy.vim
