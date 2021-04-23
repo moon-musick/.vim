@@ -1,3 +1,5 @@
+priority 1
+
 snippet init "init() func" b
 func init() {
 	$1
@@ -8,4 +10,60 @@ snippet ife "if err != nil" b
 if err != nil {
 	${1:log.Fatal}(${2:err})
 }$0
+endsnippet
+
+snippet rerr "if err != nil return err" b
+if err != nil {
+	return err
+}$0
+endsnippet
+
+snippet trun "t.Run invocation" b
+t.Run("${1:DESCRIPTION}", func(t *testing.T) {
+	$0
+})
+endsnippet
+
+snippet in "interface"
+interface{}$0
+endsnippet
+
+snippet pl "fmt.Println"
+fmt.Println("${1:TEXT}")$0
+endsnippet
+
+snippet pf "fmt.Printf"
+fmt.Printf("${1:%v}${2:\n}", ${3:VAR})$0
+endsnippet
+
+snippet cd "case done"
+case <-done:
+endsnippet
+
+snippet maked "done := make(chan interface{})"
+done := make(chan ${1:interface\{\}})$0
+endsnippet
+
+snippet df "defer"
+defer ${1:close}(${2:done})$0
+endsnippet
+
+snippet bl "bool"
+bool${0}
+endsnippet
+
+snippet bt "byte"
+byte${0}
+endsnippet
+
+snippet ap "append"
+append(${1:slice}, ${2:value})$0
+endsnippet
+
+snippet ape "append assignment"
+${1:slice} = append($1, ${2:value})$0
+endsnippet
+
+snippet v "shorthand variable declaration"
+${1:name} := ${2:value}
 endsnippet
