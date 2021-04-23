@@ -13,14 +13,40 @@ menu:
 endsnippet
 
 snippet standup "standup entry" b
-#standup `date +%Y-%m-%d`
+**`date +%F`**
 
-${1:wczoraj}:
+${1:Wczoraj}:
 
 * $2
 
-dzisiaj:
+Dzisiaj:
 
 * $3
 
+endsnippet
+
+snippet jid "jira issue ID link"
+[${1:${VISUAL:JIRA_ID}}](https://jira.trojmiasto.pl/browse/$1)$0
+endsnippet
+
+snippet ymatter "yaml frontmatter" b
+---
+title: "${1:TITLE}"
+description: "${2:DESCRIPTION}"
+weight: "${3:10}"
+---
+${4:{{% children %}}}
+$0
+endsnippet
+
+snippet rapm "raport miesięczny" b
+# raport miesięczny `date -d -1month +%Y.%m`
+
+## ważniejsze zadania
+
+* $0
+
+## drobne zadania
+
+*
 endsnippet
