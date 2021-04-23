@@ -521,6 +521,19 @@ command! -bar -nargs=1 -complete=option Vov echo 'local: '
 
 let g:black_linelength = 79
 
+" hexokinase - hex, rgb etc. colours preview
+let g:Hexokinase_optInPatterns = [
+\ 'full_hex',
+\ 'rgb',
+\ 'rgba',
+\ 'hsl',
+\ 'hsla',
+\ ]
+
+let g:Hexokinase_highlighters = [
+\ 'virtual',
+\ ]
+
 source ~/.vim/custom/plugins/autoformat.vim
 source ~/.vim/custom/plugins/vim-commentary.vim
 source ~/.vim/custom/plugins/vim-go.vim
