@@ -1,0 +1,23 @@
+snippet volta "volta repeat" b
+\repeat volta ${1:2} \{
+	${0:${VISUAL}}
+\}
+endsnippet
+
+snippet perc "percent repeat" b
+\repeat percent ${1:2} \{ ${0:${VISUAL}} \}
+endsnippet
+
+snippet alt "alternative repeat ending" b
+\alternative \{
+	\{ ${0:${VISUAL}} \}
+\}
+endsnippet
+
+snippet mfret "minimum fret" b
+\set minimumFret = #${1:FRET}
+endsnippet
+
+snippet wr "wrap in brackets"
+\{ ${0:${VISUAL}} \}
+endsnippet
