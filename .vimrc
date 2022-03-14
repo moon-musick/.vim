@@ -364,11 +364,13 @@ nnoremap <leader>i :IndentLinesToggle<CR>
 nnoremap <F6> :UndotreeToggle<CR>
 
 " vim-grepper custom command
-nnoremap <leader>/ :GrepperRg<Space>
+nnoremap <leader>/ :GrepperUg<Space>
 
 " ripgrep
-set grepprg=rg\ --vimgrep\ $*
-set grepformat=%f:%l:%c:%m,%f:%l%m,%f\ \ %l%m
+if executable('ugrep')
+  set grepprg=ugrep\ -RInk\ -j\ -u\ --tabs=1\ --ignore-files
+  set grepformat=%f:%l:%c:%m,%f+%l+%c+%m,%-G%f\\\|%l\\\|%c\\\|%m
+endif
 
 " fzf / ripgrep
 " '?' toggles a preview window
@@ -546,8 +548,14 @@ source ~/.vim/custom/plugins/vim-airline.vim
 source ~/.vim/custom/plugins/fzf.vim
 
 " vim-grepper settings and mappings
+
+" mhinz/vim-grepper settings and mappings
 let g:grepper = {}
-let g:grepper.tools = ['rg', 'git']
+let g:grepper.ug = {
+      \ 'grepprg': 'ugrep -RInk -j -u --tabs=1 --ignore-files',
+      \ 'grepformat': '%f:%l:%c:%m,%f+%l+%c+%m,%-G%f\|%l\|%c\%m',
+      \ }
+let g:grepper.tools = ['rg', 'git', 'ug']
 nmap gr <Plug>(GrepperOperator)
 xmap gr <Plug>(GrepperOperator)
 
