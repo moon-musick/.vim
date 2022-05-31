@@ -1,3 +1,7 @@
 snippet opt "option"
 Option<${1:TYPE}>$0
 endsnippet
+
+snippet pln "println!(..)"
+println!("\{$1\}"${2/..*/, /}$2)$0
+endsnippet

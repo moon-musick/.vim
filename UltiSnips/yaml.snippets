@@ -36,3 +36,9 @@ snippet envs "k8s env secret" b
 			name: ${2:SECRET_NAME}
 			key: ${3:`!p snip.rv = t[1].lower()`}
 endsnippet
+
+snippet ehip "extraHosts ip" b
+- ip: '${1:IP}'
+	hostnames:
+		- '${2:HOSTNAME}'$0
+endsnippet
