@@ -1,1 +1,1 @@
-let g:fugitive_gitlab_domains = ['http://gitlab.trojmiasto.pl']
+let g:fugitive_gitlab_domains = ['https://gl.trojmiasto.pl']
