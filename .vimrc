@@ -5,6 +5,19 @@ scriptencoding utf-8
 " plugins installed in separate file to facilitate unattented installation
 source ~/.vim/custom/plug.vim
 
+set termguicolors
+
+" lilypond
+" filetype off
+" set runtimepath+=/usr/share/lilypond/2.18.2/vim/
+
+" must be invoked after 'set termguicolors'
+lua <<EOF
+if jit ~= nil then
+  require'colorizer'.setup()
+end
+EOF
+
 " indentation and syntax options ----------------------------------------------
 
 " tab settings
@@ -99,13 +112,6 @@ augroup completion_settings
   autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 augroup END
 
-augroup fish
-  autocmd!
-  autocmd FileType fish compiler fish
-  autocmd FileType fish setlocal textwidth=79
-  autocmd FileType fish setlocal foldmethod=expr
-augroup END
-
 " use autopep8 for python autoformat
 augroup python_formatting
   autocmd!
@@ -176,8 +182,10 @@ nnoremap <C-e> <C-^>
 
 " delete buffer, leave window intact
 nnoremap <leader>d :Sayonara!<CR>
+" nnoremap <leader>d :BK!<CR>
 " delete buffer and close window
 nnoremap <leader>x :Sayonara<CR>
+" nnoremap <leader>x :BK<CR>
 " nnoremap <leader>d :enew<bar>bdelete #<CR>
 " nnoremap <leader>x :bdelete<CR>
 nnoremap <leader>D :bdelete!<CR>
@@ -357,8 +365,10 @@ augroup haskell
   autocmd FileType haskell nnoremap <buffer> <leader>hi :HdevtoolsInfo<CR>
 augroup END
 
-" indentLine mappings
-nnoremap <leader>i :IndentLinesToggle<CR>
+" indentBlankline mappings
+if has('nvim')
+  nnoremap <leader>i :IndentBlanklineToggle<CR>
+endif
 
 " gundo toggle shortcut
 nnoremap <F6> :UndotreeToggle<CR>
@@ -367,6 +377,8 @@ nnoremap <F6> :UndotreeToggle<CR>
 nnoremap <leader>/ :GrepperUg<Space>
 
 " ripgrep
+" set grepprg=rg\ --vimgrep\ $*
+" set grepformat=%f:%l:%c:%m,%f:%l%m,%f\ \ %l%m
 if executable('ugrep')
   set grepprg=ugrep\ -RInk\ -j\ -u\ --tabs=1\ --ignore-files
   set grepformat=%f:%l:%c:%m,%f+%l+%c+%m,%-G%f\\\|%l\\\|%c\\\|%m
@@ -521,33 +533,44 @@ command! -bar -nargs=1 -complete=option Vov echo 'local: '
 
 " plugin configuration --------------------------------------------------------
 
+" folke/todo-comments.nvim
+nnoremap <leader>tt <cmd>TroubleToggle<cr>
+nnoremap <leader>tl <cmd>TroubleToggle loclist<cr>
+
+" psf/black
 let g:black_linelength = 79
 
-" hexokinase - hex, rgb etc. colours preview
-let g:Hexokinase_optInPatterns = [
-\ 'full_hex',
-\ 'rgb',
-\ 'rgba',
-\ 'hsl',
-\ 'hsla',
-\ ]
+" rust LSP
+let g:LanguageClient_serverCommands = {
+      \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+      \ 'python': ['/usr/local/bin/pyls'],
+      \ 'tex': ['texlab'],
+      \ }
 
-let g:Hexokinase_highlighters = [
-\ 'virtual',
-\ ]
+let g:LanguageClient_autoStart = 1
 
+nnoremap <silent> <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+
+" Shougo/deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+
+source ~/.vim/custom/plugins/hexokinase.vim
 source ~/.vim/custom/plugins/autoformat.vim
 source ~/.vim/custom/plugins/vim-commentary.vim
 source ~/.vim/custom/plugins/vim-go.vim
 source ~/.vim/custom/plugins/UltiSnips.vim
 source ~/.vim/custom/plugins/python-syntax.vim
 source ~/.vim/custom/plugins/fugitive-gitlab.vim
-source ~/.vim/custom/plugins/indentLine.vim
+" source ~/.vim/custom/plugins/indentLine.vim
 source ~/.vim/custom/plugins/delimitMate.vim
 source ~/.vim/custom/plugins/vim-airline.vim
 source ~/.vim/custom/plugins/fzf.vim
 
 " vim-grepper settings and mappings
+nnoremap gA ga
 
 " mhinz/vim-grepper settings and mappings
 let g:grepper = {}
@@ -559,9 +582,8 @@ let g:grepper.tools = ['rg', 'git', 'ug']
 nmap gr <Plug>(GrepperOperator)
 xmap gr <Plug>(GrepperOperator)
 
-" vimtex
+" lervag/vimtex
 let g:vimtex_view_method = 'zathura'
-
 let g:vimtex_compiler_latexmk = {
         \ 'executable' : 'latexmk',
         \ 'options' : [
@@ -641,19 +663,9 @@ let g:ansible_unindent_after_newline = 1
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_normal_keywords_highlight = 'Constant'
 
-" rust LSP
-let g:LanguageClient_serverCommands = {
-      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-      \ }
-
-nnoremap <silent> <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-
 " racer
-let g:racer_cmd = '/home/lucas/.cargo/bin/racer'
-let g:racer_experimental_completer = 1
+let g:completor_filetype_map = {}
+let g:completor_filetype_map.rust = {'ft': 'lsp', 'cmd': 'rls'}
 
 " rust.vim
 let g:rustfmt_autosave = 1
@@ -761,9 +773,13 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 
 " gruvbox settings
-let g:gruvbox_color_column='bg2'
-let g:gruvbox_contrast_dark='medium'
-let g:gruvbox_contrast_light='hard'
+let g:gruvbox_color_column = 'bg2'
+let g:gruvbox_contrast_dark = 'medium'
+let g:gruvbox_contrast_light = 'hard'
+let g:gruvbox_improved_strings = v:false
+let g:gruvbox_improved_warnings = v:true
+let g:gruvbox_italicize_comments = v:false
+
 colorscheme gruvbox
 " gruvbox light blue (listchars, wrapped line marks etc.)
 highlight NonText guifg=#83a598
@@ -771,28 +787,42 @@ highlight NonText guifg=#83a598
 highlight ExtraWhitespace guibg=#fb4934 guifg=#fbf1c7 gui=underline
 " match ExtraWhitespace /\s\+$/
 
+let g:airline_theme = 'base16_gruvbox_dark_medium'
+
+" italic comments
+" let &t_ZH="\e[3m"
+" let &t_ZR="\e[23m"
+" highlight Folded term=NONE cterm=NONE
+" highlight Comment term=italic cterm=italic gui=italic
+
+source ~/.vim/custom/plugins/tree-sitter-highlight.vim
+source ~/.vim/custom/plugins/indent-blankline.vim
 source ~/.vim/custom/colors/gruvbox-terminal.vim
 
 " folding settings ------------------------------------------------------------
 
 " enable folding based on indentation
-" set foldmethod=indent
-" manual folding - testing
-set foldmethod=manual
+set foldmethod=indent
 " disable automatic folding on file opening
 set nofoldenable
 
-" anyfold
-let g:anyfold_activate=0
+source ~/.vim/custom/plugins/tree-sitter-folding.vim
 
-augroup anyfold_activate
+" -----------------------------------------------------------------------------
+"
+" https://www.reddit.com/r/kubernetes/comments/ehpr5z/syntax_highlighting_for_helm_templates_in_vim/
+function HelmSyntax()
+  set filetype=yaml
+  unlet b:current_syntax
+  syn include @yamlGoTextTmpl ~/.vim/plugged/vim-go/syntax/gotexttmpl.vim
+  let b:current_syntax = "yaml"
+  syn region goTextTmpl start=/{{/ end=/}}/ contains=@gotplLiteral,gotplControl,gotplFunctions,gotplVariable,goTplIdentifier containedin=ALLBUT,goTextTmpl keepend
+  hi def link goTextTmpl PreProc
+endfunction
+augroup helm_syntax
   autocmd!
-  autocmd FileType sh let b:anyfold_activate=1
+  autocmd BufRead,BufNewFile */templates/*.yaml,*/templates/*.tpl call HelmSyntax()
 augroup END
-let g:anyfold_fold_comments=1
-set foldlevel=0
-
-highlight Folded term=NONE cterm=NONE
 
 " -----------------------------------------------------------------------------
 
