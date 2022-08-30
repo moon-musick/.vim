@@ -41,11 +41,6 @@ vim.opt.matchtime = 2
 -- enable backspace over newlines, inserted chars and autoindent in insert mode
 vim.opt.backspace = "start,eol,indent"
 
--- enable syntax coloring - should be on by default in neovim
--- syntax on
--- enable indentation based on filetype - should be on by default
--- filetype indent plugin on
-
 vim.opt.wrap = false
 -- preserve indentation when visually wrapping lines
 vim.opt.breakindent = true
@@ -95,8 +90,6 @@ local ft_autocmds = {
     {'FileType', 'ruby', 'setlocal omnifunc=rubycomplete#Complete'},
     {'FileType', 'ruby', 'let g:rubycomplete_buffer_loading=1'},
     {'FileType', 'ruby', 'let g:rubycomplete_classes_in_global=1'},
-    -- {'FileType', 'python', 'set omnifunc=pythoncomplete#Complete'},
-    -- {'FileType', 'python', 'setlocal omnifunc=lsp#complete'},
     {'FileType', 'haskell', 'setlocal omnifunc=necoghc#omnifunc'},
   },
 }
@@ -163,12 +156,8 @@ map_key('n', '<C-e>', '<C-^>')
 
 -- delete buffer, leave window intact
 map_key('n', '<leader>d', ':Sayonara!<CR>')
--- nnoremap <leader>d :BK!<CR>
 -- delete buffer and close window
 map_key('n', '<leader>x', ':Sayonara<CR>')
--- nnoremap <leader>x :BK<CR>
--- nnoremap <leader>d :enew<bar>bdelete #<CR>
--- nnoremap <leader>x :bdelete<CR>
 map_key('n', '<leader>D', ':bdelete!<CR>')
 
 -- open new split
@@ -521,9 +510,6 @@ map_key('n', '<leader>sh', ':SSHFile<Space>')
 
 -- plugin configuration --------------------------------------------------------
 
--- yamatsum/nvim-cursorline
--- vim.g.cursorline_timeout = 500
-
 -- folke/todo-comments.nvim
 map_key('n', '<leader>tt', '<cmd>TroubleToggle<cr>')
 map_key('n', '<leader>tl', '<cmd>TroubleToggle loclist<cr>')
@@ -729,15 +715,11 @@ vim.opt.ruler = true
 vim.opt.showcmd = true
 -- show filename in status bar
 vim.opt.title = true
--- show mode in status bar
 vim.opt.showmode = true
--- show matching braces
 vim.opt.showmatch = true
--- show line numbers
 vim.opt.number = true
 -- use 2 lines for status bar
 vim.opt.laststatus = 2
--- show cursorline
 vim.opt.cursorline = true
 
 vim.cmd([[
@@ -777,16 +759,7 @@ vim.cmd('colorscheme gruvbox')
 -- gruvbox light blue (listchars, wrapped line marks etc.)
 vim.cmd('highlight NonText guifg=#83a598')
 
--- highlight ExtraWhitespace guibg=#fb4934 guifg=#fbf1c7 gui=underline
--- match ExtraWhitespace /\s\+$/
-
 vim.g.airline_theme = 'base16_gruvbox_dark_medium'
-
--- italic comments
--- let &t_ZH="\e[3m"
--- let &t_ZR="\e[23m"
--- highlight Folded term=NONE cterm=NONE
--- highlight Comment term=italic cterm=italic gui=italic
 
 vim.cmd([[
 source ~/.vim/custom/plugins/tree-sitter-highlight.vim
