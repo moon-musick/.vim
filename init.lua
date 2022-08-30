@@ -10,6 +10,24 @@ if jit ~= nil then
   require'colorizer'.setup()
 end
 
+-- helpers --------------------------------------------------------------------
+
+function nvim_create_augroups(definitions)
+  for group_name, definition in pairs(definitions) do
+    vim.api.nvim_command('augroup ' .. group_name)
+    vim.api.nvim_command('autocmd!')
+    for _, def in ipairs(definition) do
+      local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
+      vim.api.nvim_command(command)
+    end
+    vim.api.nvim_command('augroup END')
+  end
+end
+
+local function map_key(mode, lhs, rhs)
+  vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
+end
+
 -- indentation and syntax options ---------------------------------------------
 
 vim.opt.tabstop = 2
@@ -54,61 +72,38 @@ vim.opt.inccommand = 'nosplit'
 
 -- filetype-related stuff -----------------------------------------------------
 
-vim.cmd([[
-" scriptencoding utf-8
+local ft_autocmds = {
+  indentation_settings = {
+    {'FileType', 'python,haskell,markdown', 'setlocal expandtab   tabstop=4 shiftwidth=4 softtabstop=4 autoindent'},
+    {'FileType', 'lokis',                   'setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8'},
+    {'FileType', 'go',                      'setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent'},
+    {'FileType', 'votl',                    'setlocal softtabstop=4'},
+  },
+  filetype_settings = {
+    {'BufRead,BufNewFile', '*.rsc',  'set filetype=rsc'},
+    {'BufRead,BufNewFile', '*.ks',   'set filetype=kickstart'},
+    {'BufRead,BufNewFile', '*.html', 'set filetype=html'},
+    {'BufRead,BufNewFile', '*.css',  'set filetype=css'},
+    {'BufRead,BufNewFile', '*.j2',   'set filetype=jinja'},
+    {'BufRead,BufNewFile', '*.rs',   'set filetype=rust'},
+  },
+  python_formatting = {
+    {'FileType', 'python', 'setlocal formatprg=autopep8 -'},
+    {'FileType', 'python', 'nnoremap <leader>y :Black<CR>'},
+  },
+  completion_settings = {
+    {'FileType', 'ruby', 'setlocal omnifunc=rubycomplete#Complete'},
+    {'FileType', 'ruby', 'let g:rubycomplete_buffer_loading=1'},
+    {'FileType', 'ruby', 'let g:rubycomplete_classes_in_global=1'},
+    -- {'FileType', 'python', 'set omnifunc=pythoncomplete#Complete'},
+    -- {'FileType', 'python', 'setlocal omnifunc=lsp#complete'},
+    {'FileType', 'haskell', 'setlocal omnifunc=necoghc#omnifunc'},
+  },
+}
 
-" filetype-related stuff ------------------------------------------------------
-
-" different indentation settings for various languages
-augroup indentation_settings
-  autocmd!
-  autocmd FileType python,haskell,markdown setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
-  autocmd FileType lokis setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
-  autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent
-  autocmd FileType votl setlocal softtabstop=4
-augroup END
-
-" filetype recognition
-augroup filetype_settings
-  autocmd!
-  autocmd BufRead,BufNewFile *.rsc  set filetype=rsc
-  autocmd BufRead,BufNewFile *.ks   set filetype=kickstart
-  autocmd BufRead,BufNewFile *.html set filetype=html
-  autocmd BufRead,BufNewFile *.css  set filetype=css
-  autocmd BufRead,BufNewFile *.j2   set filetype=jinja
-  autocmd BufRead,BufNewFile *.rs   set filetype=rust
-augroup END
-
-" enable omnicompletion for ruby and python
-augroup completion_settings
-  autocmd!
-  autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-  autocmd FileType ruby let g:rubycomplete_buffer_loading=1
-  autocmd FileType ruby let g:rubycomplete_classes_in_global=1
-  " autocmd FileType python set omnifunc=pythoncomplete#Complete
-  " autocmd FileType python setlocal omnifunc=lsp#complete
-  autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-augroup END
-
-" use autopep8 for python autoformat
-augroup python_formatting
-  autocmd!
-  autocmd FileType python setlocal formatprg=autopep8\ -
-  autocmd FileType python nnoremap <leader>y :Black<CR>
-  " autocmd FileType python nnoremap <leader>y :0,$!yapf<CR>
-augroup END
-
-augroup vcl
-  autocmd!
-  autocmd FileType vcl setlocal commentstring=#\ %s
-augroup END
-]])
+nvim_create_augroups(ft_autocmds)
 
 -- key mappings ---------------------------------------------------------------
-
-local function map_key(mode, lhs, rhs)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true, silent = true })
-end
 
 -- copying and pasting to/from system clipboard
 map_key('n', 'cv', '"+p')
@@ -184,8 +179,8 @@ function! OpenCurentBufferInNewTab()
   tabedit %
   call cursor(l:l, l:c)
 endfunction
-nnoremap <leader>ff :call OpenCurentBufferInNewTab()<CR>
 
+nnoremap <leader>ff :call OpenCurentBufferInNewTab()<CR>
 ]])
 
 -- map write and quit to something more sensible
