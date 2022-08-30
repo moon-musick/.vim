@@ -42,6 +42,13 @@ if has('nvim')
   " navigation ----------------------------------------------------------------
   " conflicts with vim-sandwich
   " Plug 'ggandor/lightspeed.nvim', {'branch': 'main'}
+
+  " git integration -----------------------------------------------------------
+  Plug 'f-person/git-blame.nvim'
+
+  " general stuff -------------------------------------------------------------
+  Plug 'echasnovski/mini.nvim', {'branch': 'master'}
+
 endif
 
 Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}
@@ -67,7 +74,6 @@ Plug 'nanotee/zoxide.vim'
 
 " Plug 'wellle/visual-split.vim'
 
-" not supported anymore?
 Plug 'mhinz/vim-sayonara', {'on': 'Sayonara'}
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -81,7 +87,7 @@ Plug 'tommcdo/vim-lion'
 " movements & operators -------------------------------------------------------
 Plug 'justinmk/vim-sneak'
 
-Plug 'machakann/vim-sandwich'
+" Plug 'machakann/vim-sandwich'
 Plug 'machakann/vim-swap'
 
 " search ----------------------------------------------------------------------
@@ -109,10 +115,10 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-capslock'
 " show additional info for character on ga
 Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-dispatch'
 
@@ -237,6 +243,9 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
+require('mini.surround').setup()
+require('mini.comment').setup()
+
 --  require('range-highlight').setup{}
 EOF
 endif

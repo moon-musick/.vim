@@ -3,6 +3,7 @@ augroup commentstring
   autocmd!
   autocmd FileType puppet set commentstring=#\ %s
   autocmd FileType conf   set commentstring=#\ %s
+  autocmd FileType apache set commentstring=#\ %s
   autocmd FileType cfg    set commentstring=#\ %s
   autocmd FileType nagios set commentstring=#\ %s
   autocmd FileType i3     set commentstring=#\ %s
