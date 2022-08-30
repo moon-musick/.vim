@@ -103,6 +103,14 @@ local ft_autocmds = {
 
 nvim_create_augroups(ft_autocmds)
 
+vim.filetype.add({
+  extension = {
+    cue = 'cue',
+    ly = 'lilypond',
+    ily = 'lilypond',
+  },
+})
+
 -- key mappings ---------------------------------------------------------------
 
 -- copying and pasting to/from system clipboard
