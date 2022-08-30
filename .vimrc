@@ -569,7 +569,6 @@ source ~/.vim/custom/plugins/delimitMate.vim
 source ~/.vim/custom/plugins/vim-airline.vim
 source ~/.vim/custom/plugins/fzf.vim
 
-" vim-grepper settings and mappings
 nnoremap gA ga
 
 " mhinz/vim-grepper settings and mappings
@@ -784,7 +783,7 @@ colorscheme gruvbox
 " gruvbox light blue (listchars, wrapped line marks etc.)
 highlight NonText guifg=#83a598
 
-highlight ExtraWhitespace guibg=#fb4934 guifg=#fbf1c7 gui=underline
+" highlight ExtraWhitespace guibg=#fb4934 guifg=#fbf1c7 gui=underline
 " match ExtraWhitespace /\s\+$/
 
 let g:airline_theme = 'base16_gruvbox_dark_medium'
