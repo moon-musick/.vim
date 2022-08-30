@@ -499,10 +499,6 @@ function! SSHFile(hostname, filename)
   execute 'r!' . 'ssh ' . a:hostname . ' cat ' . a:filename
 endfunction
 
-command! -complete=file -nargs=* SSHFile :call SSHFile(<f-args>)
-
-nnoremap <leader>sh :SSHFile<Space>
-
 " paste stuff into termbin, get back URL
 " https://www.reddit.com/r/vim/comments/7bj837/favorite_console_tools_to_use_with_vim/
 if executable('nc') && executable('tr') && executable('xclip')
@@ -516,6 +512,9 @@ command! -bar -nargs=1 -complete=option Vov echo 'local: '
       \| echo 'global: '
       \| verbose setglobal <args>?
 ]])
+
+vim.api.nvim_create_user_command('SSHFile', ':call SSHFile(<f-args>)', { complete = 'file', nargs = '*' })
+map_key('n', '<leader>sh', ':SSHFile<Space>')
 
 -- plugin configuration --------------------------------------------------------
 
