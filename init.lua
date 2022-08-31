@@ -789,7 +789,7 @@ vim.cmd('source ~/.vim/custom/plugins/tree-sitter-folding.vim')
 
 -- https://www.reddit.com/r/kubernetes/comments/ehpr5z/syntax_highlighting_for_helm_templates_in_vim/
 vim.cmd([[
-function HelmSyntax()
+function! HelmSyntax()
   set filetype=yaml
   unlet b:current_syntax
   syn include @yamlGoTextTmpl ~/.vim/plugged/vim-go/syntax/gotexttmpl.vim
