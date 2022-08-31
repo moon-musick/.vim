@@ -1,26 +1,28 @@
 -- Plug setup -----------------------------------------------------------------
 
--- plugins installed in separate file to facilitate unattented installation
-vim.cmd('source ~/.vim/custom/plug.vim')
+-- use lua-only filetype detection
+-- not sure if needs to be called before vim-plug
+-- vim.g.do_filetype_lua = 1
+-- vim.g.did_load_filetypes = 0
 
 vim.opt.termguicolors = true
 
--- must be invoked after 'set termguicolors'
-if jit ~= nil then
-  require'colorizer'.setup()
-end
+-- plugins installed in separate file to facilitate unattented installation
+require('plugins')
 
 -- helpers --------------------------------------------------------------------
 
 function nvim_create_augroups(definitions)
+  local execute = vim.api.nvim_command
+
   for group_name, definition in pairs(definitions) do
-    vim.api.nvim_command('augroup ' .. group_name)
-    vim.api.nvim_command('autocmd!')
+    execute('augroup ' .. group_name)
+    execute('autocmd!')
     for _, def in ipairs(definition) do
       local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
-      vim.api.nvim_command(command)
+      execute(command)
     end
-    vim.api.nvim_command('augroup END')
+    execute('augroup END')
   end
 end
 
@@ -226,7 +228,7 @@ map_key('x', 'gk', 'k')
 
 -- easily edit configuration files
 map_key('n', '<leader>ev', ':edit $MYVIMRC<CR>')
-map_key('n', '<leader>ep', ':edit ~/.vim/custom/plug.vim<CR>')
+map_key('n', '<leader>ep', ':edit ~/.config/nvim/lua/plugins.lua<CR>')
 map_key('n', '<leader>sv', ':source $MYVIMRC<CR>')
 
 -- more consistent n/N behaviour
@@ -745,14 +747,6 @@ vim.opt.background = 'dark'
 vim.o.t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"
 vim.o.t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"
 vim.opt.termguicolors = true
-
--- gruvbox settings
-vim.g.gruvbox_color_column = 'bg2'
-vim.g.gruvbox_contrast_dark = 'medium'
-vim.g.gruvbox_contrast_light = 'hard'
-vim.g.gruvbox_improved_strings = false
-vim.g.gruvbox_improved_warnings = true
-vim.g.gruvbox_italicize_comments = false
 
 vim.cmd('colorscheme gruvbox')
 
