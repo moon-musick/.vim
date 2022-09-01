@@ -6,8 +6,8 @@ local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-    execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-    execute 'packadd packer.nvim'
+  execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+  execute 'packadd packer.nvim'
 end
 
 vim.cmd('packadd packer.nvim')
@@ -154,7 +154,6 @@ packer.startup(function()
   use {'derekwyatt/vim-scala',              ft = 'scala'}
   use {'chr4/nginx.vim',                    ft = 'nginx'}
   use {'mitsuhiko/vim-jinja',               ft = 'jinja'}
-  -- use {'tangledhelix/vim-kickstart',        ft = 'kickstart'} -- git fsck failed
   use {'slim-template/vim-slim',            ft = 'slim'}
   use {'rust-lang/rust.vim',                ft = 'rust'}
   use {'ekalinin/Dockerfile.vim',           ft = 'Dockerfile'}
@@ -181,7 +180,7 @@ packer.startup(function()
   use {'neovimhaskell/haskell-vim',   ft = 'haskell'}
   -- use {'ndmitchell/ghcid',            'rtp': 'plugins/nvim'}
   use {'lervag/vimtex',               ft = 'tex'}
-  -- use {'rust-lang/rust.vim',          ft = 'rust', 'dir': '~/.vim/plugged/rust-lang.vim'}
+  -- use {'rust-lang/rust.vim',          ft = 'rust', as = 'rust-lang.vim'}
   use {'vimoutliner/vimoutliner',     ft = 'votl'}
   -- use 'vimwiki/vimwiki'
   use {'ledger/vim-ledger',           ft = 'ledger'}
