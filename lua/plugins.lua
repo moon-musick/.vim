@@ -204,7 +204,15 @@ end
 
 require("nvim-web-devicons").setup { default = true }
 require("trouble").setup {}
-require("todo-comments").setup {}
+
+-- https://github.com/folke/todo-comments.nvim/issues/97
+local hl = require("todo-comments.highlight")
+local highlight_win = hl.highlight_win
+hl.highlight_win = function(win, force)
+  pcall(highlight_win, win, force)
+end
+require("todo-comments").setup()
+
 require'nvim-treesitter.configs'.setup {
   textobjects = {
     select = {
