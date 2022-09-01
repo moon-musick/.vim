@@ -127,6 +127,14 @@ packer.startup(function()
   use 'justinmk/vim-sneak'
 
   -- use 'machakann/vim-sandwich'
+  --
+  use {
+     'goolord/alpha-nvim',
+     requires = { 'kyazdani42/nvim-web-devicons' },
+     config = function ()
+         require'alpha'.setup(require'alpha.themes.startify'.config)
+     end
+  }
   use 'machakann/vim-swap'
 
   -- search -------------------------------------------------------------------
