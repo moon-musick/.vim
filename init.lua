@@ -85,7 +85,7 @@ local ft_autocmds = {
     {'BufRead,BufNewFile', '*.rs',   'set filetype=rust'},
   },
   python_formatting = {
-    {'FileType', 'python', 'setlocal formatprg=autopep8 -'},
+    {'FileType', 'python', 'setlocal formatprg="autopep8 -"'},
     {'FileType', 'python', 'nnoremap <leader>y :Black<CR>'},
   },
   completion_settings = {
