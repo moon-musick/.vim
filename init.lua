@@ -395,12 +395,13 @@ map_key('n', 's', '<NOP>')
 map_key('x', 's', '<NOP>')
 
 -- zeavim filetype -> docset mappings
-vim.g.zv_file_types = {}
-vim.g.zv_file_types['Dockerfile'] = 'docker'
-vim.g.zv_file_types['tex'] = 'latex'
-vim.g.zv_file_types['sh'] = 'bash'
-vim.g.zv_file_types['yaml.ansible'] = 'ansible'
-vim.g.zv_file_types['python'] = 'python_3'
+vim.g.zv_file_types = {
+  ['Dockerfile'] = 'docker',
+  ['tex'] = 'latex',
+  ['sh'] = 'bash',
+  ['python'] = 'python_3',
+  ['yaml.ansible'] = 'ansible',
+}
 
 map_key('v', 'gz', '<Plug>ZVVisSelection')
 
