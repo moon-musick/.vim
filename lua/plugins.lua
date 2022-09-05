@@ -25,6 +25,7 @@ packer.startup(function()
   use {'wbthomason/packer.nvim', opt = true}
 
   use {'Shougo/deoplete.nvim', run = ':UpdateRemotePlugins'}
+  use {'ms-jpq/coq_nvim', branch = 'coq', requires = {'ms-jpq/coq.artifacts', branch = 'artifacts'}, event = 'InsertEnter'}
 
   -- colorscheme and appearance -----------------------------------------------
 
@@ -50,9 +51,9 @@ packer.startup(function()
 
   -- lsp / treesitter ---------------------------------------------------------
 
-  use {'autozimu/LanguageClient-neovim', branch = 'next', run = 'bash install.sh'}
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'neovim/nvim-lspconfig'
 
   -- git integration ----------------------------------------------------------
 
@@ -172,7 +173,8 @@ packer.startup(function()
 
   use {'psf/black',                   ft = 'python'}
   use {'vim-ruby/vim-ruby',           ft = 'ruby'}
-  use {'fatih/vim-go',                ft = {'go', 'gotexttmpl', 'markdown', 'vimwiki'}, run = ':GoUpdateBinaries'}
+  -- use {'fatih/vim-go',                ft = {'go', 'gotexttmpl', 'markdown', 'vimwiki'}, run = ':GoUpdateBinaries'}
+  use {'ray-x/go.nvim'}
   use {'chrisbra/csv.vim',            ft = 'csv'}
   -- use {'racer-rust/vim-racer',        ft = 'rust'}
   -- use {'bitc/vim-hdevtools',          ft = 'haskell'}
@@ -263,3 +265,53 @@ require'nvim-treesitter.configs'.setup {
 require('mini.surround').setup()
 require('mini.comment').setup()
 require('gruvbox').setup({ italic = false })
+
+local lsp = require('lspconfig')
+-- local coq = require('coq')
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+end
+local lsp_flags = {
+  -- This is the default in Nvim 0.7+
+  debounce_text_changes = 150,
+}
+-- local util = require('lspconfig.util')
+lsp.gopls.setup({
+  -- coq.lsp_ensure_capabilities(
+  -- {
+  --   cmd = {'gopls'},
+  --   filetypes = {'go', 'gomod', 'gowork', 'gotmpl'},
+  --   root_dir = util.root_pattern('go.mod', '.git'),
+  --   single_file_support = true
+  -- }
+    on_attach = on_attach,
+    flags = lsp_flags,
+  }
+)
+-- ))
+require('go').setup()
+require('go.format').goimport()
+vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport()  ]], false)

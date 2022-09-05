@@ -521,18 +521,18 @@ map_key('n', '<leader>tl', '<cmd>TroubleToggle loclist<cr>')
 vim.g.black_linelength = 79
 
 -- rust LSP
-vim.g.LanguageClient_serverCommands = {
-  rust = {'rustup', 'run', 'nightly', 'rls'},
-  python = {'/usr/local/bin/pyls'},
-  tex = {'texlab'},
-}
+-- vim.g.LanguageClient_serverCommands = {
+--   rust = {'rustup', 'run', 'nightly', 'rls'},
+--   python = {'/usr/local/bin/pyls'},
+--   tex = {'texlab'},
+-- }
 
-vim.g.LanguageClient_autoStart = 1
+-- vim.g.LanguageClient_autoStart = 1
 
-map_key('n', '<F5>', ':call LanguageClient_contextMenu()<CR>')
-map_key('n', 'K',    ':call LanguageClient_textDocument_hover()<CR>')
-map_key('n', 'gd',   ':call LanguageClient_textDocument_definition()<CR>')
-map_key('n', '<F2>', ':call LanguageClient_textDocument_rename()<CR>')
+-- map_key('n', '<F5>', ':call LanguageClient_contextMenu()<CR>')
+-- map_key('n', 'K',    ':call LanguageClient_textDocument_hover()<CR>')
+-- map_key('n', 'gd',   ':call LanguageClient_textDocument_definition()<CR>')
+-- map_key('n', '<F2>', ':call LanguageClient_textDocument_rename()<CR>')
 
 vim.cmd([[
 " Shougo/deoplete.nvim
