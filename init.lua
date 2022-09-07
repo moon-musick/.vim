@@ -561,8 +561,8 @@ vim.g.grepper = {
   },
   tools = {'rg', 'git', 'ug'}
 }
-map_key('n', 'gr', '<Plug>(GrepperOperator)')
-map_key('x', 'gr', '<Plug>(GrepperOperator)')
+map_key('n', 'g/', '<Plug>(GrepperOperator)')
+map_key('x', 'g/', '<Plug>(GrepperOperator)')
 
 -- lervag/vimtex
 vim.g.vimtex_view_method = 'zathura'
