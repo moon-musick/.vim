@@ -86,7 +86,7 @@ local ft_autocmds = {
   },
   python_formatting = {
     {'FileType', 'python', 'setlocal formatprg="autopep8 -"'},
-    {'FileType', 'python', 'nnoremap <leader>y :Black<CR>'},
+    {'FileType', 'python', 'nnoremap <leader>y :silent! !black %<CR>'},
   },
   completion_settings = {
     {'FileType', 'ruby', 'setlocal omnifunc=rubycomplete#Complete'},
