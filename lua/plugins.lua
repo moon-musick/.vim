@@ -24,8 +24,8 @@ packer.startup(function()
 
   use {'wbthomason/packer.nvim', opt = true}
 
+  use 'neovim/nvim-lspconfig'
   use {'Shougo/deoplete.nvim', run = ':UpdateRemotePlugins'}
-  use {'ms-jpq/coq_nvim', branch = 'coq', requires = {'ms-jpq/coq.artifacts', branch = 'artifacts'}, event = 'InsertEnter'}
 
   -- colorscheme and appearance -----------------------------------------------
 
@@ -55,7 +55,6 @@ packer.startup(function()
 
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'neovim/nvim-lspconfig'
 
   -- git integration ----------------------------------------------------------
 
@@ -268,9 +267,9 @@ require('mini.surround').setup()
 require('mini.comment').setup()
 require('gruvbox').setup({ italic = false })
 
-local lsp = require('lspconfig')
--- local coq = require('coq')
+-------------------------------------------------------------------------------
 
+local lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -300,20 +299,10 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
--- local util = require('lspconfig.util')
 lsp.gopls.setup({
-  -- coq.lsp_ensure_capabilities(
-  -- {
-  --   cmd = {'gopls'},
-  --   filetypes = {'go', 'gomod', 'gowork', 'gotmpl'},
-  --   root_dir = util.root_pattern('go.mod', '.git'),
-  --   single_file_support = true
-  -- }
     on_attach = on_attach,
     flags = lsp_flags,
-  }
-)
--- ))
+})
 require('go').setup()
 require('go.format').goimport()
 vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport()  ]], false)
