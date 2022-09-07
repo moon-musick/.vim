@@ -777,6 +777,8 @@ vim.g.terminal_color_13 = '#d3869b'
 vim.g.terminal_color_14 = '#8ec07c'
 vim.g.terminal_color_15 = '#ebdbb2'
 
+vim.cmd([[hi def IlluminatedWordText guibg=#504945]])
+
 -- folding settings ------------------------------------------------------------
 
 -- enable folding based on indentation

@@ -43,6 +43,8 @@ packer.startup(function()
   -- preview colors
   use 'norcalli/nvim-colorizer.lua'
 
+  use 'RRethy/vim-illuminate'
+
   -- highlight occurences of word under cursor
   -- use {'yamatsum/nvim-cursorline', branch = 'main'}
 
