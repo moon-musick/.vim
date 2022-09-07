@@ -24,6 +24,9 @@ packer.startup(function()
 
   use {'wbthomason/packer.nvim', opt = true}
 
+  use {'williamboman/mason.nvim'}
+  use {'williamboman/mason-lspconfig.nvim'}
+
   use 'neovim/nvim-lspconfig'
   use {'Shougo/deoplete.nvim', run = ':UpdateRemotePlugins'}
 
@@ -212,6 +215,8 @@ end
 
 -------------------------------------------------------------------------------
 
+require('mason').setup()
+require('mason-lspconfig').setup()
 require("nvim-web-devicons").setup { default = true }
 require("trouble").setup {}
 
@@ -302,6 +307,10 @@ local lsp_flags = {
 lsp.gopls.setup({
     on_attach = on_attach,
     flags = lsp_flags,
+})
+lsp.pyright.setup({
+  on_attach = on_attach,
+  flags = lsp_flags,
 })
 require('go').setup()
 require('go.format').goimport()
