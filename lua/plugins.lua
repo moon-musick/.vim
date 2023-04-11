@@ -275,7 +275,13 @@ require'nvim-treesitter.configs'.setup {
 }
 require('mini.surround').setup()
 require('mini.comment').setup()
-require('gruvbox').setup({ italic = false })
+require('gruvbox').setup({
+  italic = {
+    strings = false,
+    operators = false,
+    comments = true,
+  }
+})
 
 -------------------------------------------------------------------------------
 
