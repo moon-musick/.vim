@@ -10,4 +10,6 @@ augroup commentstring
   autocmd FileType lilypond set commentstring=%\ %s
   autocmd FileType v      set commentstring=//\ %s
   autocmd FileType gomod  set commentstring=//\ %s
+  autocmd FileType vcl    set commentstring=#\ %s
+  autocmd FileType dosini set commentstring=#\ %s
 augroup END
