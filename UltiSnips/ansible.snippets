@@ -136,7 +136,7 @@ snippet url "get url" b
 endsnippet
 
 snippet cron "cron task" b
-- name: setup a ${1:DESCRIPTION} cron task
+- name: setup the ${1:DESCRIPTION} cron task
 	cron:
 		name: '${2:$1}'
 		minute: '${3:0}'
@@ -148,6 +148,16 @@ snippet cron "cron task" b
 		user: '${10:root}'${11:
 		cron_file: '${12:FILENAME}'}
 	tags: ['cron', '${13:$1}']$0
+endsnippet
+
+snippet cronvar "cron variable" b
+- name: ensure the ${1:VARNAME} cron variable is set
+	cronvar:
+		name: '$1'
+		value: '${2:VALUE}'${3:
+		user: '${4:USER}'}${5:
+		cron_file: '${6:FILENAME}'}
+	tags: ['cron']$0
 endsnippet
 
 snippet debug "debug task" b
