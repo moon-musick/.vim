@@ -34,6 +34,7 @@ packer.startup(function()
 
   use {'npxbr/gruvbox.nvim', branch = 'main', requires = {'rktjmp/lush.nvim', branch = 'main'}}
   use {'folke/lsp-colors.nvim', branch = 'main'}
+  use {'Tsuzat/NeoSolarized.nvim'}
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
   -- TODO: check real usability, does not seem to work with vim-go
@@ -328,5 +329,10 @@ lsp.pyright.setup({
 require('go').setup()
 require('go.format').goimport()
 vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport()  ]], false)
+require("NeoSolarized.config").setup({
+  style = "dark",
+  transparent = false,
+  enable_italics = false,
+})
 
 require('lspconfig').unison.setup({})
