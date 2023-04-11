@@ -197,6 +197,11 @@ packer.startup(function()
   use {'prettier/vim-prettier', run = 'npm install', ft = {'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'}}
   use 'ron-rs/ron.vim'
   use 'robbles/logstash.vim'
+  use {
+    "unisonweb/unison",
+    branch = "trunk",
+    rtp = "/editor-support/vim"
+  }
   end
 )
 
@@ -315,3 +320,5 @@ lsp.pyright.setup({
 require('go').setup()
 require('go.format').goimport()
 vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport()  ]], false)
+
+require('lspconfig').unison.setup({})
