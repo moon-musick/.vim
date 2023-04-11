@@ -67,6 +67,8 @@ packer.startup(function()
   use 'mhinz/vim-signify'
   use 'f-person/git-blame.nvim'
 
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
   -- misc ---------------------------------------------------------------------
 
   use {'echasnovski/mini.nvim', branch = 'main'}
