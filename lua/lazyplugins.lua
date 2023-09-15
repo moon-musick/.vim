@@ -73,8 +73,6 @@ require("lazy").setup({
   -- show marks in sign column
   "kshenoy/vim-signature",
 
-  -- run a command only on visual selection (:B cmd)
-  -- use "vim-scripts/vis", {"frozen": 1}
   --  highlight up to 6 words when browsing code
   "lfv89/vim-interestingwords",
   -- change word case, advanced substitution, abbreviations
@@ -83,7 +81,7 @@ require("lazy").setup({
   "tpope/vim-capslock",
   -- show additional info for character on ga
   "tpope/vim-characterize",
-  -- use "tpope/vim-commentary"
+  -- "tpope/vim-commentary"
   "tpope/vim-eunuch",
   "tpope/vim-repeat",
   "tpope/vim-unimpaired",
@@ -130,7 +128,7 @@ require("lazy").setup({
 
   "justinmk/vim-sneak",
 
-  -- use "machakann/vim-sandwich"
+  -- "machakann/vim-sandwich",
   "machakann/vim-swap",
 
   -- search -------------------------------------------------------------------
@@ -140,7 +138,7 @@ require("lazy").setup({
   -- show register contents on ctrl-r
   "junegunn/vim-peekaboo",
   -- show number of search results found
-  -- use "henrik/vim-indexed-search"
+  -- "henrik/vim-indexed-search",
   "mhinz/vim-grepper",
 
   -- syntax files --------------------------------------------------------------
@@ -166,18 +164,23 @@ require("lazy").setup({
   -- filetype-related tools ------------------------------------------------------
 
   {"vim-ruby/vim-ruby",           ft = "ruby"},
-  -- use {"fatih/vim-go",                ft = {"go", "gotexttmpl", "markdown", "vimwiki"}, build = ":GoUpdateBinaries"},
+  -- {"fatih/vim-go", ft = {"go", "gotexttmpl", "markdown", "vimwiki"}, build = ":GoUpdateBinaries"},
   {"ray-x/go.nvim", dependencies = {"ray-x/guihua.lua"}},
   {"chrisbra/csv.vim",            ft = "csv"},
-  -- use {"racer-rust/vim-racer",        ft = "rust"},
-  -- use {"bitc/vim-hdevtools",          ft = "haskell"},
-  -- use {"eagletmt/neco-ghc",           ft = "haskell"},
+  -- {"racer-rust/vim-racer", ft = "rust"},
+  -- {"bitc/vim-hdevtools", ft = "haskell"},
+  -- {"eagletmt/neco-ghc", ft = "haskell"},
   {"neovimhaskell/haskell-vim",   ft = "haskell"},
-  -- use {"ndmitchell/ghcid",            "rtp": "plugins/nvim"},
+  -- {
+  --   "ndmitchell/ghcid",
+  --   config = function(plugin)
+  --     vim.opt.rtp:append(plugin.dir .. "plugins/nvim")
+  --   end
+  -- },
   {"lervag/vimtex",               ft = "tex"},
-  -- use {"rust-lang/rust.vim",          ft = "rust", as = "rust-lang.vim"},
+  -- {"rust-lang/rust.vim", ft = "rust", name = "rust-lang.vim"},
   {"vimoutliner/vimoutliner",     ft = "votl"},
-  -- use "vimwiki/vimwiki"
+  -- "vimwiki/vimwiki"
   {"ledger/vim-ledger",           ft = "ledger"},
   {"fgsch/vim-varnish",           ft = "vcl"},
   {"z0mbix/vim-shfmt",            ft = {"sh", "bash"}},
