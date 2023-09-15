@@ -8,7 +8,7 @@
 vim.opt.termguicolors = true
 
 -- plugins installed in separate file to facilitate unattented installation
-require('plugins')
+require('lazyplugins')
 
 -- helpers --------------------------------------------------------------------
 
