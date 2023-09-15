@@ -27,18 +27,22 @@ packer.startup(function()
   use {'williamboman/mason.nvim'}
   use {'williamboman/mason-lspconfig.nvim'}
 
+  use {'simrat39/inlay-hints.nvim'}
+  use {'simrat39/rust-tools.nvim'}
+
   use 'neovim/nvim-lspconfig'
   use {'Shougo/deoplete.nvim', run = ':UpdateRemotePlugins'}
 
   -- colorscheme and appearance -----------------------------------------------
 
   use {'npxbr/gruvbox.nvim', branch = 'main', requires = {'rktjmp/lush.nvim', branch = 'main'}}
+  use {'Shatur/neovim-ayu'}
   use {'folke/lsp-colors.nvim', branch = 'main'}
   use {'Tsuzat/NeoSolarized.nvim'}
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  use {'projekt0n/github-nvim-theme', branch = 'main'}
+  use {'nvim-lualine/lualine.nvim'}
   -- TODO: check real usability, does not seem to work with vim-go
-  use {'folke/trouble.nvim', branch = 'main', requires = 'kyazdani42/nvim-web-devicons'}
+  use {'folke/trouble.nvim', branch = 'main', requires = 'nvim-tree/nvim-web-devicons'}
   -- highlight and search for TODOs etc.
   use {'folke/todo-comments.nvim', branch = 'main', requires = 'nvim-lua/plenary.nvim'}
 
@@ -50,7 +54,7 @@ packer.startup(function()
   use 'RRethy/vim-illuminate'
 
   -- highlight occurences of word under cursor
-  -- use {'yamatsum/nvim-cursorline', branch = 'main'}
+  use {'yamatsum/nvim-cursorline', branch = 'main'}
 
   -- show indentation guiding lines
   use {'lukas-reineke/indent-blankline.nvim'}
@@ -135,14 +139,6 @@ packer.startup(function()
   use 'justinmk/vim-sneak'
 
   -- use 'machakann/vim-sandwich'
-  --
-  use {
-     'goolord/alpha-nvim',
-     requires = { 'kyazdani42/nvim-web-devicons' },
-     config = function ()
-         require'alpha'.setup(require'alpha.themes.startify'.config)
-     end
-  }
   use 'machakann/vim-swap'
 
   -- search -------------------------------------------------------------------
@@ -159,14 +155,11 @@ packer.startup(function()
 
   use 'pearofducks/ansible-vim'
   use 'PotatoesMaster/i3-vim-syntax'
-  use {'derekwyatt/vim-scala',              ft = 'scala'}
   use {'chr4/nginx.vim',                    ft = 'nginx'}
   use {'mitsuhiko/vim-jinja',               ft = 'jinja'}
   use {'slim-template/vim-slim',            ft = 'slim'}
   use {'rust-lang/rust.vim',                ft = 'rust'}
   use {'ekalinin/Dockerfile.vim',           ft = 'Dockerfile'}
-  use {'vim-scripts/ferm.vim',              ft = 'ferm'}
-  use {'rodjek/vim-puppet',                 ft = 'puppet'}
   use {'Matt-Deacalion/vim-systemd-syntax', ft = 'systemd'}
   use {'hdima/python-syntax',               ft = 'python'}
   use {'plasticboy/vim-markdown',           ft = 'markdown'}
@@ -175,13 +168,14 @@ packer.startup(function()
   use {'cespare/vim-toml',                  ft = 'toml'}
   use {'glidenote/keepalived-syntax.vim',   ft = 'keepalived'}
   use {'tmux-plugins/vim-tmux',             ft = 'tmux'}
+  use {'NoahTheDuke/vim-just'}
+  use {'IndianBoy42/tree-sitter-just'}
 
   -- filetype-related tools ------------------------------------------------------
 
-  use {'psf/black',                   ft = 'python'}
   use {'vim-ruby/vim-ruby',           ft = 'ruby'}
   -- use {'fatih/vim-go',                ft = {'go', 'gotexttmpl', 'markdown', 'vimwiki'}, run = ':GoUpdateBinaries'}
-  use {'ray-x/go.nvim'}
+  use {'ray-x/go.nvim', requires = {'ray-x/guihua.lua'}}
   use {'chrisbra/csv.vim',            ft = 'csv'}
   -- use {'racer-rust/vim-racer',        ft = 'rust'}
   -- use {'bitc/vim-hdevtools',          ft = 'haskell'}
@@ -200,11 +194,6 @@ packer.startup(function()
   use {'prettier/vim-prettier', run = 'npm install', ft = {'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'}}
   use 'ron-rs/ron.vim'
   use 'robbles/logstash.vim'
-  use {
-    "unisonweb/unison",
-    branch = "trunk",
-    rtp = "/editor-support/vim"
-  }
   end
 )
 
@@ -224,7 +213,21 @@ end
 -------------------------------------------------------------------------------
 
 require('mason').setup()
-require('mason-lspconfig').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'rust_analyzer',
+    'gopls',
+    'ruff_lsp',
+  }
+})
+
+require('inlay-hints').setup({
+  only_current_line = true,
+
+  -- eol = {
+  --   right_align = true,
+  -- },
+})
 require("nvim-web-devicons").setup { default = true }
 require("trouble").setup {}
 
@@ -286,6 +289,8 @@ require('gruvbox').setup({
   }
 })
 
+require('ayu').setup({})
+
 -------------------------------------------------------------------------------
 
 local lsp = require('lspconfig')
@@ -318,21 +323,53 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
+
 lsp.gopls.setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
+  on_attach = on_attach,
+  flags = lsp_flags,
+  settings = {
+    gopls = {
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
+    },
+  },
 })
-lsp.pyright.setup({
+
+lsp.ruff_lsp.setup({
   on_attach = on_attach,
   flags = lsp_flags,
 })
+
+local rt = require('rust-tools')
+rt.setup({
+  server = {
+    on_attach = on_attach,
+  }
+})
+
 require('go').setup()
-require('go.format').goimport()
 vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport()  ]], false)
+
 require("NeoSolarized.config").setup({
   style = "dark",
   transparent = false,
   enable_italics = false,
 })
 
-require('lspconfig').unison.setup({})
+-- require('lspconfig').unison.setup({})
+require('tree-sitter-just').setup({})
+require('lualine').setup({
+  options = {
+    icons_enabled = true,
+    theme = "auto",
+    component_separators = '｜',
+    section_separators = '',
+  }
+})
