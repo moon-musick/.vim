@@ -511,6 +511,10 @@ command! -bar -nargs=1 -complete=option Vov echo 'local: '
 vim.api.nvim_create_user_command('SSHFile', ':call SSHFile(<f-args>)', { complete = 'file', nargs = '*' })
 map_key('n', '<leader>sh', ':SSHFile<Space>')
 
+--------------------------------------------------------------------------------
+
+vim.opt.shell = "/usr/bin/zsh"
+
 -- plugin configuration --------------------------------------------------------
 
 -- folke/todo-comments.nvim
