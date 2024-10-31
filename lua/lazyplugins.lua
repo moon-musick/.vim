@@ -20,7 +20,7 @@ require("lazy").setup({
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
 
-  "simrat39/inlay-hints.nvim",
+  -- "simrat39/inlay-hints.nvim",
   "simrat39/rust-tools.nvim",
 
   "neovim/nvim-lspconfig",
@@ -33,7 +33,8 @@ require("lazy").setup({
   {"projekt0n/github-nvim-theme", branch = "main"},
   "nvim-lualine/lualine.nvim",
   -- TODO: check real usability, does not seem to work with vim-go
-  {"folke/trouble.nvim", branch = "main", dependencies = "nvim-tree/nvim-web-devicons"},
+  -- {"folke/trouble.nvim", branch = "main", dependencies = "nvim-tree/nvim-web-devicons"},
+  "nvim-tree/nvim-web-devicons",
   -- highlight and search for TODOs etc.
   {"folke/todo-comments.nvim", branch = "main", dependencies = "nvim-lua/plenary.nvim"},
 
@@ -132,13 +133,25 @@ require("lazy").setup({
   "duggiefresh/vim-easydir",
   "nanotee/zoxide.vim",
   {"mhinz/vim-sayonara", cmd = "Sayonara"},
-  "christoomey/vim-tmux-navigator",
+  -- "christoomey/vim-tmux-navigator",
+  {"numToStr/Navigator.nvim", lazy = false},
   "justinmk/vim-dirvish",
 
   "justinmk/vim-sneak",
 
   -- "machakann/vim-sandwich",
   "machakann/vim-swap",
+
+  {
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v3.x",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+        -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+      }
+  },
 
   -- search -------------------------------------------------------------------
 
@@ -162,7 +175,7 @@ require("lazy").setup({
   {"Matt-Deacalion/vim-systemd-syntax", ft = "systemd"},
   {"hdima/python-syntax",               ft = "python"},
   {"plasticboy/vim-markdown",           ft = "markdown"},
-  {"davinche/godown-vim",               ft = "markdown"},
+  -- {"davinche/godown-vim",               ft = "markdown"},
   {"moon-musick/vim-logrotate",         ft = "logrotate"},
   {"cespare/vim-toml",                  ft = "toml"},
   {"glidenote/keepalived-syntax.vim",   ft = "keepalived"},
@@ -170,11 +183,25 @@ require("lazy").setup({
   "NoahTheDuke/vim-just",
   "IndianBoy42/tree-sitter-just",
 
+  {"kaarmu/typst.vim", ft = "typst", lazy = false},
+
   -- filetype-related tools ------------------------------------------------------
 
   {"vim-ruby/vim-ruby",           ft = "ruby"},
   -- {"fatih/vim-go", ft = {"go", "gotexttmpl", "markdown", "vimwiki"}, build = ":GoUpdateBinaries"},
-  {"ray-x/go.nvim", dependencies = {"ray-x/guihua.lua"}},
+  {
+    "ray-x/go.nvim",
+    dependencies = {
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = {"CmdLineEnter"},
+    ft = {"go", "gomod"},
+  },
   {"chrisbra/csv.vim",            ft = "csv"},
   -- {"racer-rust/vim-racer", ft = "rust"},
   -- {"bitc/vim-hdevtools", ft = "haskell"},
@@ -215,18 +242,19 @@ require('mason-lspconfig').setup({
     'rust_analyzer',
     'gopls',
     'ruff_lsp',
+    'hls'
   }
 })
 
-require('inlay-hints').setup({
-  only_current_line = true,
-
-  -- eol = {
-  --   right_align = true,
-  -- },
-})
+-- require('inlay-hints').setup({
+--   only_current_line = true,
+--
+--   -- eol = {
+--   --   right_align = true,
+--   -- },
+-- })
 require("nvim-web-devicons").setup { default = true }
-require("trouble").setup {}
+-- require("trouble").setup {}
 
 -- https://github.com/folke/todo-comments.nvim/issues/97
 local hl = require("todo-comments.highlight")
@@ -235,6 +263,7 @@ hl.highlight_win = function(win, force)
   pcall(highlight_win, win, force)
 end
 require("todo-comments").setup()
+require("Navigator").setup()
 
 require'nvim-treesitter.configs'.setup {
   textobjects = {
@@ -321,11 +350,35 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+-- debug
+local bufopts = { noremap=true, silent=true, buffer=bufnr }
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+vim.keymap.set('n', '<space>wl', function()
+  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+end, bufopts)
+vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+-- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+-- debug
+
 lsp.gopls.setup({
-  on_attach = on_attach,
+  -- on_attach = on_attach,
   flags = lsp_flags,
   settings = {
     gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+      gofumpt = true,
       hints = {
         assignVariableTypes = true,
         compositeLiteralFields = true,
@@ -340,19 +393,27 @@ lsp.gopls.setup({
 })
 
 lsp.ruff_lsp.setup({
-  on_attach = on_attach,
+  -- on_attach = on_attach,
   flags = lsp_flags,
 })
 
 local rt = require('rust-tools')
 rt.setup({
   server = {
-    on_attach = on_attach,
+    -- on_attach = on_attach,
   }
 })
 
-require('go').setup()
-vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport()  ]], false)
+-- require('go').setup()
+-- vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport()  ]], false)
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    require('go.format').goimports()
+  end,
+  group = format_sync_grp,
+})
 
 require("NeoSolarized.config").setup({
   style = "dark",

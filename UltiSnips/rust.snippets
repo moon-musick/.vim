@@ -5,3 +5,19 @@ endsnippet
 snippet pln "println!(..)"
 println!("\{$1\}"${2/..*/, /}$2)$0
 endsnippet
+
+snippet crits "criterion simple bench"
+fn bench_$1(c: &mut Criterion) {
+	c.bench_function("${2:$1}", |b| {
+		b.iter(|| black_box($0));
+	});
+}
+endsnippet
+
+snippet critsetup "criterion benchmark setup"
+use criterion::{criterion_group, criterion_main, Criterion};
+
+criterion_group!(benches);
+
+criterion_main!(benches);
+endsnippet

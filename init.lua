@@ -71,7 +71,7 @@ vim.opt.inccommand = 'nosplit'
 
 local ft_autocmds = {
   indentation_settings = {
-    {'FileType', 'python,haskell,markdown', 'setlocal expandtab   tabstop=4 shiftwidth=4 softtabstop=4 autoindent'},
+    {'FileType', 'python,haskell,markdown', 'setlocal expandtab   tabstop=2 shiftwidth=2 softtabstop=2 autoindent'},
     {'FileType', 'lokis',                   'setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8'},
     {'FileType', 'go',                      'setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4 autoindent'},
     {'FileType', 'votl',                    'setlocal softtabstop=4'},
@@ -228,7 +228,7 @@ map_key('x', 'gk', 'k')
 
 -- easily edit configuration files
 map_key('n', '<leader>ev', ':edit $MYVIMRC<CR>')
-map_key('n', '<leader>ep', ':edit ~/.config/nvim/lua/plugins.lua<CR>')
+map_key('n', '<leader>ep', ':edit ~/.config/nvim/lua/lazyplugins.lua<CR>')
 map_key('n', '<leader>sv', ':source $MYVIMRC<CR>')
 
 -- more consistent n/N behaviour
@@ -253,8 +253,8 @@ map_key('n', '<leader><', '`[v`]<')
 map_key('i', '<C-c>', '<Esc>')
 
 -- Move line up or down
-map_key('n', '<A-j>', ':m .+1<CR>')
-map_key('n', '<A-k>', ':m .-2<CR>')
+-- map_key('n', '<A-j>', ':m .+1<CR>')
+-- map_key('n', '<A-k>', ':m .-2<CR>')
 -- Move visual block up or down
 map_key('v', 'J',     ":m '>+1<CR>gv=gv")
 map_key('v', '<A-j>', ":m '>+1<CR>gv=gv")
@@ -289,16 +289,16 @@ map_key('x', '&', ':&&<CR>')
 --   nnoremap <A-l> <C-w>l
 -- endif
 
-vim.g.tmux_navigator_no_mappings = 1
-map_key('n', '<A-h>', ':TmuxNavigateLeft<cr>')
-map_key('n', '<A-j>', ':TmuxNavigateDown<cr>')
-map_key('n', '<A-k>', ':TmuxNavigateUp<cr>')
-map_key('n', '<A-l>', ':TmuxNavigateRight<cr>')
-map_key('n', '<A-\\>', ':TmuxNavigatePrevious<cr>')
-map_key('t', '<A-h>', '<C-\\><C-N>:TmuxNavigateLeft<cr>')
-map_key('t', '<A-j>', '<C-\\><C-N>:TmuxNavigateDown<cr>')
-map_key('t', '<A-k>', '<C-\\><C-N>:TmuxNavigateUp<cr>')
-map_key('t', '<A-l>', '<C-\\><C-N>:TmuxNavigateRight<cr>')
+-- vim.g.tmux_navigator_no_mappings = 1
+map_key('n', '<A-h>', '<CMD>NavigatorLeft<CR>')
+map_key('n', '<A-j>', '<CMD>NavigatorDown<CR>')
+map_key('n', '<A-k>', '<CMD>NavigatorUp<CR>')
+map_key('n', '<A-l>', '<CMD>NavigatorRight<CR>')
+map_key('n', '<A-\\>', '<CMD>NavigatorPrevious<CR>')
+-- map_key('t', '<A-h>', '<C-\\><C-N>:TmuxNavigateLeft<cr>')
+-- map_key('t', '<A-j>', '<C-\\><C-N>:TmuxNavigateDown<cr>')
+-- map_key('t', '<A-k>', '<C-\\><C-N>:TmuxNavigateUp<cr>')
+-- map_key('t', '<A-l>', '<C-\\><C-N>:TmuxNavigateRight<cr>')
 
 -- neoterm configuration
 vim.g.neoterm_position = 'vertical'
@@ -545,7 +545,7 @@ let g:deoplete#enable_at_startup = 1
 source ~/.vim/custom/plugins/hexokinase.vim
 source ~/.vim/custom/plugins/autoformat.vim
 source ~/.vim/custom/plugins/vim-commentary.vim
-source ~/.vim/custom/plugins/vim-go.vim
+" source ~/.vim/custom/plugins/vim-go.vim
 source ~/.vim/custom/plugins/UltiSnips.vim
 source ~/.vim/custom/plugins/python-syntax.vim
 source ~/.vim/custom/plugins/fugitive-gitlab.vim
@@ -693,7 +693,7 @@ if vim.fn.has('gui_running') == 1 then
 end
 
 -- disable toolbars in GUI
-vim.opt.guioptions = 'c'
+-- vim.opt.guioptions = 'c'
 
 -- make vertical windows separator thinner
 vim.opt.fillchars = 'vert:│'
@@ -749,11 +749,12 @@ augroup END
 vim.opt.background = 'dark'
 
 -- true colour support
-vim.o.t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"
-vim.o.t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"
-vim.opt.termguicolors = true
+-- vim.o.t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"
+-- vim.o.t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"
+-- vim.opt.termguicolors = true
 
 vim.cmd('colorscheme gruvbox')
+-- vim.cmd('colorscheme ares')
 
 -- gruvbox light blue (listchars, wrapped line marks etc.)
 vim.cmd('highlight NonText guifg=#83a598')

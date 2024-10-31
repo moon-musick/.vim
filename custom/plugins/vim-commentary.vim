@@ -12,4 +12,5 @@ augroup commentstring
   autocmd FileType gomod  set commentstring=//\ %s
   autocmd FileType vcl    set commentstring=#\ %s
   autocmd FileType dosini set commentstring=#\ %s
+  autocmd FileType tex    set commentstring=%\ %s
 augroup END
