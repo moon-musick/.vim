@@ -21,7 +21,11 @@ require("lazy").setup({
   "williamboman/mason-lspconfig.nvim",
 
   -- "simrat39/inlay-hints.nvim",
-  "simrat39/rust-tools.nvim",
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^5",
+    lazy = false, -- already lazy
+  },
 
   "neovim/nvim-lspconfig",
 
@@ -169,7 +173,6 @@ require("lazy").setup({
   {"chr4/nginx.vim",                    ft = "nginx"},
   {"mitsuhiko/vim-jinja",               ft = "jinja"},
   {"slim-template/vim-slim",            ft = "slim"},
-  {"rust-lang/rust.vim",                ft = "rust"},
   {"ekalinin/Dockerfile.vim",           ft = "Dockerfile"},
   {"Matt-Deacalion/vim-systemd-syntax", ft = "systemd"},
   {"hdima/python-syntax",               ft = "python"},
@@ -238,7 +241,6 @@ end
 require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
-    'rust_analyzer',
     'gopls',
     'ruff_lsp',
     'hls'
@@ -396,12 +398,6 @@ lsp.ruff_lsp.setup({
   flags = lsp_flags,
 })
 
-local rt = require('rust-tools')
-rt.setup({
-  server = {
-    -- on_attach = on_attach,
-  }
-})
 
 -- require('go').setup()
 -- vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport()  ]], false)

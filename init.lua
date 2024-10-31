@@ -648,9 +648,6 @@ vim.g.ansible_unindent_after_newline = 1
 vim.g.ansible_extra_keywords_highlight = 1
 vim.g.ansible_normal_keywords_highlight = 'Constant'
 
--- racer
-vim.g.completor_filetype_map = {rust = {ft = 'lsp', cmd = 'rls'}}
-
 -- rust.vim
 vim.g.rustfmt_autosave = 1
 
