@@ -539,9 +539,6 @@ vim.g.black_linelength = 79
 -- map_key('n', '<F2>', ':call LanguageClient_textDocument_rename()<CR>')
 
 vim.cmd([[
-" Shougo/deoplete.nvim
-let g:deoplete#enable_at_startup = 1
-
 source ~/.vim/custom/plugins/hexokinase.vim
 source ~/.vim/custom/plugins/autoformat.vim
 source ~/.vim/custom/plugins/vim-commentary.vim

@@ -24,7 +24,6 @@ require("lazy").setup({
   "simrat39/rust-tools.nvim",
 
   "neovim/nvim-lspconfig",
-  {"Shougo/deoplete.nvim", build = ":UpdateRemotePlugins"},
 
   {"npxbr/gruvbox.nvim", branch = "main", dependencies = {"rktjmp/lush.nvim", branch = "main"}},
   "Shatur/neovim-ayu",
@@ -443,3 +442,9 @@ require("aerial").setup({
 })
 
 vim.keymap.set("n", "<leader>ae", "<cmd>AerialToggle!<CR>")
+
+require('mini.completion').setup({
+  lsp_completion = {
+    source_func = 'omnifunc'
+  }
+})
