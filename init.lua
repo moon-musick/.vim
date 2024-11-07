@@ -683,7 +683,14 @@ vim.cmd('source ~/.vim/custom/backlog.vim')
 
 -- GUI font setting
 if vim.fn.has('gui_running') == 1 then
-  vim.opt.guifont = 'Iosevka 10'
+  vim.opt.guifont = 'IosevkaTerm Nerd Font:h10'
+end
+
+if vim.g.neovide then
+  vim.opt.guifont = 'IosevkaTerm Nerd Font:h10'
+  vim.g.neovide_hide_mouse_when_typing = true
+  vim.g.neovide_cursor_animation_length = 0.05
+  vim.g.neovide_cursor_trail_size = 0.2
 end
 
 -- disable toolbars in GUI
